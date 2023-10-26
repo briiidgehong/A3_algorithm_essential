@@ -8,7 +8,17 @@
 ## 주요 알고리즘 유형
 <details>
 <summary> BFS </summary>
-  dsa
+  
+  ## 핵심개념
+  
+  ## 시간복잡도
+  
+  ## 핵심코드
+  
+  ## 문제1
+
+  ## 문제2
+  
 </details>
 
 <details>
