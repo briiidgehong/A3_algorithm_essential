@@ -42,7 +42,7 @@
 </details>
 
 <details>
-<summary> MST (union-find / 크루스칼 / 프림) </summary>
+<summary> MST (union-find / 크루스칼 / 프림) </summary>
   union-find / 크루
 </details>
 
