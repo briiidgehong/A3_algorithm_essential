@@ -32,7 +32,7 @@
 </details>
 
 <details>
-<summary> DP </summary>
+<summary> DP </summary>
   dsa
 </details>
 
@@ -47,7 +47,7 @@
 </details>
 
 <details>
-<summary> 최단거리(다익스트라, 플로이드 와샬) </summary>
+<summary> 최단거리(다익스트라, 플로이드 와샬) </summary>
 ㄴㅇㅁ
 </details>
 
