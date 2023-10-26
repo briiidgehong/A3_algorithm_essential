@@ -6,6 +6,10 @@
 시간이 지나도 빠르게 본실력으로 돌아올수 있도록 오답노트를 함께 운영합니다.
 
 ## 주요 알고리즘
+<details>
+<summary> BFS </summary>
+  dsa
+</details>
 1. BFS
 2. DFS
 3. 백트레킹
