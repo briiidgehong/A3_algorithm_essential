@@ -138,6 +138,60 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/6920245e-512e-4f6
 ㄴㅇㅁ
 </details>
 
+<details>
+<summary> 최소공배수 / 최대공약수 </summary>
+<img width="559" alt="스크린샷 2023-10-28 오전 11 47 58" src="https://github.com/briiidgehong/cote-essential/assets/73451727/e3404f13-3e76-4d7e-893b-138ac6c69aee">
+```
+# import math
+# n,m = map(int, input().split())
+
+# gcd = math.gcd(n,m)
+
+# lcm = int((n*m) / gcd)
+# print(lcm)
+
+n,m = map(int, input().split())
+
+gcd = 0
+for idx in range(1, min(n,m)+1):
+    if n % idx == 0 and m % idx == 0:
+        gcd = idx
+
+lcm = int((n*m)/gcd)
+print(lcm)
+```
+
+<img width="494" alt="스크린샷 2023-10-28 오전 11 49 27" src="https://github.com/briiidgehong/cote-essential/assets/73451727/4535c7a7-9513-4448-9561-a2f1ba0e59d9">
+
+```
+import math
+
+# 최대공약수 gcd / 최소공배수 lcm
+
+# lcm(a,b,c,d) = lcm(lcm(lcm(a,b),c),d)
+
+n = int(input())
+
+list_a = list(map(int, input().split()))
+
+if len(list_a) == 1:
+    print(list_a[0])
+else:
+    lcm = 1
+    for idx in range(len(list_a)-1):
+        if idx == 0:
+            gcd = math.gcd(list_a[idx],list_a[idx+1])
+            lcm = int((list_a[idx]*list_a[idx+1])/gcd)
+        else:
+            gcd = math.gcd(lcm,list_a[idx+1])
+            lcm = int((lcm*list_a[idx+1])/gcd)
+
+    print(lcm)
+```
+
+
+</details>
+
 ## 오답노트
 
 
