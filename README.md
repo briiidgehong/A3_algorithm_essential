@@ -22,6 +22,158 @@
 
 ### 문제
 
+```
+# 프로그래머스 - 게임 맵 최단거리
+from collections import deque
+def solution(maps):
+    row = len(maps)
+    col = len(maps[0])
+    visited = [[False for _ in range(col)] for _ in range(row)]
+    # (row, col)
+    move = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+    queue = deque()
+    queue.append((0, 0))
+    visited[0][0] = True
+    while queue:
+        poped_row, poped_col = queue.popleft()
+        if poped_row == row - 1 and poped_col == col - 1:
+            return maps[poped_row][poped_col]
+        for each in move:
+            moved_row = poped_row + each[0]
+            moved_col = poped_col + each[1]
+            if 0 <= moved_row <= row - 1 and 0 <= moved_col <= col - 1:
+                if (
+                    visited[moved_row][moved_col] == False
+                    and maps[moved_row][moved_col] != 0
+                ):
+                    queue.append((moved_row, moved_col))
+                    visited[moved_row][moved_col] = True
+                    maps[moved_row][moved_col] = maps[poped_row][poped_col] + 1
+    return -1
+```
+---
+
+```
+# 백준 1260번 DFS와 BFS == 프로그래머스 여행경로 (그래프)
+def solution(array, start_node):
+    num_list = []
+    for each in array:
+        num_list.extend(each)
+    node_num = len(list(set(num_list)))
+    # 연결된 노드를 graph 형식으로 나타낸다.
+    graph = {}
+    for idx in range(node_num):
+        graph[idx + 1] = []
+    for each in array:
+        graph[each[0]].append(each[1])
+        graph[each[1]].append(each[0])
+
+    # visited 생성 / 방문한 노드를 닥시 방문하지 않기 위해
+    dfs_visited = [False] * (node_num + 1)
+    bfs_visited = [False] * (node_num + 1)
+
+    # dfs 탐색
+    dfs_list = []
+
+    def dfs(node):
+        if dfs_visited[node] == False:
+            dfs_visited[node] = True
+            dfs_list.append(node)
+            for each in graph[node]:
+                dfs(each)
+
+    dfs(start_node)
+
+    # bfs 탐색
+    from collections import deque
+
+    queue = deque()
+    queue.append(start_node)
+    bfs_list = []
+    while queue:
+        node = queue.popleft()
+        if bfs_visited[node] == False:
+            bfs_visited[node] = True
+            bfs_list.append(node)
+            for each in graph[node]:
+                queue.append(each)
+
+    return dfs_list, bfs_list
+
+array = [[1, 2], [1, 3], [1, 4], [2, 4], [3, 4]]
+print(solution(array, 1))  # DFS: 1243 / BFS: 1234
+```
+
+---
+
+```
+# 프로그래머스 - 단어 변환 - BFS
+from collections import deque
+
+def solution(begin, target, words):
+    if target not in words:
+        return 0
+    queue = deque()
+    word_length = len(begin)
+
+    # 단어를 변환할 수 있는지 여부를 체크하는 함수
+    def can_change(word, change):
+        diff = 0
+        for i in range(word_length):
+            if word[i] != change[i]:
+                diff += 1
+        if diff == 1:
+            return True
+        else:
+            return False
+
+    path = []
+    # bfs
+    queue.append([begin, 0])
+    while queue:
+        word, depth = queue.popleft()
+        for change in words:
+            if can_change(word, change):
+                # 가장 빨리 타겟이 되는 경우가 최소 변환과정 (BFS의 특징)
+                if change == target:
+                    return depth + 1
+                else:
+                    path.append(change)
+                    queue.append([change, depth + 1])
+```
+```
+# 오답노트: depth 를 쓰는 방식*
+from collections import deque
+
+def solution(begin, target, words):
+    # 최소경로를 찾아야하므로 BFS
+    queue = deque()
+    depth = 0
+    queue.append((begin, depth))
+
+    # 사용한 단어 다시 사용 안하도록 visited 생성
+    visited = [False] * len(words)
+    for idx, value in enumerate(words):
+        if value == begin:
+            visited[idx] = True
+    while queue:
+        word, depth = queue.popleft()
+        if word == target:
+            return depth
+        for idx, value in enumerate(words):
+            if visited[idx] == False:
+                count = 0
+                for sub_idx, sub_each in enumerate(word):
+                    if value[sub_idx] != sub_each:
+                        count += 1
+                if count == 1:
+                    depth += 1
+                    queue.append((value, depth))
+                    visited[idx] = True
+    return 0
+```
+
+---
 
 ---
 
