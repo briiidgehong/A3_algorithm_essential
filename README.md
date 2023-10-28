@@ -750,7 +750,23 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 
 <details>
 <summary> 그리디 </summary>
-  dsa
+### 문제
+---
+<img width="776" alt="스크린샷 2023-10-28 오후 3 08 08" src="https://github.com/briiidgehong/cote-essential/assets/73451727/aeb40e31-2acc-4209-b267-81ac8bbd84b6">
+
+---
+<img width="805" alt="스크린샷 2023-10-28 오후 3 04 49" src="https://github.com/briiidgehong/cote-essential/assets/73451727/34a0f117-a6be-4b34-8e27-e7133dd4da9f">
+<img width="798" alt="스크린샷 2023-10-28 오후 3 04 35" src="https://github.com/briiidgehong/cote-essential/assets/73451727/e712b640-bee8-48c6-afa3-0a9c123d3cf1">
+
+---
+<img width="785" alt="스크린샷 2023-10-28 오후 3 06 10" src="https://github.com/briiidgehong/cote-essential/assets/73451727/faddc15a-dcea-4efa-9e75-27f001d5e142">
+<img width="768" alt="스크린샷 2023-10-28 오후 3 06 28" src="https://github.com/briiidgehong/cote-essential/assets/73451727/3da91dc5-9a87-4890-98d0-cf43dba28a76">
+
+---
+<img width="788" alt="스크린샷 2023-10-28 오후 3 06 56" src="https://github.com/briiidgehong/cote-essential/assets/73451727/c056eeea-2eb6-4a66-811a-2fd574ebcb16">
+<img width="778" alt="스크린샷 2023-10-28 오후 3 07 09" src="https://github.com/briiidgehong/cote-essential/assets/73451727/70bda0b2-54b5-4442-8603-c8720b9e8710">
+
+
 </details>
 
 <details>
