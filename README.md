@@ -269,6 +269,65 @@ for idx in range(len(order_list)):
 print(sum_count)
 ```
 
+### 문제 - 시뮬레이션
+<img width="653" alt="스크린샷 2023-10-28 오후 12 30 17" src="https://github.com/briiidgehong/cote-essential/assets/73451727/e61667db-73f8-499d-a49b-d4786da390ab">
+<img width="833" alt="스크린샷 2023-10-28 오후 12 30 34" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2028b430-c34e-42ea-a143-4057fe2303ef">
+
+```
+# A와 B가 동일한 시작점에서 같은 방향으로 출발합니다. 
+# 도중에 방향을 바꾸는 경우는 없고, A, B는 각각 N번, M번에 걸쳐 주어지는 특정 속도로 특정 시간만큼 이동한다고 합니다. 
+# 이 경기는 특이하게 매 시간마다 현재 선두인 사람들을 모아 명예의 전당에 그 이름을 올려줍니다. 
+# A, B의 움직임에 대한 정보가 주어졌을 때 명예의 전당에 올라간 사람의 조합이 총 몇 번 바뀌었는지를 출력하는 프로그램을 작성해보세요.
+
+n, m = map(int, input().split())
+
+a_list = []
+# A
+for _ in range(n): # v t
+    v, t = map(int, input().split())
+    for each in range(t):
+        if len(a_list) == 0:
+            a_list.append(v)
+        else:
+            a_list.append(a_list[-1]+ v)
+        
+b_list = []
+# B
+for _ in range(m): # v t
+    v, t = map(int, input().split())
+    for each in range(t):
+        if len(b_list) == 0:
+            b_list.append(v)
+        else:
+            b_list.append(b_list[-1]+ v)
+
+# A, B가 동시에 명예의 전당에 올라가게 됩니다. -> A / B / AB
+glory_list = []
+count = 0
+for idx in range(len(a_list)):
+    if idx == 0:
+        if a_list[idx] == b_list[idx]:
+            glory_list.append("ab")
+        elif a_list[idx] > b_list[idx]:
+            glory_list.append("a")
+        elif a_list[idx] < b_list[idx]:
+            glory_list.append("b")    
+    else:
+        if a_list[idx] == b_list[idx]:
+            if glory_list[-1] != "ab":
+                count += 1
+            glory_list.append("ab")
+        elif a_list[idx] > b_list[idx]:
+            if glory_list[-1] != "a":
+                count += 1
+            glory_list.append("a")
+        elif a_list[idx] < b_list[idx]:
+            if glory_list[-1] != "b":
+                count += 1
+            glory_list.append("b")
+
+print(count+1)
+```
 
 
 ### 문제 - 완전탐색
@@ -600,6 +659,7 @@ print(count)
 
 ### 문제 - ad hoc
 ---
+#### - 지극히 최선인 전략이 확실해지는 경우
 <img width="654" alt="스크린샷 2023-10-28 오후 12 26 31" src="https://github.com/briiidgehong/cote-essential/assets/73451727/f9021e36-74d9-44f3-98c9-4b30954d0da4">
 <img width="653" alt="스크린샷 2023-10-28 오후 12 26 39" src="https://github.com/briiidgehong/cote-essential/assets/73451727/0e1d5803-3ca5-49c5-ac0e-c267f26d05e0">
 
@@ -614,6 +674,30 @@ for idx in range(0, groun_num):
 print(min(interval_list))
 ```
 
+---
+#### - 고려해야 할 대상이 뚜렷이 정해지는 경우
+<img width="655" alt="스크린샷 2023-10-28 오후 12 27 40" src="https://github.com/briiidgehong/cote-essential/assets/73451727/4fe9e5d3-050a-4c78-adef-0a0e68e04eb3">
+<img width="654" alt="스크린샷 2023-10-28 오후 12 27 53" src="https://github.com/briiidgehong/cote-essential/assets/73451727/58cd7557-cb09-431b-a7cf-0ae3db5edfe0">
+
+```
+n = int(input())
+input_list = []
+for _ in range(n):
+    input_list.append(list(map(int, input().split())))
+
+import copy
+interval_list = []
+for idx in range(n):
+    temp_list = copy.deepcopy(input_list)
+    del temp_list[idx]
+    interval = []
+    for each in temp_list:
+        interval.extend(each)
+    interval.sort()
+    interval_list.append(interval[-1]-interval[0])
+        
+print(min(interval_list))
+```
 
 
 </details>
