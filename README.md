@@ -30,21 +30,18 @@
 
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> DFS </summary>
   dsa
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> 백트래킹 </summary>
   dsa
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> 구현 / 시뮬레이션 / 완전탐색 </summary>
@@ -712,14 +709,12 @@ print(min(interval_list))
 
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> 이진탐색 </summary>
   dsa
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> DP </summary>
@@ -758,7 +753,6 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> 그리디 </summary>
@@ -781,7 +775,6 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> MST (union-find / 크루스칼 / 프림) </summary>
@@ -803,8 +796,6 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 https://github.com/briiidgehong/cote-essential/assets/73451727/a254fa84-38b7-4649-8fdb-0146a9e89a77
 
 </details>
-
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> 최단거리(다익스트라, 플로이드 와샬) </summary>
@@ -831,7 +822,6 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/e72568c3-54ea-404
 
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 기타 알고리즘 유형
 <details>
@@ -852,21 +842,17 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/1bc84762-755d-416
 
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
 <details>
 <summary> 우선순위큐 </summary>
 ㄴㅇㅁ
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> 투포인터 </summary>
 ㄴㅇㅁ
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> heap </summary>
@@ -894,7 +880,6 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/6920245e-512e-4f6
 
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> hash / stack / queue / 정렬 </summary>
@@ -920,28 +905,24 @@ for each in temp_list:
 ```
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> 소수판별 </summary>
 ㄴㅇㅁ
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> 에라토스테네스의 체 </summary>
 ㄴㅇㅁ
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> 구간합 </summary>
 ㄴㅇㅁ
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> 진수 </summary>
@@ -984,14 +965,12 @@ print(str_result)
 
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> bisect left right </summary>
 ㄴㅇㅁ
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <details>
 <summary> 최소공배수 / 최대공약수 </summary>
@@ -1047,7 +1026,6 @@ else:
 
 </details>
 
-![----------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 오답노트
 
