@@ -84,7 +84,28 @@
 
 <details>
 <summary> heap </summary>
-ㄴㅇㅁ
+
+### 핵심개념
+---
+```
+비어 있는 최소 힙에 7, 6, 5, 4, 3, 2, 1 을 순서대로 삽입
+```
+https://github.com/briiidgehong/cote-essential/assets/73451727/6920245e-512e-4f6e-884a-fd5523ca57cf
+
+
+
+### 시간복잡도
+---
+
+### 핵심코드
+---
+
+### 문제1
+---
+
+### 문제2
+---
+
 </details>
 
 <details>
