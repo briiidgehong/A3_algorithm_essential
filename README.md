@@ -737,6 +737,15 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 <img width="750" alt="스크린샷 2023-10-28 오후 2 46 40" src="https://github.com/briiidgehong/cote-essential/assets/73451727/daa0d3ca-4189-47bc-b2d9-85c44a83bdaa">
 <img width="554" alt="스크린샷 2023-10-28 오후 2 46 43" src="https://github.com/briiidgehong/cote-essential/assets/73451727/b3120ccb-81f0-4ed0-a909-b1315dccd118">
 
+---
+<img width="398" alt="스크린샷 2023-10-28 오후 2 56 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2e476032-90eb-4247-bbb1-1c3d8d40a865">
+<img width="759" alt="스크린샷 2023-10-28 오후 2 56 24" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9aabed8f-7e5a-4753-958b-0ccd2324ea02">
+
+---
+<img width="792" alt="스크린샷 2023-10-28 오후 3 01 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/21202815-7f0c-4f69-a18e-51d4966babd1">
+<img width="690" alt="스크린샷 2023-10-28 오후 3 01 55" src="https://github.com/briiidgehong/cote-essential/assets/73451727/69ab021b-2264-49fd-a2d7-7e73df869894">
+
+
 </details>
 
 <details>
@@ -779,13 +788,34 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/a254fa84-38b7-464
 <img width="789" alt="스크린샷 2023-10-28 오후 2 50 12" src="https://github.com/briiidgehong/cote-essential/assets/73451727/831ff6bb-383f-4127-9146-db5171c62f73">
 <img width="652" alt="스크린샷 2023-10-28 오후 2 50 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/d2b387af-62b0-4673-9bed-67755efc4bc0">
 
+### 문제 - BFS 활용
+---
+<img width="786" alt="스크린샷 2023-10-28 오후 2 59 46" src="https://github.com/briiidgehong/cote-essential/assets/73451727/f6b75549-8fc6-47ea-97cf-5c805b122b64">
+답: 1 4 5 6 7
+
+https://github.com/briiidgehong/cote-essential/assets/73451727/e72568c3-54ea-4046-bfe6-3058c537a35a
+
+
 
 </details>
 
 ## 기타 알고리즘 유형
 <details>
 <summary> 위상정렬 </summary>
-ㄴㅇㅁ
+
+### 문제
+---
+<img width="789" alt="스크린샷 2023-10-28 오후 2 57 24" src="https://github.com/briiidgehong/cote-essential/assets/73451727/b574c392-3a3b-4843-846c-3d2d1300eb35">
+답: 3 4 5 6 2 1 8 9 7
+https://github.com/briiidgehong/cote-essential/assets/73451727/7ed82f54-1e8f-4a38-84f3-e4e5d7f72ed1
+
+---
+<img width="782" alt="스크린샷 2023-10-28 오후 2 58 20" src="https://github.com/briiidgehong/cote-essential/assets/73451727/20248a27-a34a-46de-8ba5-6be2e27e55f5">
+답: 3 4 5 2 1 6 8 9 7
+https://github.com/briiidgehong/cote-essential/assets/73451727/1bc84762-755d-4161-abb6-4413380ff9cd
+
+
+
 </details>
 
 <details>
