@@ -74,7 +74,9 @@ print(solution(Y,M,D))
 ```
 
 ---
+
 <img width="747" alt="스크린샷 2023-10-28 오후 12 00 29" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2bc87420-dedb-4a18-9117-23a14ad11188">
+
 ```
 import datetime
 # 2024-m1-d1 ~ 2024-m2-d2 까지 A요일이 등장하는 횟수 단, 2024년 m1월 d1일이 월요일 이었다면 !
@@ -161,7 +163,159 @@ for idx_y in range(len(sq)):
 print(count)
 ```
 
-  
+---
+
+<img width="747" alt="스크린샷 2023-10-28 오후 12 04 44" src="https://github.com/briiidgehong/cote-essential/assets/73451727/e264da06-1967-4001-9f04-88e37d436662">
+<img width="749" alt="스크린샷 2023-10-28 오후 12 04 54" src="https://github.com/briiidgehong/cote-essential/assets/73451727/7ac39ef7-62ba-424b-87cf-9b40b8fde5ef">
+
+```
+import traceback
+# "x L" / "x R"왼쪽으로 뒤집으면 흰색으로 바뀌고, 오른쪽으로 뒤집으면 검은색
+# 현재 타일 포함 총 x개의 타일을 움직임
+n = int(input())
+
+rec_list = []
+for _ in range(n):
+    rec_list.append(list(input().split()))
+
+# -> 4 R
+# <- 5 L
+# -> 7 R
+# <- 4 L
+temp_list = [None] * 100 * n * 2
+
+start_id = 100 * n
+
+for each in rec_list:
+    if each[1] == "L":
+        move = -1
+        for sub_idx, sub_each in enumerate(range(int(each[0]))):
+            temp_list[start_id] = "white"
+            if sub_idx == int(each[0])-1:
+                continue
+            else:
+                start_id += move
+    else: # R
+        move = 1
+        for sub_idx, sub_each in enumerate(range(int(each[0]))):
+            temp_list[start_id] = "black"
+            if sub_idx == int(each[0])-1:
+                continue
+            else:
+                start_id += move
+            
+
+white_count = temp_list.count("white")
+black_count = temp_list.count("black")
+
+print(white_count, black_count)
+```
+
+### 문제 - 시뮬레이션 - dx dy technique
+<img width="750" alt="스크린샷 2023-10-28 오후 12 09 45" src="https://github.com/briiidgehong/cote-essential/assets/73451727/5dd59a58-9643-4afb-8b40-dc37a4d8daed">
+<img width="743" alt="스크린샷 2023-10-28 오후 12 09 51" src="https://github.com/briiidgehong/cote-essential/assets/73451727/18f3233a-a156-4ea7-9600-d11cc51c6749">
+
+```
+# N∗N크기의 정사각형 모양의 격자 정보가 주어졌을 때, 
+# 가운데 위치에서 북쪽을 향한 상태로 움직이는 것을 시작하려 합니다. 
+
+# T개의 명령에 따라 움직이며, 명령어는 L,R,F로 주어집니다. 
+# 명령 L은 왼쪽으로 90도 방향 전환을, 명령 R은 오른쪽으로 90도 방향 전환을, 명령 F가 주어지면 바라보고 있는 방향으로 한칸 이동하게 됩니다. 
+# 시작 위치를 포함하여 위치를 이동하게 될 때마다 해당 칸에 적혀있는 수를 계속 더한다고 헀을 때, 
+# 이들의 총합을 구하는 프로그램을 구하는 프로그램을 작성해보세요. 
+# 단, 격자의 범위를 벗어나게 하는 명령어는 무시해야함에 유의합니다.
+
+n, t = map(int, input().split())
+order_list = list(input())
+
+input_list = []
+for _ in range(n):
+    input_list.append(list(map(int, input().split())))
+
+sum_count = 0
+direction = 0
+x_y = [int(n/2), int(n/2)] # x, y
+
+sum_count += input_list[x_y[1]][x_y[0]]
+for idx in range(len(order_list)):
+    if order_list[idx] == "L":
+        direction -= 90
+    elif order_list[idx] == "R":
+        direction += 90
+    elif order_list[idx] == "F":
+        direction = direction % 360
+        if direction == 0:
+            move = (0,-1) # x, y
+        elif direction == 90 or direction == -270:
+            move = (1,0) # x, y
+
+        elif direction == 180 or direction == -180:
+            move = (0,1) # x, y
+
+        elif direction == 270 or direction == -90:
+            move = (-1,0) # x, y
+        
+        try:
+            y = x_y[1]+move[1]
+            x = x_y[0]+move[0]
+            if x < 0 or y < 0:
+                continue
+            sum_count += input_list[y][x]
+        except Exception:
+            continue
+        else:
+            x_y = [x_y[0]+move[0], x_y[1]+move[1]]
+
+print(sum_count)
+```
+
+
+
+### 문제 - 완전탐색
+<img width="750" alt="스크린샷 2023-10-28 오후 12 06 56" src="https://github.com/briiidgehong/cote-essential/assets/73451727/171aaf7b-f9af-4899-992f-0ba38adbb0d7">
+
+```
+from itertools import combinations
+
+n, s = map(int, input().split())
+input_list = map(int, input().split())
+# 6c4
+combination_list = list(combinations(input_list, n-2))
+
+diff_list = []
+for each in combination_list:
+    diff_list.append(abs(s - sum(each)))
+
+print(min(diff_list))
+```
+
+---
+
+<img width="754" alt="스크린샷 2023-10-28 오후 12 08 04" src="https://github.com/briiidgehong/cote-essential/assets/73451727/a868d918-8256-4f50-859d-6ec4e1505105">
+<img width="741" alt="스크린샷 2023-10-28 오후 12 08 10" src="https://github.com/briiidgehong/cote-essential/assets/73451727/44a06205-7027-4b79-8e89-8a866d05d312">
+
+```
+from itertools import combinations
+n, h, t = map(int, input().split())
+h_list = list(map(int, input().split()))
+
+# 기준 = 연속되는 구간
+section_list = []
+for start_idx in range(n):
+    if start_idx+t <= n:
+        section_list.append(list(each for each in range(start_idx, start_idx+t)))
+
+cost_list = []
+for section in section_list:
+    cost = 0
+    for idx in section:
+        cost += abs(h_list[idx] - h)
+    cost_list.append(cost)
+
+print(min(cost_list))
+```
+
+
 </details>
 
 <details>
@@ -253,7 +407,43 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/6920245e-512e-4f6
 
 <details>
 <summary> 진수 </summary>
-ㄴㅇㅁ
+  
+<img width="747" alt="스크린샷 2023-10-28 오후 12 02 39" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2f2cad28-5e83-47e5-a714-d6a05e19619c">
+
+```
+a, b = map(int, input().split())
+n = input() # a 진수로 표현된 n -> n 을 b 진수로 표현
+
+# 1. a진수 n을 10진수로 변환
+sum_num = 0
+for idx, each in enumerate(reversed(str(n))):
+    if idx == 0:
+        sum_num += int(each)
+    else:
+        multiple = 1
+        for _ in range(idx):
+            multiple *= a
+        sum_num += multiple * int(each)
+num_10 = sum_num
+
+# 2. 10진수 n을 b진수로 변환
+# 16 / 4 = 4 ''' 0
+# 4 / 4 = 1 ''' 0
+# 1 / 4 = 0 ''' 1
+# 1 0 0
+num_b_list = []
+while True:
+    mock, namugi = divmod(num_10,b)
+    num_b_list.append([mock, namugi])
+    num_10 = mock
+    if mock == 0:
+        break
+str_result = ''
+for each in reversed(num_b_list):
+    str_result += str(each[1])
+print(str_result)
+```
+
 </details>
 
 <details>
