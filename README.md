@@ -427,8 +427,192 @@ for start_idx in range(n):
 print(max(result_list))
 ```
 
+---
+
+<img width="658" alt="스크린샷 2023-10-28 오후 12 20 39" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2dacf817-1b57-4e5d-9186-ed3fc4619605">
+<img width="657" alt="스크린샷 2023-10-28 오후 12 20 46" src="https://github.com/briiidgehong/cote-essential/assets/73451727/4d7b5f95-7cc0-4484-9e0c-d745a757eb24">
+
+```
+# n개의 수가 주어졌을 때, 각각의 수에 변화를 적절하게 주어, 최종적으로 나오는 수들 중 최대 최소간의 차가 k 이하가 되게끔 만들려고 합니다. 
+# 수 a가 수 b로 바뀌는데 드는 비용이 |a - b|라 했을 때, 필요한 최소 비용을 구하는 프로그램을 작성해보세요.
+n, k = map(int, input().split())
+input_list = list(map(int, input().split()))
+
+cost = 0
+while True:
+    max_num = max(input_list)
+    min_num = min(input_list)
+    if max_num - min_num <= k:
+        break
+    max_count = input_list.count(max_num)
+    min_count = input_list.count(min_num)
+    if max_count >= min_count:
+        for idx, each in enumerate(input_list):
+            if each == min_num:
+                input_list[idx] += 1
+                cost += 1
+    else:
+        for idx, each in enumerate(input_list):
+            if each == max_num:
+                input_list[idx] -= 1
+                cost += 1
+    
+print(cost)
+```
+
+### 문제 - 케이스별로 나누기
+---
+<img width="656" alt="스크린샷 2023-10-28 오후 12 22 11" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9b996ff6-738c-467a-9c15-8728202b1f65">
+<img width="655" alt="스크린샷 2023-10-28 오후 12 22 18" src="https://github.com/briiidgehong/cote-essential/assets/73451727/8896b857-68de-43de-bd2e-9e97d56a8c95">
+
+```
+n = int(input())
+
+input_list = []
+for _ in range(n):
+    input_list.append(list(map(int, input().split())))
+
+import copy
+yes_flag = False
+for idx, each in enumerate(input_list):
+    temp_list = copy.deepcopy(input_list)
+    del temp_list[idx]
+    duplicate_list = []
+    for sub_idx, sub_each in enumerate(temp_list):
+        if sub_idx == 0:
+            duplicate_list = list(num for num in range(sub_each[0], sub_each[1]+1))
+        else:
+            temp_duplicate_list = []
+            for num in range(sub_each[0], sub_each[1]+1):
+                if num in duplicate_list:
+                    temp_duplicate_list.append(num)
+            duplicate_list = temp_duplicate_list
+    
+    if len(duplicate_list) >= 1:
+        yes_flag = True
+        break
+if yes_flag:
+    print("Yes")
+else:
+    print("No")
+```
+
+---
+<img width="658" alt="스크린샷 2023-10-28 오후 12 23 18" src="https://github.com/briiidgehong/cote-essential/assets/73451727/25d4875a-3b2f-421d-86ef-c28375c846e9">
+<img width="659" alt="스크린샷 2023-10-28 오후 12 23 25" src="https://github.com/briiidgehong/cote-essential/assets/73451727/1967adb7-3714-46f9-809d-5481f7fa63f5">
+
+```
+import copy
+x = int(input()) # xm만큼 달리기 진행
+
+# 10
+# 시간 1 2 3 4 5 6 
+# 속력 1 2 3 2 1 1
+# 거리 1 2 3 2 1 1
+# 누적 1 3 6 8 9 10
+
+if x == 1:
+    print(1)
+else:
+    import copy
+    # + / 유지 / -
+    # 판단
+    result_list = [1]
+    count = 0 
+    while True:
+        # +
+        plus_list = copy.deepcopy(result_list)
+        plus_list.append(result_list[-1]+1)
+        sum_num = sum(plus_list)
+        down_list = list(each for each in range(1, plus_list[-1]))
+        sum_num += sum(down_list)
+        if sum_num == x:
+            plus_list.extend(down_list)
+            result_list = plus_list
+            break
+        elif sum_num > x:
+            pass
+        elif sum_num < x:
+            result_list = plus_list
+            continue
+        
+        # 0
+        keep_list = copy.deepcopy(result_list)
+        keep_list.append(result_list[-1])
+        sum_num = sum(keep_list)
+        down_list = list(each for each in range(1, keep_list[-1]))
+        sum_num += sum(down_list)
+        if sum_num == x:
+            keep_list.extend(down_list)
+            result_list = keep_list
+            break
+        elif sum_num > x:
+            pass
+        elif sum_num < x:
+            result_list = keep_list
+            continue
+
+        # -1
+        minus_list = copy.deepcopy(result_list)
+        minus_list.append(result_list[-1]-1)
+        sum_num = sum(minus_list)
+        down_list = list(each for each in range(1, minus_list[-1]))
+        sum_num += sum(down_list)
+        if sum_num == x:
+            minus_list.extend(down_list)
+            result_list = minus_list
+            break
+        elif sum_num > x:
+            pass
+        elif sum_num < x:
+            result_list = minus_list
+            continue
 
 
+    print(len(result_list))
+```
+
+---
+
+<img width="655" alt="스크린샷 2023-10-28 오후 12 24 27" src="https://github.com/briiidgehong/cote-essential/assets/73451727/10472869-a171-407b-b6ea-3dc57546fe8e">
+<img width="657" alt="스크린샷 2023-10-28 오후 12 24 33" src="https://github.com/briiidgehong/cote-essential/assets/73451727/f83ea98a-ebdb-4f2c-bb8e-ffbe9487c8cb">
+
+
+```
+n = int(input())
+# 인접한 두 사람의 위치를 계속 바꾸는 행위만 가능하다고 할 때, 가능한 최소 횟수를 구하는 프로그램
+input_list = list(input().split())
+sorted_list = sorted(input_list)
+count = 0
+for end_idx in reversed(range(0, n-1)):
+    for idx, each in enumerate(input_list):
+        if idx <= end_idx:
+            if input_list[idx] > input_list[idx+1]:
+                temp = input_list[idx+1]
+                input_list[idx+1] = input_list[idx]
+                input_list[idx] = temp
+                count += 1
+    if input_list == sorted_list:
+        break
+
+print(count)
+```
+
+### 문제 - ad hoc
+---
+<img width="654" alt="스크린샷 2023-10-28 오후 12 26 31" src="https://github.com/briiidgehong/cote-essential/assets/73451727/f9021e36-74d9-44f3-98c9-4b30954d0da4">
+<img width="653" alt="스크린샷 2023-10-28 오후 12 26 39" src="https://github.com/briiidgehong/cote-essential/assets/73451727/0e1d5803-3ca5-49c5-ac0e-c267f26d05e0">
+
+```
+groun_num = int(input())
+input_list = list(map(int, input().split()))
+input_list.sort()
+
+interval_list = []
+for idx in range(0, groun_num):
+    interval_list.append(input_list[idx+groun_num] - input_list[idx])
+print(min(interval_list))
+```
 
 
 
