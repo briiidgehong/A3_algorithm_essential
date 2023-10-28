@@ -315,6 +315,122 @@ for section in section_list:
 print(min(cost_list))
 ```
 
+---
+
+<img width="748" alt="스크린샷 2023-10-28 오후 12 12 36" src="https://github.com/briiidgehong/cote-essential/assets/73451727/6172d1b8-4422-4e91-8d8c-056700a4c9b0">
+
+```
+from itertools import combinations
+
+input_list = list(map(int, input().split()))
+idx_list = list(idx for idx in range(len(input_list)))
+
+c_list = list(map(list, list(combinations(idx_list, 2))))
+
+gazisu_list = []
+for each in c_list:
+    temp_idx_list = idx_list[:]
+    temp_idx_list.remove(each[0])
+    temp_idx_list.remove(each[1])
+    
+    temp_c_list = list(map(list, list(combinations(temp_idx_list, 2))))
+    for sub_each in temp_c_list:
+        temp_temp_idx_list = temp_idx_list[:]
+        temp_temp_idx_list.remove(sub_each[0])
+        temp_temp_idx_list.remove(sub_each[1])   
+        gazisu_list.append([each, sub_each, temp_temp_idx_list])
+
+diff_list = []
+for each in gazisu_list:
+    sum_0 = sum(input_list[sub_each] for sub_each in each[0])
+    sum_1 = sum(input_list[sub_each] for sub_each in each[1])
+    sum_2 = sum(input_list[sub_each] for sub_each in each[2])
+
+    if sum_0 != sum_1 and sum_1 != sum_2 and sum_0 != sum_2:  
+        sum_list = [sum_0, sum_1, sum_2]
+        diff_list.append(max(sum_list) - min(sum_list))
+
+if len(diff_list) == 0:
+    print(-1)
+else:
+    print(min(diff_list))
+```
+
+---
+
+<img width="750" alt="스크린샷 2023-10-28 오후 12 13 40" src="https://github.com/briiidgehong/cote-essential/assets/73451727/04566567-2ed5-4bc5-bf1e-1fa556a12003">
+
+```
+start, end = map(int, input().split())
+
+count = 0
+for each in range(start, end+1):
+    if str(each) == "".join(list(reversed(str(each)))):
+        count += 1
+print(count)
+```
+
+---
+<img width="653" alt="스크린샷 2023-10-28 오후 12 17 19" src="https://github.com/briiidgehong/cote-essential/assets/73451727/e90b0fbd-62b7-4bd3-87b5-2018b62edcff">
+<img width="655" alt="스크린샷 2023-10-28 오후 12 17 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/bbe83bea-4367-46a9-9ea4-d8c2acde1ea4">
+
+```
+# 선생님이 N명의 학생에게 B만큼의 예산으로 선물을 주려고 합니다. 
+# 학생 i가 원하는 선물의 가격 P(i)와 배송비 S(i)가 있고, 선생님에게는 선물 하나를 정해서 반값으로 할인받을 수 있는 쿠폰이 있습니다. 
+# 선생님이 선물 가능한 학생의 최대 명수를 구하는 프로그램을 작성해보세요. 단, 선물의 가격은 항상 짝수입니다.
+import copy
+
+# 학생수 n / 예산 b
+n, b = map(int, input().split())
+
+# 선물의 가격 p / 배송비 s
+gift_list = []
+for _ in range(n):
+    gift = list(map(int, input().split()))
+    gift_list.append(gift)
+
+# coupon
+count_list = []
+for idx in range(n):
+    temp_gift_list = copy.deepcopy(gift_list) # deep copy ! / call by value
+    temp_gift_list[idx][0] = int(temp_gift_list[idx][0]/2)
+    temp_gift_list.sort(key=lambda x:x[0]+x[1])
+    sum_count = 0
+    count = 0
+    for each in temp_gift_list:
+        sum_count += (each[0] + each[1])
+        if sum_count <= b:
+            count += 1
+        else:
+            break
+    count_list.append(count)
+
+print(max(count_list))
+```
+
+---
+<img width="655" alt="스크린샷 2023-10-28 오후 12 18 59" src="https://github.com/briiidgehong/cote-essential/assets/73451727/0fbc4666-237a-4f73-bc70-2ce27d3f6aba">
+<img width="651" alt="스크린샷 2023-10-28 오후 12 19 05" src="https://github.com/briiidgehong/cote-essential/assets/73451727/aa1e2837-42c0-4b60-a0d9-846d84c31448">
+
+```
+n, m = map(int, input().split())
+input_list = list(map(int, input().split()))
+
+result_list = []
+for start_idx in range(n):
+    idx = start_idx
+    sum_num = 0
+    for _ in range(m):
+        sum_num += input_list[idx]
+        idx = input_list[idx] - 1
+    result_list.append(sum_num)
+print(max(result_list))
+```
+
+
+
+
+
 
 </details>
 
@@ -387,7 +503,26 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/6920245e-512e-4f6
 
 <details>
 <summary> hash / stack / queue / 정렬 </summary>
-ㄴㅇㅁ
+### 정렬
+---
+<img width="658" alt="스크린샷 2023-10-28 오후 12 16 09" src="https://github.com/briiidgehong/cote-essential/assets/73451727/8a369071-f934-4962-ac53-899ad021f3c1">
+<img width="656" alt="스크린샷 2023-10-28 오후 12 16 17" src="https://github.com/briiidgehong/cote-essential/assets/73451727/e9a8ee38-a626-4668-ad47-6fa77cc23ff3">
+
+
+```
+n = int(input())
+
+temp_list = []
+for idx in range(n):
+    input_list = list(map(int, input().split())) # 키, 몸무게
+    input_list.append(idx+1)
+    temp_list.append(input_list)
+
+temp_list = sorted(temp_list, key = lambda x:(x[0], -x[1]))
+
+for each in temp_list:
+    print(*each)
+```
 </details>
 
 <details>
