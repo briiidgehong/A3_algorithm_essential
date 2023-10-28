@@ -192,19 +192,40 @@ def solution(begin, target, words):
 ---
 
 ### 문제
+---
 
 </details>
 
 
 <details>
 <summary> 백트래킹 </summary>
-  dsa
+
+```
+핵심개념:
+시간복잡도:
+핵심코드:
+```
+---
+
+### 문제
+---
+
 </details>
 
 
 <details>
 <summary> 구현 / 시뮬레이션 / 완전탐색 </summary>
-  https://www.youtube.com/watch?v=2zjoKjt97vQ&list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC&index=2
+https://www.youtube.com/watch?v=2zjoKjt97vQ&list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC&index=2
+
+```
+핵심개념:
+시간복잡도:
+핵심코드:
+```
+---
+
+### 문제
+---
 
 ### 문제 - 날짜구현
 ---
@@ -271,6 +292,17 @@ print(count)
 ```
 
 ### 문제 - 시뮬레이션 - 최장연속부분수열
+
+```
+핵심개념:
+시간복잡도:
+핵심코드:
+```
+---
+
+### 문제
+---
+
 ---
 <img width="749" alt="스크린샷 2023-10-28 오전 11 57 33" src="https://github.com/briiidgehong/cote-essential/assets/73451727/247811fa-21ad-406c-9a95-288070a9be83">
 
@@ -301,6 +333,16 @@ print(result_count)
 
 ### 문제 - 시뮬레이션 - 계속 중첩되는 사각형
 <img width="751" alt="스크린샷 2023-10-28 오전 11 59 02" src="https://github.com/briiidgehong/cote-essential/assets/73451727/8b61e355-e88f-471e-b298-a397a9cfe44e">
+
+```
+핵심개념:
+시간복잡도:
+핵심코드:
+```
+---
+
+### 문제
+---
 
 ```
 n = int(input())
@@ -871,12 +913,32 @@ print(min(interval_list))
 
 <details>
 <summary> 이진탐색 </summary>
-  dsa
+
+```
+핵심개념:
+시간복잡도:
+핵심코드:
+```
+---
+
+### 문제
+---
+
 </details>
 
 
 <details>
 <summary> DP </summary>
+
+```
+핵심개념:
+시간복잡도:
+핵심코드:
+```
+---
+
+### 문제
+---
 
 ### 문제 
 ---
@@ -915,6 +977,17 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 
 <details>
 <summary> 그리디 </summary>
+
+```
+핵심개념:
+시간복잡도:
+핵심코드:
+```
+---
+
+### 문제
+---
+
 ### 문제
 ---
 <img width="776" alt="스크린샷 2023-10-28 오후 3 08 08" src="https://github.com/briiidgehong/cote-essential/assets/73451727/aeb40e31-2acc-4209-b267-81ac8bbd84b6">
