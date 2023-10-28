@@ -746,12 +746,40 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 
 <details>
 <summary> MST (union-find / 크루스칼 / 프림) </summary>
-  union-find / 크루
+### 문제 - union find
+---
+<img width="786" alt="스크린샷 2023-10-28 오후 2 51 05" src="https://github.com/briiidgehong/cote-essential/assets/73451727/fd8bec69-f538-4319-9b5a-038f2e0d9ccc">
+<img width="653" alt="스크린샷 2023-10-28 오후 2 51 33" src="https://github.com/briiidgehong/cote-essential/assets/73451727/7b83e002-1048-44f2-a820-1e3812b112de">
+
+### 문제 - 크루스칼
+---
+
+<img width="393" alt="스크린샷 2023-10-28 오후 2 52 45" src="https://github.com/briiidgehong/cote-essential/assets/73451727/16db225c-668b-4304-8153-3a72ea51fd8c">
+<img width="754" alt="스크린샷 2023-10-28 오후 2 52 53" src="https://github.com/briiidgehong/cote-essential/assets/73451727/ef432a54-8f1c-4b40-9d3f-e1f439ba9a55">
+
+### 문제 - 프림
+<img width="790" alt="스크린샷 2023-10-28 오후 2 53 57" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9207acee-38f8-4c1c-a645-d4f0f5010e96">
+선택 순서는 3 - 2 - 5 - 6 - 4 - 7 이 됩니다.
+
+https://github.com/briiidgehong/cote-essential/assets/73451727/a254fa84-38b7-4649-8fdb-0146a9e89a77
+
 </details>
 
 <details>
 <summary> 최단거리(다익스트라, 플로이드 와샬) </summary>
-ㄴㅇㅁ
+
+### 문제 - 다익스트라
+---
+<img width="766" alt="스크린샷 2023-10-28 오후 2 48 17" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2e359361-dd0f-43fe-b13f-c15ad9d18c12">
+<img width="437" alt="스크린샷 2023-10-28 오후 2 49 11" src="https://github.com/briiidgehong/cote-essential/assets/73451727/893d1c3a-612c-4b77-ab79-62967fe5dace">
+<img width="760" alt="스크린샷 2023-10-28 오후 2 49 29" src="https://github.com/briiidgehong/cote-essential/assets/73451727/f6c12dde-9d66-4a51-834f-65b9bd2013d6">
+
+### 문제 - 플로이드 와샬
+---
+<img width="789" alt="스크린샷 2023-10-28 오후 2 50 12" src="https://github.com/briiidgehong/cote-essential/assets/73451727/831ff6bb-383f-4127-9146-db5171c62f73">
+<img width="652" alt="스크린샷 2023-10-28 오후 2 50 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/d2b387af-62b0-4673-9bed-67755efc4bc0">
+
+
 </details>
 
 ## 기타 알고리즘 유형
