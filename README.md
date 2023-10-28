@@ -37,8 +37,131 @@
 </details>
 
 <details>
-<summary> 구현: 시뮬레이션과 완전탐색 </summary>
+<summary> 구현 / 시뮬레이션 / 완전탐색 </summary>
   https://www.youtube.com/watch?v=2zjoKjt97vQ&list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC&index=2
+
+### 문제 - 날짜구현
+---
+<img width="677" alt="스크린샷 2023-10-28 오전 11 54 09" src="https://github.com/briiidgehong/cote-essential/assets/73451727/392b392b-094b-4450-adba-b8dec710b8ce">
+<img width="679" alt="스크린샷 2023-10-28 오전 11 54 22" src="https://github.com/briiidgehong/cote-essential/assets/73451727/6a1a6286-881d-4bf4-bc0a-d3cd0a7ddda1">
+
+```
+import datetime
+Y, M, D = map(int, input().split())
+
+
+def solution(y,m,d):
+    try:
+        y = str(y)
+        if len(y) < 4:
+            for each in range(4-len(y)):
+                y = "0" + y
+            
+        datetime.datetime.strptime(y+"-"+str(m)+"-"+str(d), "%Y-%m-%d")
+    except Exception as e:
+        return -1
+    else:
+        if M in [3,4,5]:
+            return "Spring"
+        elif M in [6,7,8]:
+            return "Summer"
+        elif M in [9,10,11]:
+            return "Fall"
+        else:
+            return "Winter"
+
+print(solution(Y,M,D))
+```
+
+---
+<img width="747" alt="스크린샷 2023-10-28 오후 12 00 29" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2bc87420-dedb-4a18-9117-23a14ad11188">
+```
+import datetime
+# 2024-m1-d1 ~ 2024-m2-d2 까지 A요일이 등장하는 횟수 단, 2024년 m1월 d1일이 월요일 이었다면 !
+
+month_date_list = list(input().split()) # m1,d1 , m2,d2
+str_day = input()
+for idx in range(len(month_date_list)):
+    if len(month_date_list[idx]) < 2:
+        month_date_list[idx] = "0" + month_date_list[idx]
+
+start_date = datetime.datetime.strptime(f"2024-{month_date_list[0]}-{month_date_list[1]}", '%Y-%m-%d')
+end_date = datetime.datetime.strptime(f"2024-{month_date_list[2]}-{month_date_list[3]}", '%Y-%m-%d')
+
+weekday_list = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+count = 0 
+week_idx = 0
+while start_date <= end_date:
+    if weekday_list[week_idx] == str_day:
+        count += 1
+    week_idx += 1
+    week_idx %= 7
+    start_date += datetime.timedelta(days=1)
+    
+print(count)
+```
+
+### 문제 - 시뮬레이션 - 최장연속부분수열
+---
+<img width="749" alt="스크린샷 2023-10-28 오전 11 57 33" src="https://github.com/briiidgehong/cote-essential/assets/73451727/247811fa-21ad-406c-9a95-288070a9be83">
+
+```
+n, t = map(int, input().split())
+
+input_list = list(map(int, input().split()))
+
+result_list = []
+sub_list = []
+for each in input_list:
+    if each > t:
+        sub_list.append(each)
+    else:
+        if len(sub_list) > 0:
+            result_list.append(sub_list)
+            sub_list = []
+if len(sub_list) > 0:
+    result_list.append(sub_list)
+
+result_count = 0
+for each in result_list:
+    if len(each) > result_count:
+        result_count = len(each)
+
+print(result_count)
+```
+
+### 문제 - 시뮬레이션 - 계속 중첩되는 사각형
+<img width="751" alt="스크린샷 2023-10-28 오전 11 59 02" src="https://github.com/briiidgehong/cote-essential/assets/73451727/8b61e355-e88f-471e-b298-a397a9cfe44e">
+
+```
+n = int(input())
+input_list = []
+for _ in range(n):
+    input_list.append(list(map(int, input().split())))
+
+sq = list([0]*200 for _ in range(200))
+
+
+for idx, each in enumerate(input_list):
+    if idx % 2 == 0:
+        color = "red"
+    else:
+        color = "blue"
+    for idx_x in range(each[0]+100, each[2]+100):
+        for idx_y in range(each[1]+100, each[3]+100):
+            sq[idx_y][idx_x] = color
+
+count = 0 
+for idx_y in range(len(sq)):
+    for idx_x in range(len(sq[idx_y])):
+        if sq[idx_y][idx_x] == "blue":
+            count += 1
+
+print(count)
+```
+
+  
 </details>
 
 <details>
