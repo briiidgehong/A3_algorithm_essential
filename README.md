@@ -112,6 +112,11 @@
 ㄴㅇㅁ
 </details>
 
+<details>
+<summary> bisect left right </summary>
+ㄴㅇㅁ
+</details>
+
 ## 오답노트
 
 
