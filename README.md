@@ -11,6 +11,99 @@
 
 ## 주요 알고리즘 유형
 <details>
+<summary> 그리디 </summary>
+
+```
+핵심개념:
+시간복잡도:
+핵심코드:
+```
+---
+
+### 문제
+---
+
+### 문제
+---
+<img width="776" alt="스크린샷 2023-10-28 오후 3 08 08" src="https://github.com/briiidgehong/cote-essential/assets/73451727/aeb40e31-2acc-4209-b267-81ac8bbd84b6">
+
+---
+<img width="805" alt="스크린샷 2023-10-28 오후 3 04 49" src="https://github.com/briiidgehong/cote-essential/assets/73451727/34a0f117-a6be-4b34-8e27-e7133dd4da9f">
+<img width="798" alt="스크린샷 2023-10-28 오후 3 04 35" src="https://github.com/briiidgehong/cote-essential/assets/73451727/e712b640-bee8-48c6-afa3-0a9c123d3cf1">
+
+---
+<img width="785" alt="스크린샷 2023-10-28 오후 3 06 10" src="https://github.com/briiidgehong/cote-essential/assets/73451727/faddc15a-dcea-4efa-9e75-27f001d5e142">
+<img width="768" alt="스크린샷 2023-10-28 오후 3 06 28" src="https://github.com/briiidgehong/cote-essential/assets/73451727/3da91dc5-9a87-4890-98d0-cf43dba28a76">
+
+---
+<img width="788" alt="스크린샷 2023-10-28 오후 3 06 56" src="https://github.com/briiidgehong/cote-essential/assets/73451727/c056eeea-2eb6-4a66-811a-2fd574ebcb16">
+<img width="778" alt="스크린샷 2023-10-28 오후 3 07 09" src="https://github.com/briiidgehong/cote-essential/assets/73451727/70bda0b2-54b5-4442-8603-c8720b9e8710">
+
+</details>
+
+<details>
+<summary> DP </summary>
+
+```
+핵심개념:
+시간복잡도:
+핵심코드:
+```
+---
+
+### 문제
+---
+
+### 문제 
+---
+<img width="791" alt="스크린샷 2023-10-28 오후 2 43 25" src="https://github.com/briiidgehong/cote-essential/assets/73451727/db9f6f39-c9aa-4a8a-97a8-6c3e256403a7">
+<img width="774" alt="스크린샷 2023-10-28 오후 2 43 57" src="https://github.com/briiidgehong/cote-essential/assets/73451727/056f4d68-0bb4-42c0-85e3-2dd68a1dcc2b">
+<img width="777" alt="스크린샷 2023-10-28 오후 2 44 02" src="https://github.com/briiidgehong/cote-essential/assets/73451727/ce1d719b-3511-43ae-aa5b-8933099f6d99">
+
+---
+<img width="594" alt="스크린샷 2023-10-28 오후 2 40 14" src="https://github.com/briiidgehong/cote-essential/assets/73451727/8275a1e6-bbce-4781-94cd-64f8e57bedce">
+<img width="545" alt="스크린샷 2023-10-28 오후 2 41 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/23a7aba3-c042-4f91-8279-e8310932a7cf">
+<img width="353" alt="스크린샷 2023-10-28 오후 2 42 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/fc417518-f907-49c8-b3df-62ae2c1c8693">
+
+https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c9-889c-f91dea5301d3
+
+---
+<img width="787" alt="스크린샷 2023-10-28 오후 2 45 11" src="https://github.com/briiidgehong/cote-essential/assets/73451727/cb2f11ea-6006-45c7-80a4-aae9f135d907">
+<img width="764" alt="스크린샷 2023-10-28 오후 2 45 42" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2266af8f-3619-41c4-baed-7621170f40a1">
+<img width="433" alt="스크린샷 2023-10-28 오후 2 45 46" src="https://github.com/briiidgehong/cote-essential/assets/73451727/ee61d7c9-b05e-4cdf-8945-5a4035be4c32">
+
+---
+<img width="787" alt="스크린샷 2023-10-28 오후 2 46 24" src="https://github.com/briiidgehong/cote-essential/assets/73451727/201d72d9-2105-425d-9fd8-d360a5e18657">
+<img width="750" alt="스크린샷 2023-10-28 오후 2 46 40" src="https://github.com/briiidgehong/cote-essential/assets/73451727/daa0d3ca-4189-47bc-b2d9-85c44a83bdaa">
+<img width="554" alt="스크린샷 2023-10-28 오후 2 46 43" src="https://github.com/briiidgehong/cote-essential/assets/73451727/b3120ccb-81f0-4ed0-a909-b1315dccd118">
+
+---
+<img width="398" alt="스크린샷 2023-10-28 오후 2 56 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2e476032-90eb-4247-bbb1-1c3d8d40a865">
+<img width="759" alt="스크린샷 2023-10-28 오후 2 56 24" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9aabed8f-7e5a-4753-958b-0ccd2324ea02">
+
+---
+<img width="792" alt="스크린샷 2023-10-28 오후 3 01 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/21202815-7f0c-4f69-a18e-51d4966babd1">
+<img width="690" alt="스크린샷 2023-10-28 오후 3 01 55" src="https://github.com/briiidgehong/cote-essential/assets/73451727/69ab021b-2264-49fd-a2d7-7e73df869894">
+
+</details>
+
+<details>
+<summary> 이진탐색 </summary>
+
+```
+핵심개념:
+시간복잡도:
+핵심코드:
+```
+---
+
+### 문제
+---
+
+</details>
+
+
+<details>
 <summary> BFS </summary>
   
 ```
@@ -212,6 +305,49 @@ def solution(begin, target, words):
 
 </details>
 
+<details>
+<summary> 최단거리(다익스트라, 플로이드 와샬) </summary>
+
+### 문제 - 다익스트라
+---
+<img width="766" alt="스크린샷 2023-10-28 오후 2 48 17" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2e359361-dd0f-43fe-b13f-c15ad9d18c12">
+<img width="437" alt="스크린샷 2023-10-28 오후 2 49 11" src="https://github.com/briiidgehong/cote-essential/assets/73451727/893d1c3a-612c-4b77-ab79-62967fe5dace">
+<img width="760" alt="스크린샷 2023-10-28 오후 2 49 29" src="https://github.com/briiidgehong/cote-essential/assets/73451727/f6c12dde-9d66-4a51-834f-65b9bd2013d6">
+
+### 문제 - 플로이드 와샬
+---
+<img width="789" alt="스크린샷 2023-10-28 오후 2 50 12" src="https://github.com/briiidgehong/cote-essential/assets/73451727/831ff6bb-383f-4127-9146-db5171c62f73">
+<img width="652" alt="스크린샷 2023-10-28 오후 2 50 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/d2b387af-62b0-4673-9bed-67755efc4bc0">
+
+### 문제 - BFS 활용
+---
+<img width="786" alt="스크린샷 2023-10-28 오후 2 59 46" src="https://github.com/briiidgehong/cote-essential/assets/73451727/f6b75549-8fc6-47ea-97cf-5c805b122b64">
+답: 1 4 5 6 7
+
+https://github.com/briiidgehong/cote-essential/assets/73451727/e72568c3-54ea-4046-bfe6-3058c537a35a
+
+</details>
+
+<details>
+<summary> MST (union-find / 크루스칼 / 프림) </summary>
+### 문제 - union find
+---
+<img width="786" alt="스크린샷 2023-10-28 오후 2 51 05" src="https://github.com/briiidgehong/cote-essential/assets/73451727/fd8bec69-f538-4319-9b5a-038f2e0d9ccc">
+<img width="653" alt="스크린샷 2023-10-28 오후 2 51 33" src="https://github.com/briiidgehong/cote-essential/assets/73451727/7b83e002-1048-44f2-a820-1e3812b112de">
+
+### 문제 - 크루스칼
+---
+
+<img width="393" alt="스크린샷 2023-10-28 오후 2 52 45" src="https://github.com/briiidgehong/cote-essential/assets/73451727/16db225c-668b-4304-8153-3a72ea51fd8c">
+<img width="754" alt="스크린샷 2023-10-28 오후 2 52 53" src="https://github.com/briiidgehong/cote-essential/assets/73451727/ef432a54-8f1c-4b40-9d3f-e1f439ba9a55">
+
+### 문제 - 프림
+<img width="790" alt="스크린샷 2023-10-28 오후 2 53 57" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9207acee-38f8-4c1c-a645-d4f0f5010e96">
+선택 순서는 3 - 2 - 5 - 6 - 4 - 7 이 됩니다.
+
+https://github.com/briiidgehong/cote-essential/assets/73451727/a254fa84-38b7-4649-8fdb-0146a9e89a77
+
+</details>
 
 <details>
 <summary> 구현 / 시뮬레이션 / 완전탐색 </summary>
@@ -906,150 +1042,6 @@ for idx in range(n):
         
 print(min(interval_list))
 ```
-
-
-</details>
-
-
-<details>
-<summary> 이진탐색 </summary>
-
-```
-핵심개념:
-시간복잡도:
-핵심코드:
-```
----
-
-### 문제
----
-
-</details>
-
-
-<details>
-<summary> DP </summary>
-
-```
-핵심개념:
-시간복잡도:
-핵심코드:
-```
----
-
-### 문제
----
-
-### 문제 
----
-<img width="791" alt="스크린샷 2023-10-28 오후 2 43 25" src="https://github.com/briiidgehong/cote-essential/assets/73451727/db9f6f39-c9aa-4a8a-97a8-6c3e256403a7">
-<img width="774" alt="스크린샷 2023-10-28 오후 2 43 57" src="https://github.com/briiidgehong/cote-essential/assets/73451727/056f4d68-0bb4-42c0-85e3-2dd68a1dcc2b">
-<img width="777" alt="스크린샷 2023-10-28 오후 2 44 02" src="https://github.com/briiidgehong/cote-essential/assets/73451727/ce1d719b-3511-43ae-aa5b-8933099f6d99">
-
----
-<img width="594" alt="스크린샷 2023-10-28 오후 2 40 14" src="https://github.com/briiidgehong/cote-essential/assets/73451727/8275a1e6-bbce-4781-94cd-64f8e57bedce">
-<img width="545" alt="스크린샷 2023-10-28 오후 2 41 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/23a7aba3-c042-4f91-8279-e8310932a7cf">
-<img width="353" alt="스크린샷 2023-10-28 오후 2 42 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/fc417518-f907-49c8-b3df-62ae2c1c8693">
-
-https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c9-889c-f91dea5301d3
-
----
-<img width="787" alt="스크린샷 2023-10-28 오후 2 45 11" src="https://github.com/briiidgehong/cote-essential/assets/73451727/cb2f11ea-6006-45c7-80a4-aae9f135d907">
-<img width="764" alt="스크린샷 2023-10-28 오후 2 45 42" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2266af8f-3619-41c4-baed-7621170f40a1">
-<img width="433" alt="스크린샷 2023-10-28 오후 2 45 46" src="https://github.com/briiidgehong/cote-essential/assets/73451727/ee61d7c9-b05e-4cdf-8945-5a4035be4c32">
-
----
-<img width="787" alt="스크린샷 2023-10-28 오후 2 46 24" src="https://github.com/briiidgehong/cote-essential/assets/73451727/201d72d9-2105-425d-9fd8-d360a5e18657">
-<img width="750" alt="스크린샷 2023-10-28 오후 2 46 40" src="https://github.com/briiidgehong/cote-essential/assets/73451727/daa0d3ca-4189-47bc-b2d9-85c44a83bdaa">
-<img width="554" alt="스크린샷 2023-10-28 오후 2 46 43" src="https://github.com/briiidgehong/cote-essential/assets/73451727/b3120ccb-81f0-4ed0-a909-b1315dccd118">
-
----
-<img width="398" alt="스크린샷 2023-10-28 오후 2 56 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2e476032-90eb-4247-bbb1-1c3d8d40a865">
-<img width="759" alt="스크린샷 2023-10-28 오후 2 56 24" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9aabed8f-7e5a-4753-958b-0ccd2324ea02">
-
----
-<img width="792" alt="스크린샷 2023-10-28 오후 3 01 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/21202815-7f0c-4f69-a18e-51d4966babd1">
-<img width="690" alt="스크린샷 2023-10-28 오후 3 01 55" src="https://github.com/briiidgehong/cote-essential/assets/73451727/69ab021b-2264-49fd-a2d7-7e73df869894">
-
-
-</details>
-
-
-<details>
-<summary> 그리디 </summary>
-
-```
-핵심개념:
-시간복잡도:
-핵심코드:
-```
----
-
-### 문제
----
-
-### 문제
----
-<img width="776" alt="스크린샷 2023-10-28 오후 3 08 08" src="https://github.com/briiidgehong/cote-essential/assets/73451727/aeb40e31-2acc-4209-b267-81ac8bbd84b6">
-
----
-<img width="805" alt="스크린샷 2023-10-28 오후 3 04 49" src="https://github.com/briiidgehong/cote-essential/assets/73451727/34a0f117-a6be-4b34-8e27-e7133dd4da9f">
-<img width="798" alt="스크린샷 2023-10-28 오후 3 04 35" src="https://github.com/briiidgehong/cote-essential/assets/73451727/e712b640-bee8-48c6-afa3-0a9c123d3cf1">
-
----
-<img width="785" alt="스크린샷 2023-10-28 오후 3 06 10" src="https://github.com/briiidgehong/cote-essential/assets/73451727/faddc15a-dcea-4efa-9e75-27f001d5e142">
-<img width="768" alt="스크린샷 2023-10-28 오후 3 06 28" src="https://github.com/briiidgehong/cote-essential/assets/73451727/3da91dc5-9a87-4890-98d0-cf43dba28a76">
-
----
-<img width="788" alt="스크린샷 2023-10-28 오후 3 06 56" src="https://github.com/briiidgehong/cote-essential/assets/73451727/c056eeea-2eb6-4a66-811a-2fd574ebcb16">
-<img width="778" alt="스크린샷 2023-10-28 오후 3 07 09" src="https://github.com/briiidgehong/cote-essential/assets/73451727/70bda0b2-54b5-4442-8603-c8720b9e8710">
-
-
-</details>
-
-
-<details>
-<summary> MST (union-find / 크루스칼 / 프림) </summary>
-### 문제 - union find
----
-<img width="786" alt="스크린샷 2023-10-28 오후 2 51 05" src="https://github.com/briiidgehong/cote-essential/assets/73451727/fd8bec69-f538-4319-9b5a-038f2e0d9ccc">
-<img width="653" alt="스크린샷 2023-10-28 오후 2 51 33" src="https://github.com/briiidgehong/cote-essential/assets/73451727/7b83e002-1048-44f2-a820-1e3812b112de">
-
-### 문제 - 크루스칼
----
-
-<img width="393" alt="스크린샷 2023-10-28 오후 2 52 45" src="https://github.com/briiidgehong/cote-essential/assets/73451727/16db225c-668b-4304-8153-3a72ea51fd8c">
-<img width="754" alt="스크린샷 2023-10-28 오후 2 52 53" src="https://github.com/briiidgehong/cote-essential/assets/73451727/ef432a54-8f1c-4b40-9d3f-e1f439ba9a55">
-
-### 문제 - 프림
-<img width="790" alt="스크린샷 2023-10-28 오후 2 53 57" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9207acee-38f8-4c1c-a645-d4f0f5010e96">
-선택 순서는 3 - 2 - 5 - 6 - 4 - 7 이 됩니다.
-
-https://github.com/briiidgehong/cote-essential/assets/73451727/a254fa84-38b7-4649-8fdb-0146a9e89a77
-
-</details>
-
-<details>
-<summary> 최단거리(다익스트라, 플로이드 와샬) </summary>
-
-### 문제 - 다익스트라
----
-<img width="766" alt="스크린샷 2023-10-28 오후 2 48 17" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2e359361-dd0f-43fe-b13f-c15ad9d18c12">
-<img width="437" alt="스크린샷 2023-10-28 오후 2 49 11" src="https://github.com/briiidgehong/cote-essential/assets/73451727/893d1c3a-612c-4b77-ab79-62967fe5dace">
-<img width="760" alt="스크린샷 2023-10-28 오후 2 49 29" src="https://github.com/briiidgehong/cote-essential/assets/73451727/f6c12dde-9d66-4a51-834f-65b9bd2013d6">
-
-### 문제 - 플로이드 와샬
----
-<img width="789" alt="스크린샷 2023-10-28 오후 2 50 12" src="https://github.com/briiidgehong/cote-essential/assets/73451727/831ff6bb-383f-4127-9146-db5171c62f73">
-<img width="652" alt="스크린샷 2023-10-28 오후 2 50 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/d2b387af-62b0-4673-9bed-67755efc4bc0">
-
-### 문제 - BFS 활용
----
-<img width="786" alt="스크린샷 2023-10-28 오후 2 59 46" src="https://github.com/briiidgehong/cote-essential/assets/73451727/f6b75549-8fc6-47ea-97cf-5c805b122b64">
-답: 1 4 5 6 7
-
-https://github.com/briiidgehong/cote-essential/assets/73451727/e72568c3-54ea-4046-bfe6-3058c537a35a
-
 
 
 </details>
