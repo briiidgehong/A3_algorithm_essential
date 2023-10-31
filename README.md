@@ -7,7 +7,7 @@
 
 "결국 코테는 문제를 추려서 지속적으로 반복하는것이 정답"
 
-<img width="1304" alt="스크린샷 2023-10-31 오후 12 21 27" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9d833914-abce-4bad-b576-8e8eec26c317">
+<img width="1309" alt="스크린샷 2023-10-31 오후 3 39 27" src="https://github.com/briiidgehong/cote-essential/assets/73451727/438397b0-79b2-4ad2-a129-54e3a89652c0">
 
 ## 주요 알고리즘 유형
 <details>
