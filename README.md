@@ -5,9 +5,9 @@
 
 시간이 지나도 빠르게 본실력으로 돌아올수 있도록 오답노트를 함께 작성합니다.
 
-
 "결국 코테는 문제를 추려서 지속적으로 반복하는것이 정답"
 
+<img width="1304" alt="스크린샷 2023-10-31 오후 12 21 27" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9d833914-abce-4bad-b576-8e8eec26c317">
 
 ## 주요 알고리즘 유형
 <details>
