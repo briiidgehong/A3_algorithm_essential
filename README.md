@@ -1258,6 +1258,10 @@ else:
 
 </details>
 
+<details>
+<summary> 가장 긴 증가하는 / 감소하는 부분수열 </summary>
+ㅁㄴㅇ
+</details>
 
 ## 오답노트
 
