@@ -100,6 +100,7 @@ print(group)
 
 ### 기본문제4 - 1로 만들기 - 백준 - 그리디로 착각할만한 DP
 <img width="1162" alt="스크린샷 2023-11-02 오전 12 03 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/5cef18bd-7889-4035-b657-6da8d6dcd459">
+
 ```
 # 그리디로 접근
 # 무조건 큰수로 먼저 나누는것이 가장 최선이다.
