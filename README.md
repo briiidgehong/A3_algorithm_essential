@@ -40,8 +40,8 @@ for each in range(n):
 count = 0
 for each in reversed(coin_list):
     if k >= each:
-        count += int(k / each)
-        k = k % each
+        count += int(k // each) # 몫
+        k = k % each # 나머지
     if k == 0:
         break
 print(count)
