@@ -120,7 +120,15 @@ print(group)
 # DP[12] = min(DP[12/3]+1, DP{12/2}+1, DP[11]+1)
 
 ```
+---
 
+### 기본문제5 fraction knapsack vs 0/1 knapsack
+```
+fraction knapsack
+
+0/1 knapsack
+
+```
 
 ### 문제
 ---
