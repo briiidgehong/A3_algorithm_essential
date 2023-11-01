@@ -96,6 +96,31 @@ for each_panic_rate in list:
 print(group)
 ```
 
+---
+
+### 기본문제4 - 1로 만들기 - 백준 - 그리디로 착각할만한 DP
+<img width="1162" alt="스크린샷 2023-11-02 오전 12 03 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/5cef18bd-7889-4035-b657-6da8d6dcd459">
+```
+# 그리디로 접근
+# 무조건 큰수로 먼저 나누는것이 가장 최선이다.
+# 반례를 찾아보자.
+# 10 -> 5 -> 4 -> 2 -> 1
+# 10 -> 9 -> 3 -> 1
+# 반례가 있다. 그리디로 풀긴 어렵다.
+# DP 상향식으로 아래서부터 DP 테이블을 채우자.
+
+# DP 접근
+# DP[N] = min((N - 1을 1로 만들기 위한 최소횟수 + 1), 2나 3으로 나누어지면 DP[몫] + 1)
+
+# DP[8] = min(DP[8/2]+1, DP[7]+1)
+# DP[9] = min(DP[9/3]+1, DP[8]+1)
+# DP[10] = min(DP[10/2]+1, DP[9]+1)
+# DP[11] = min(DP[10]+1)
+# DP[12] = min(DP[12/3]+1, DP{12/2}+1, DP[11]+1)
+
+```
+
+
 ### 문제
 ---
 <img width="776" alt="스크린샷 2023-10-28 오후 3 08 08" src="https://github.com/briiidgehong/cote-essential/assets/73451727/aeb40e31-2acc-4209-b267-81ac8bbd84b6">
