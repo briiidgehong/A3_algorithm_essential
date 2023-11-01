@@ -77,6 +77,24 @@ print(result)
 ```
 ---
 
+### 기본문제3 - 모험가길드 - 이코테
+<img width="736" alt="스크린샷 2023-11-01 오후 4 57 14" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2e8f6793-6167-40bc-a9d9-2dc3fa7493aa">
+
+```
+# 그리디
+# 오름차순 정렬 이후에 가장 공포도가 낮은 모험가부터 확인
+# '현재 그룹에 포함된 모험가의 수' 가 '현재 확인하고 있는 공포도' 보다 크거나 같다면 이를 그룹으로 설정
+
+group = 0 # 총 그룹수
+current_group_num = 0 # 현재 그룹에 포함된 모험가의 수
+
+for each_panic_rate in list:
+    current_group_num += 1
+        if current_group_num >= each_panic_rate:
+            group += 1
+            current_group_num = 0
+print(group)
+```
 
 ### 문제
 ---
