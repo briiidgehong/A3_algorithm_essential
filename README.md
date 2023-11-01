@@ -15,7 +15,7 @@
 
 ```
 핵심개념:
-"그리디는 눈앞의 최선 혹은 DP ! 그리고 반례 찾아봐라"
+"그리디는 눈앞의 최선 그리고 반례 찾아봐라"
 때로는 당장 눈앞의 최선이, 최고의 결과를 가져온다.
 현재 차례의 최고의 답을 찾는 문제
 어려운 이유: 왜그런지 증명하기 어려움
@@ -23,12 +23,32 @@
 -> << 그리디같으면, DP한번 의심하고 >>
 -> << 내가 생각하는 그리디풀이의 해법에 대한 반례를 찾아본다. >>
 -> << 반례가 없으면 그리디풀이로 풀어도됨 >>
-예시: 다른 금액의 동전이 여러개 주어졌을때 M원을 만드는 최소의 동전 갯수
 ```
 ---
 
-### 문제
+### 기본문제1
+<img width="1178" alt="스크린샷 2023-11-01 오후 3 22 45" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9235a7be-7063-47be-a109-84f8e6b8fbac">
+
+```
+# 그리디 -> k를 큰동전부터 시작해서 동전갯수대로 나눈뒤 나머지 값을 갱신
+
+n, k = map(int, input().split())
+coin_list = []
+for each in range(n):
+    coin_list.append(int(input()))
+
+count = 0
+for each in reversed(coin_list):
+    if k >= each:
+        count += int(k / each)
+        k = k % each
+    if k == 0:
+        break
+print(count)
+```
+
 ---
+
 
 ### 문제
 ---
