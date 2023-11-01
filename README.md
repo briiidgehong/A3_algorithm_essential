@@ -26,7 +26,7 @@
 ```
 ---
 
-### 기본문제1 - 최소동전갯수
+### 기본문제1 - 최소동전갯수 - 백준
 <img width="1178" alt="스크린샷 2023-11-01 오후 3 22 45" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9235a7be-7063-47be-a109-84f8e6b8fbac">
 
 ```
@@ -48,13 +48,14 @@ print(count)
 ```
 ---
 
-### 기본문제2
+### 기본문제2 - 1이 될때까지 - 이코테
 <img width="786" alt="스크린샷 2023-11-01 오후 4 43 59" src="https://github.com/briiidgehong/cote-essential/assets/73451727/32290d1d-690c-4c8c-9725-c372d86cf827">
 
 ```
 # 그리디 -> 주어진 N에 대해서 최대한 많이 나누기 진행
 # N이 100억 이상의 큰수라 가정하고 O(N)이 아닌 O(logN)을 가지도록 코드 작성
 # 즉, 나누기횟수 만큼의 시간복잡도를 가지도록 코드를 작성한다.
+# while loop 한번 돌때마다 나누기가 시행되도록 n이 아닌 logN 시간 복잡도를 가질수 있다.
 n, k = map(int, input().split())
 result = 0
 
