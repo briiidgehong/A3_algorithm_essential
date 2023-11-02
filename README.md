@@ -149,6 +149,54 @@ fraction knapsack 은 그리디풀이로 무게대비가격(가격/무게)이 �
 <img width="723" alt="스크린샷 2023-11-02 오후 4 01 04" src="https://github.com/briiidgehong/cote-essential/assets/73451727/7bc6da4d-bf0c-4035-a865-00e43a086ac8">
 <img width="717" alt="스크린샷 2023-11-02 오후 4 01 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/28f2b198-6c87-4c27-9573-c88c0e76dde0">
 
+<img width="647" alt="스크린샷 2023-11-02 오후 4 31 13" src="https://github.com/briiidgehong/cote-essential/assets/73451727/f7fb0611-077c-4772-a083-67910d8db035">
+
+```
+보석 = [1,2,3,4,5]
+value = [4,1,2,6,3]
+weight = [3,1,4,5,2]
+
+경우의수 = 각각의 보석을 넣지않는경우/넣는경우
+= [0/1,0/1,0/1,0/1,0/1] = 2^5 = 32
+
+DP[보석][지금까지 선택한 보석 무게의 합] 
+= 가능한 보석 가치의 최대 합
+
+i번째 보석을 가방에 넣는 경우 
+DP[i][j]는 DP[i-1][j-weight[i]] + value[i]
+다만, 이 경우에는 j가 weight[i]보다 같거나 커야지만 말이 되므로
+이러한 경우에만 고려가 가능합니다.
+
+i번째 보석을 가방에 넣지 않는 경우
+보석을 가방에 넣지 않았으므로 DP[i][j]는 dp[i-1][j]
+
+DP[i][j] = 
+max(DP[i-1][j-weight[i]] + value[i], dp[i-1][j])
+
+1) DP[2][3] = max(DP[1][2]+1, DP[1][3]) = 4
+2) DP[3][5] = max(DP[2][1]+2, DP[2][5]) = 3
+3) DP[3][8] = max(DP[2][4]+2, DP[2][8]) = 7
+4) DP[5][1] = max(DP[4][1]) X: DP[4][1-2]+3 = 1
+5) DP[5][7] = max(DP[4][5]+3, DP[4][7]) = 9
+
+DP[1][1]=-
+DP[1][2]=-
+DP[1][3]=4
+DP[1][4]=-
+DP[1][5]=-
+DP[1][6]=-
+DP[1][7]=-
+DP[1][8]=-
+
+DP[2][1]=1
+DP[2][2]=1
+DP[2][3]=4
+DP[2][4]=5
+DP[2][5]=-
+DP[2][6]=-
+DP[2][7]=-
+DP[2][8]=-
+```
 </details>
 
 <details>
