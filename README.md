@@ -145,13 +145,9 @@ fraction knapsack 은 그리디풀이로 무게대비가격(가격/무게)이 �
 답: 10.333
 
 ### 0/1 knapsack - dp
----
-<img width="785" alt="스크린샷 2023-10-28 오후 3 06 10" src="https://github.com/briiidgehong/cote-essential/assets/73451727/faddc15a-dcea-4efa-9e75-27f001d5e142">
-<img width="768" alt="스크린샷 2023-10-28 오후 3 06 28" src="https://github.com/briiidgehong/cote-essential/assets/73451727/3da91dc5-9a87-4890-98d0-cf43dba28a76">
-
----
-<img width="788" alt="스크린샷 2023-10-28 오후 3 06 56" src="https://github.com/briiidgehong/cote-essential/assets/73451727/c056eeea-2eb6-4a66-811a-2fd574ebcb16">
-<img width="778" alt="스크린샷 2023-10-28 오후 3 07 09" src="https://github.com/briiidgehong/cote-essential/assets/73451727/70bda0b2-54b5-4442-8603-c8720b9e8710">
+<img width="525" alt="스크린샷 2023-11-02 오후 4 00 17" src="https://github.com/briiidgehong/cote-essential/assets/73451727/b97e5bb4-9466-4323-985c-ad0ea5fe4f9a">
+<img width="723" alt="스크린샷 2023-11-02 오후 4 01 04" src="https://github.com/briiidgehong/cote-essential/assets/73451727/7bc6da4d-bf0c-4035-a865-00e43a086ac8">
+<img width="717" alt="스크린샷 2023-11-02 오후 4 01 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/28f2b198-6c87-4c27-9573-c88c0e76dde0">
 
 </details>
 
