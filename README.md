@@ -204,26 +204,48 @@ DP[2][8]=-
 
 ```
 핵심개념:
-"DP는 이전값 점화식 !"
+"DP는 이전값 점화식"
 
-이전의 값을 재활용 하는 알고리즘
-이전의 값을 활용해서 시간복잡도를 줄일 수 있음
-이전값을 활용한 점화식 생성
+점화식 생성 / 이전 값을 재활용하는 메모이제이션
+직접해봐야 점화식 나온다. -> n=1 부터 하나씩 그려보면서 규칙 찾기
+
 예시: 1~10 숫자 중, 각각 이전값들을 합한 값 구하기
-
 시간복잡도:
-단순 for loop: O(N^2)
-DP:O(N)
-
-핵심코드:
+단순 for loop: O(N^2) [N개 각각에 대해 최대 N번(10+9+8+''')의 연산이 들어간다.]
+DP:O(N) [DP 테이블 활용]
 
 ```
 ---
 
-### 문제
+## 기본문제1 - 백준 11726 - 2xN 타일링
+```
+1. 아이디어
+점화식: An = (An-1) + (An-2)
+N값 구하기 위해, for문 3부터 N까지의 값을 구해주기
+2. 시간복잡도
+- O(N)
+3. 자료구조
+- DP table [0]*N
+```
+```
+n = int(input())
+
+dp_table = [0] * (n+1)
+
+# DPn = DP(n-1) + DP(n-2)
+# DP1 = 1 / DP2 = 2 / DP3 = 3 / DP4=5
+dp_table[1] = 1
+if n > 1:
+    dp_table[2] = 2
+for idx in range(3, n+1):
+    dp_table[idx] = dp_table[idx-1] + dp_table[idx-2]
+
+print(dp_table[n] % 10007)
+```
+
 ---
 
-### 문제 
+## 문제 
 ---
 <img width="791" alt="스크린샷 2023-10-28 오후 2 43 25" src="https://github.com/briiidgehong/cote-essential/assets/73451727/db9f6f39-c9aa-4a8a-97a8-6c3e256403a7">
 <img width="774" alt="스크린샷 2023-10-28 오후 2 43 57" src="https://github.com/briiidgehong/cote-essential/assets/73451727/056f4d68-0bb4-42c0-85e3-2dd68a1dcc2b">
