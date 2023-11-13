@@ -256,7 +256,149 @@ for idx in range(3, n+1):
 
 print(dp_table[n]) # 218922995834555169026
 ```
+---
 
+## 기본문제2 - 이코테 - 개미전사
+<img width="671" alt="스크린샷 2023-08-20 오전 10 14 07" src="https://github.com/briiidgehong/algorithm/assets/73451727/e346740a-5357-4ca0-b981-41a377382e15">
+
+```
+# (자기 자신 + 누적값)과 (자기 자신 바로 앞 값)을 비교
+def solution(array):
+    accumulate_sum = []
+    for idx, each in enumerate(array):
+        if idx == 0:
+            accumulate_sum.append(each)
+        elif idx == 1:
+            accumulate_sum.append(max(array[0], array[1]))
+        else:  # idx >= 2
+            accumulate_sum.append(
+                max((accumulate_sum[idx - 2] + each), accumulate_sum[idx - 1])
+            )
+    return accumulate_sum[-1]
+
+print(solution([1, 3, 1, 5]))  # 8
+
+```
+---
+
+## 기본문제3 - 이코테 - 1로 만들기
+```
+# bottom - up !!!
+# dp - table !!!
+```
+
+<img width="474" alt="스크린샷 2023-08-20 오전 11 02 25" src="https://github.com/briiidgehong/algorithm/assets/73451727/db40415a-460f-4db5-96b7-0aa87387efbc">
+
+```
+def solution(num):
+    dp_table = [0] * 30001
+    for each_num in range(2, num + 1):
+        temp_list = []
+        # /5
+        if each_num % 5 == 0:
+            temp_list.append(dp_table[each_num // 5])
+        # /3
+        if each_num % 3 == 0:
+            temp_list.append(dp_table[each_num // 3])
+        # /2
+        if each_num % 2 == 0:
+            temp_list.append(dp_table[each_num // 2])
+        # -1
+        temp_list.append(dp_table[each_num - 1])
+        dp_table[each_num] = min(temp_list) + 1
+    return dp_table[num]
+
+print(solution(26))  # 3
+
+```
+---
+
+## 기본문제4 - 이코테 - 효율적인 화폐구성
+
+<img width="504" alt="스크린샷 2023-08-20 오후 12 19 46" src="https://github.com/briiidgehong/algorithm/assets/73451727/08894c38-8dff-479e-bf9f-8ce4e3df6e16">
+
+```
+# bottom - up !!!
+# 최소 화폐 개수
+def solution(array, target_num):
+    dp_table = [0] * 10001
+    min_num = min(array)
+    for each in array:
+        dp_table[each] = 1
+    for num in range(target_num + 1):
+        temp_list = []
+        for each in array:
+            if num >= each and num - each >= min_num:
+                temp_list.append(dp_table[num - each] + 1)
+        if len(temp_list) >= 1:
+            dp_table[num] = min(temp_list)
+    if dp_table[target_num] == 0:
+        return -1
+    else:
+        return dp_table[target_num]
+
+print(solution([2, 3, 5], 7))  # 5
+
+```
+---
+
+## 기본문제5 - 이코테 - 금광
+
+<img width="629" alt="스크린샷 2023-08-20 오후 4 20 19" src="https://github.com/briiidgehong/algorithm/assets/73451727/3b9c7fdb-baea-4465-9cd1-a43e973783be">
+
+```
+def solution(array):
+    for idx in range(1, len(array[0])):
+        for sub_idx, each in enumerate(array):
+            temp_list = []
+            if sub_idx == 0:
+                temp_list.append(array[sub_idx][idx - 1])
+                temp_list.append(array[sub_idx + 1][idx - 1])
+            elif sub_idx == len(array) - 1:
+                temp_list.append(array[sub_idx][idx - 1])
+                temp_list.append(array[sub_idx - 1][idx - 1])
+            else:
+                temp_list.append(array[sub_idx - 1][idx - 1])
+                temp_list.append(array[sub_idx][idx - 1])
+                temp_list.append(array[sub_idx + 1][idx - 1])
+            array[sub_idx][idx] += max(temp_list)
+
+    temp_list = []
+    for each in array:
+        temp_list.append(each[-1])
+    return max(temp_list)
+
+print(solution([[1, 3, 3, 2], [2, 1, 4, 1], [0, 6, 4, 7]]))  # 19
+print(solution([[1, 3, 1, 5], [2, 2, 4, 1], [5, 0, 2, 3], [0, 6, 1, 2]]))  # 16
+
+```
+---
+
+## 기본문제6 - 이코테 - 병사 배치하기
+
+<img width="763" alt="스크린샷 2023-08-21 오후 2 19 19" src="https://github.com/briiidgehong/algorithm/assets/73451727/efeaf4f3-019a-49cd-94e4-1bc2cfcc8807">
+
+```
+def solution(array):
+    reverse_list = []
+    for each in reversed(array):
+        reverse_list.append(each)
+
+    # LIS (가장 긴, 증가하는 부분수열 알고리즘)
+    dp_table = [1] * len(reverse_list)
+    for idx in range(1, len(reverse_list)):
+        for sub_idx in range(idx):
+            if reverse_list[idx] > reverse_list[sub_idx]:
+                dp_table[idx] = max(dp_table[idx], dp_table[sub_idx] + 1)
+
+    return len(reverse_list) - max(dp_table)
+
+# 4 2 5 8 4 11 15
+# 1 1 1 1 1 1  1
+# 1 1 2 3 2 4  5
+print(solution([15, 11, 4, 8, 5, 2, 4]))  # 2
+
+```
 ---
 
 ## 문제 
