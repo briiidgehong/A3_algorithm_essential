@@ -14,7 +14,7 @@
 <summary> 그리디 </summary>
 
 ```
-핵심개념:
+PREVIEW:
 "그리디는 눈앞의 최선 그리고 반례 찾아봐라 / 속도 안나올것같으면 DP 메모이제이션 의심"
 때로는 당장 눈앞의 최선이, 최고의 결과를 가져온다.
 그리디일때의 반례를 찾아보고 없으면 그리디로 풀고 있다면 다른방법(DP) 찾아보기
@@ -198,7 +198,7 @@ DP[2][8]=-
 <summary> DP </summary>
 
 ```
-핵심개념:
+PREVIEW:
 "DP는 이전값 점화식"
 
 점화식 생성 / 이전 값을 재활용하는 메모이제이션
@@ -441,7 +441,7 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 <summary> 이진탐색 </summary>
 
 ```
-핵심개념:
+PREVIEW:
 시간복잡도:
 핵심코드:
 ```
@@ -457,7 +457,7 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 <summary> BFS </summary>
   
 ```
-핵심개념:
+PREVIEW:
 시간복잡도:
 핵심코드:
 ```
@@ -628,7 +628,7 @@ def solution(begin, target, words):
 <summary> DFS </summary>
 
 ```
-핵심개념:
+PREVIEW:
 시간복잡도:
 핵심코드:
 ```
@@ -644,7 +644,7 @@ def solution(begin, target, words):
 <summary> 백트래킹 </summary>
 
 ```
-핵심개념:
+PREVIEW:
 시간복잡도:
 핵심코드:
 ```
@@ -704,7 +704,7 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/a254fa84-38b7-464
 https://www.youtube.com/watch?v=2zjoKjt97vQ&list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC&index=2
 
 ```
-핵심개념:
+PREVIEW:
 시간복잡도:
 핵심코드:
 ```
@@ -780,7 +780,7 @@ print(count)
 ### 문제 - 시뮬레이션 - 최장연속부분수열
 
 ```
-핵심개념:
+PREVIEW:
 시간복잡도:
 핵심코드:
 ```
@@ -821,7 +821,7 @@ print(result_count)
 <img width="751" alt="스크린샷 2023-10-28 오전 11 59 02" src="https://github.com/briiidgehong/cote-essential/assets/73451727/8b61e355-e88f-471e-b298-a397a9cfe44e">
 
 ```
-핵심개념:
+PREVIEW:
 시간복잡도:
 핵심코드:
 ```
@@ -1431,7 +1431,7 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/1bc84762-755d-416
 <details>
 <summary> heap </summary>
 
-### 핵심개념
+### PREVIEW
 ---
 ```
 비어 있는 최소 힙에 7, 6, 5, 4, 3, 2, 1 을 순서대로 삽입
