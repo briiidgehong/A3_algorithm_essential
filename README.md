@@ -401,13 +401,14 @@ print(solution([15, 11, 4, 8, 5, 2, 4]))  # 2
 ```
 ---
 
-## 문제 
----
+## 기본문제7 - 코드트리 - 은행
 <img width="791" alt="스크린샷 2023-10-28 오후 2 43 25" src="https://github.com/briiidgehong/cote-essential/assets/73451727/db9f6f39-c9aa-4a8a-97a8-6c3e256403a7">
 <img width="774" alt="스크린샷 2023-10-28 오후 2 43 57" src="https://github.com/briiidgehong/cote-essential/assets/73451727/056f4d68-0bb4-42c0-85e3-2dd68a1dcc2b">
 <img width="777" alt="스크린샷 2023-10-28 오후 2 44 02" src="https://github.com/briiidgehong/cote-essential/assets/73451727/ce1d719b-3511-43ae-aa5b-8933099f6d99">
 
 ---
+
+## 기본문제8 - 코드트리 - 숫자 암호 만들기
 <img width="594" alt="스크린샷 2023-10-28 오후 2 40 14" src="https://github.com/briiidgehong/cote-essential/assets/73451727/8275a1e6-bbce-4781-94cd-64f8e57bedce">
 <img width="545" alt="스크린샷 2023-10-28 오후 2 41 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/23a7aba3-c042-4f91-8279-e8310932a7cf">
 <img width="353" alt="스크린샷 2023-10-28 오후 2 42 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/fc417518-f907-49c8-b3df-62ae2c1c8693">
@@ -415,22 +416,29 @@ print(solution([15, 11, 4, 8, 5, 2, 4]))  # 2
 https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c9-889c-f91dea5301d3
 
 ---
+
+## 기본문제9 - 코드트리 - 가장 긴 증가하는 부분수열(LIS)
 <img width="787" alt="스크린샷 2023-10-28 오후 2 45 11" src="https://github.com/briiidgehong/cote-essential/assets/73451727/cb2f11ea-6006-45c7-80a4-aae9f135d907">
 <img width="764" alt="스크린샷 2023-10-28 오후 2 45 42" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2266af8f-3619-41c4-baed-7621170f40a1">
 <img width="433" alt="스크린샷 2023-10-28 오후 2 45 46" src="https://github.com/briiidgehong/cote-essential/assets/73451727/ee61d7c9-b05e-4cdf-8945-5a4035be4c32">
 
----
 <img width="787" alt="스크린샷 2023-10-28 오후 2 46 24" src="https://github.com/briiidgehong/cote-essential/assets/73451727/201d72d9-2105-425d-9fd8-d360a5e18657">
 <img width="750" alt="스크린샷 2023-10-28 오후 2 46 40" src="https://github.com/briiidgehong/cote-essential/assets/73451727/daa0d3ca-4189-47bc-b2d9-85c44a83bdaa">
 <img width="554" alt="스크린샷 2023-10-28 오후 2 46 43" src="https://github.com/briiidgehong/cote-essential/assets/73451727/b3120ccb-81f0-4ed0-a909-b1315dccd118">
 
 ---
+
+## 기본문제10 - 코드트리 - 정수 사각형
 <img width="398" alt="스크린샷 2023-10-28 오후 2 56 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2e476032-90eb-4247-bbb1-1c3d8d40a865">
 <img width="759" alt="스크린샷 2023-10-28 오후 2 56 24" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9aabed8f-7e5a-4753-958b-0ccd2324ea02">
 
 ---
+
+## 기본문제11 - 코드트리 - 편집거리
 <img width="792" alt="스크린샷 2023-10-28 오후 3 01 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/21202815-7f0c-4f69-a18e-51d4966babd1">
 <img width="690" alt="스크린샷 2023-10-28 오후 3 01 55" src="https://github.com/briiidgehong/cote-essential/assets/73451727/69ab021b-2264-49fd-a2d7-7e73df869894">
+
+---
 
 </details>
 
