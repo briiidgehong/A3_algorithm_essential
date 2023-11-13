@@ -243,6 +243,20 @@ for idx in range(3, n+1):
 print(dp_table[n] % 10007)
 ```
 
+```
+# 피보나치 수열 - 바텀업
+n = 99
+dp_table = [0] * (n+1)
+
+dp_table[1] = 1
+dp_table[2] = 1
+
+for idx in range(3, n+1):
+    dp_table[idx] = dp_table[idx-1] + dp_table[idx-2]
+
+print(dp_table[n]) # 218922995834555169026
+```
+
 ---
 
 ## 문제 
