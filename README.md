@@ -26,7 +26,7 @@
 ```
 ---
 
-### 기본문제1 - 최소동전갯수 - 백준
+## 기본문제1 - 최소동전갯수 - 백준
 <img width="1178" alt="스크린샷 2023-11-01 오후 3 22 45" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9235a7be-7063-47be-a109-84f8e6b8fbac">
 
 ```
@@ -48,7 +48,7 @@ print(count)
 ```
 ---
 
-### 기본문제2 - 1이 될때까지 - 이코테
+## 기본문제2 - 1이 될때까지 - 이코테
 <img width="786" alt="스크린샷 2023-11-01 오후 4 43 59" src="https://github.com/briiidgehong/cote-essential/assets/73451727/32290d1d-690c-4c8c-9725-c372d86cf827">
 
 ```
@@ -77,7 +77,7 @@ print(result)
 ```
 ---
 
-### 기본문제3 - 모험가길드 - 이코테
+## 기본문제3 - 모험가길드 - 이코테
 <img width="736" alt="스크린샷 2023-11-01 오후 4 57 14" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2e8f6793-6167-40bc-a9d9-2dc3fa7493aa">
 
 ```
@@ -98,7 +98,7 @@ print(group)
 
 ---
 
-### 기본문제4 - 1로 만들기 - 백준 - 그리디로 착각할만한 DP
+## 기본문제4 - 1로 만들기 - 백준 - 그리디로 착각할만한 DP
 <img width="1162" alt="스크린샷 2023-11-02 오전 12 03 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/5cef18bd-7889-4035-b657-6da8d6dcd459">
 
 ```
@@ -122,7 +122,7 @@ print(group)
 ```
 ---
 
-### 기본문제5 fraction knapsack vs 0/1 knapsack
+## 기본문제5 fraction knapsack vs 0/1 knapsack
 ```
 knapsack 배낭 알고리즘
 배낭에 담을 수 있는 n개의 물건이 존재
@@ -140,11 +140,11 @@ fraction knapsack 은 그리디풀이로 무게대비가격(가격/무게)이 �
 
 
 ```
-### fraction knapsack - greedy
+## fraction knapsack - greedy
 <img width="805" alt="스크린샷 2023-10-28 오후 3 04 49" src="https://github.com/briiidgehong/cote-essential/assets/73451727/34a0f117-a6be-4b34-8e27-e7133dd4da9f">
 답: 10.333
 
-### 0/1 knapsack - dp
+## 0/1 knapsack - dp
 <img width="525" alt="스크린샷 2023-11-02 오후 4 00 17" src="https://github.com/briiidgehong/cote-essential/assets/73451727/b97e5bb4-9466-4323-985c-ad0ea5fe4f9a">
 <img width="723" alt="스크린샷 2023-11-02 오후 4 01 04" src="https://github.com/briiidgehong/cote-essential/assets/73451727/7bc6da4d-bf0c-4035-a865-00e43a086ac8">
 <img width="717" alt="스크린샷 2023-11-02 오후 4 01 15" src="https://github.com/briiidgehong/cote-essential/assets/73451727/28f2b198-6c87-4c27-9573-c88c0e76dde0">
