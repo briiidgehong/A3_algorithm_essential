@@ -441,12 +441,28 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 
 ```
 PREVIEW:
+정렬되어있을 경우 사용
+
 시간복잡도:
-핵심코드:
+어떤값 찾을때 O(N) -> O(logN)
+
+핵심코드: *외워놓기
+result = 0
+while start <= end:
+    mid = (start + end) // 2
+    if list[mid] == target:
+        result = mid
+        break
+    elif list[mid] > target:
+        end = mid - 1
+    else:
+        start = mid + 1
 ```
 ---
 
-### 문제
+## 기본문제1 - 백준 1920 - 수 찾기
+```
+```
 ---
 
 </details>
