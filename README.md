@@ -471,6 +471,35 @@ while start <= end:
 
 ## 기본문제1 - 백준 1920 - 수 찾기
 ```
+a_num = int(input())
+a_list = []
+a_list = list(map(int, input().split()))
+a_list.sort()
+
+n = int(input())
+n_list = list(map(int, input().split()))
+
+result_list = []
+for target in n_list:
+    result = -1
+    start = 0
+    end = len(a_list) - 1
+    while start <= end:
+        mid = (start + end) // 2
+        if a_list[mid] == target:
+            result = mid
+            break
+        elif a_list[mid] > target:
+            end = mid - 1
+        else:
+            start = mid + 1
+    if result == -1: 
+        result_list.append(0)
+    else:
+        result_list.append(1)
+        
+for each in result_list:
+    print(each)
 ```
 ---
 
