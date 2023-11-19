@@ -603,16 +603,86 @@ PREVIEW:
     
     그래프 탐색 종류:
     BFS - 너비우선탐색 - queue 
-    DFS - 깊이우선탐색 - stack or 재귀
+    DFS - 깊이우선탐색 - 재귀(백트래킹에 유용)
 
     단순 그래프 탐색이 필요한 경우에는 BFS로 풀고,
-    백트래킹이 필요한 경우에는 DFS - 재귀로 푼다.
+    백트래킹이 필요한 경우에는 DFS+재귀+백트래킹 으로 푼다.
 
 시간복잡도:
     BFS: O(V+E)
     DFS: O(V+E)
 핵심코드:
+
+def DFS_solution(graph):
+    dfs_search_list = []
+    visited = [False] * len(graph) # 각 노드가 방문된 정보
+
+    def dfs(graph, idx, visited):
+        visited[idx] = True  # 현재노드를 방문처리
+        dfs_search_list.append(idx)
+        for sub_idx in graph[idx]:  # 현재노드와 연결된 다른 노드를 재귀적으로 방문
+            if not visited[sub_idx]:
+                dfs(graph, sub_idx, visited)
+    dfs(graph, 1, visited)
+    return dfs_search_list
+
+from collections import deque
+def BFS_solution(graph):
+    dfs_search_list = []
+    visited = [False] * len(graph)
+    queue = deque([1]) 
+    visited[1] = True # 현재 노드를 방문 처리
+    while queue: # 큐가 빌때까지 반복
+        poped = queue.popleft() # 하나의 원소를 뽑는다.
+        dfs_search_list.append(poped)
+        # 아직 방문하지 않은 인접한 원소들을 큐에 삽입
+        for sub_idx in graph[poped]:
+            if not visited[sub_idx]:
+                queue.append(sub_idx)
+                visited[sub_idx] = True
+    return dfs_search_list
+
+# 1~8
+array = [[1, 2], [1, 3], [1, 8], [2, 7], [3, 4], [3, 5], [4, 5], [6, 7], [7, 8]]
+grpah = [
+    [],
+    [2, 3, 8],
+    [1, 7],
+    [1, 4, 5],
+    [3, 5],
+    [3, 4],
+    [7],
+    [2, 6, 8],
+    [1, 7],
+]
+
+# grapn 만들기
+graph = []
+temp_list = []
+for each in array:
+    temp_list.append(each[0])
+    temp_list.append(each[1])
+max_num = max(temp_list)  # 8
+
+for each in range(0, max_num + 1):
+    graph.append([])
+for each in array:
+    graph[each[0]].append(each[1])
+    graph[each[1]].append(each[0])
+for idx, each in enumerate(graph):
+    if each is not None:
+        graph[idx] = sorted(each)
+
+print(DFS_solution(grpah))  # 12768345
+print(BFS_solution(graph))  # 12387456
+
+from itertools import product
+product_list = list(product(*case_list))
 ```
+
+<img width="921" alt="스크린샷 2023-07-19 오후 12 06 50" src="https://github.com/briiidgehong/cote/assets/73451727/9beb58cd-9a1f-473d-89f9-539d4d4c3f31">
+<img width="917" alt="스크린샷 2023-07-19 오후 12 07 17" src="https://github.com/briiidgehong/cote/assets/73451727/5a3c4bdc-a472-4dd2-b11d-3f681ea07161">
+
 ---
 
 ### 문제
