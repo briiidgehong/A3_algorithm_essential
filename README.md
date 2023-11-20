@@ -652,33 +652,8 @@ def DFS_solution(graph):
     return dfs_search_list
 ```
 ---
-## 기본문제3 - 백준 15649 N과M - 백트래킹
-```
-N, M = map(int, input().split())
-result = []
-visited = [False] * (N+1)
 
-def recur(num):
-    if num == M:
-        print(' '.join(map(str, rs))
-        return
-    for idx in range(1, N+1):
-        if visited[idx] == False:
-            visited[idx] = True
-            result.append(idx)
-            recur(num+1)
-            visited[idx] = False
-            result.pop()
-recur(0)
-```
----
-## 기본문제4 - 폰 키패드
-```
-
-```
----
-
-## 기본문제5 - 이코테 음료수 얼려먹기 - BFS/DFS
+## 기본문제3 - 이코테 음료수 얼려먹기 - BFS/DFS
 
 ```
 from collections import deque
@@ -743,9 +718,34 @@ array = [[0, 0, 1, 1, 0], [0, 0, 0, 1, 1], [1, 1, 1, 1, 1], [0, 0, 0, 0, 0]]
 print(solution(array))  # 3
 ```
 ---
-## 기본문제5 - 이코테 미로탈출 / 프로그래머스 게임 맵 최단거리 - BFS/DFS 
+## 기본문제4 - 이코테 미로탈출 / 프로그래머스 게임 맵 최단거리 - BFS/DFS 
 ---
 
+## 기본문제5 - 백준 15649 N과M - 백트래킹
+```
+N, M = map(int, input().split())
+result = []
+visited = [False] * (N+1)
+
+def recur(num):
+    if num == M:
+        print(' '.join(map(str, rs))
+        return
+    for idx in range(1, N+1):
+        if visited[idx] == False:
+            visited[idx] = True
+            result.append(idx)
+            recur(num+1)
+            visited[idx] = False
+            result.pop()
+recur(0)
+```
+---
+## 기본문제6 - 릿트코드 17 Letter Combinations of a Phone Number - 백트래킹
+```
+
+```
+---
 
 </details>
 
