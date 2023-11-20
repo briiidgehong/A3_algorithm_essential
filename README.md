@@ -593,26 +593,32 @@ PREVIEW:
     DFS - 깊이우선탐색 - 재귀(백트래킹에 유용)
 
     단순 그래프 탐색이 필요한 경우에는 BFS로 풀고,
-    백트래킹이 필요한 경우에는 DFS+재귀+백트래킹 으로 푼다.
+    백트래킹이 필요한 경우에는 "DFS+재귀+백트래킹" 으로 푼다.
+
+    백트래킹:
+    모든 경우의 수를 확인해야 할때
+    for로는 확인 불가한 경우(깊이가 가변적으로 달라질때)
+
+    *재귀함수 사용시, 종료시점 잊지말기
 
 시간복잡도:
     BFS: O(V+E)
     DFS: O(V+E)
-핵심코드:
+    BACKTRACKING:
+        중복 가능 - O(N^N) 1~2초 기준, 보통 8정도까지 가능
+        중복 불가능 - O(N!) 1~2초 기준, 보통 10정도까지 가능
 
-def DFS_solution(graph):
-    dfs_search_list = []
-    visited = [False] * len(graph) # 각 노드가 방문된 정보
+핵심코드 - 기본문제 대체
 
-    def dfs(graph, idx, visited):
-        visited[idx] = True  # 현재노드를 방문처리
-        dfs_search_list.append(idx)
-        for sub_idx in graph[idx]:  # 현재노드와 연결된 다른 노드를 재귀적으로 방문
-            if not visited[sub_idx]:
-                dfs(graph, sub_idx, visited)
-    dfs(graph, 1, visited)
-    return dfs_search_list
+```
 
+<img width="921" alt="스크린샷 2023-07-19 오후 12 06 50" src="https://github.com/briiidgehong/cote/assets/73451727/9beb58cd-9a1f-473d-89f9-539d4d4c3f31">
+<img width="917" alt="스크린샷 2023-07-19 오후 12 07 17" src="https://github.com/briiidgehong/cote/assets/73451727/5a3c4bdc-a472-4dd2-b11d-3f681ea07161">
+
+---
+
+## 기본문제1 - 백준 1926 - BFS
+```
 from collections import deque
 def BFS_solution(graph):
     dfs_search_list = []
@@ -628,57 +634,51 @@ def BFS_solution(graph):
                 queue.append(sub_idx)
                 visited[sub_idx] = True
     return dfs_search_list
-
-# 1~8
-array = [[1, 2], [1, 3], [1, 8], [2, 7], [3, 4], [3, 5], [4, 5], [6, 7], [7, 8]]
-grpah = [
-    [],
-    [2, 3, 8],
-    [1, 7],
-    [1, 4, 5],
-    [3, 5],
-    [3, 4],
-    [7],
-    [2, 6, 8],
-    [1, 7],
-]
-
-# grapn 만들기
-graph = []
-temp_list = []
-for each in array:
-    temp_list.append(each[0])
-    temp_list.append(each[1])
-max_num = max(temp_list)  # 8
-
-for each in range(0, max_num + 1):
-    graph.append([])
-for each in array:
-    graph[each[0]].append(each[1])
-    graph[each[1]].append(each[0])
-for idx, each in enumerate(graph):
-    if each is not None:
-        graph[idx] = sorted(each)
-
-print(DFS_solution(grpah))  # 12768345
-print(BFS_solution(graph))  # 12387456
-
-from itertools import product
-product_list = list(product(*case_list))
 ```
-
-<img width="921" alt="스크린샷 2023-07-19 오후 12 06 50" src="https://github.com/briiidgehong/cote/assets/73451727/9beb58cd-9a1f-473d-89f9-539d4d4c3f31">
-<img width="917" alt="스크린샷 2023-07-19 오후 12 07 17" src="https://github.com/briiidgehong/cote/assets/73451727/5a3c4bdc-a472-4dd2-b11d-3f681ea07161">
-
----
-
-## 기본문제1 - 백준 1926 - BFS
 ---
 ## 기본문제2 - 백준 2667 그림 - DFS
+```
+def DFS_solution(graph):
+    dfs_search_list = []
+    visited = [False] * len(graph) # 각 노드가 방문된 정보
+
+    def dfs(graph, idx, visited):
+        visited[idx] = True  # 현재노드를 방문처리
+        dfs_search_list.append(idx)
+        for sub_idx in graph[idx]:  # 현재노드와 연결된 다른 노드를 재귀적으로 방문
+            if not visited[sub_idx]:
+                dfs(graph, sub_idx, visited)
+    dfs(graph, 1, visited)
+    return dfs_search_list
+```
 ---
 ## 기본문제3 - 백준 15649 N과M - 백트래킹
+```
+N, M = map(int, input().split())
+result = []
+visited = [False] * (N+1)
+
+def recur(num):
+    if num == M:
+        print(' '.join(map(str, rs))
+        return
+    for idx in range(1, N+1):
+        if visited[idx] == False:
+            visited[idx] = True
+            result.append(idx)
+            recur(num+1)
+            visited[idx] = False
+            result.pop()
+recur(0)
+```
 ---
-## 기본문제4 - 이코테 음료수 얼려먹기 - BFS/DFS
+## 기본문제4 - 폰 키패드
+```
+
+```
+---
+
+## 기본문제5 - 이코테 음료수 얼려먹기 - BFS/DFS
 
 ```
 from collections import deque
