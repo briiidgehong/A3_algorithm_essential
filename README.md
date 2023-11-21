@@ -618,9 +618,13 @@ PREVIEW:
 
 ---
 
-## 기본문제1 - 백준 1926 그림 - BFS / (DFS)
+## 기본유형1 - 백준 1926 그림  - BFS / (DFS)
+##         = 백준 2667 단지 번호붙이기 
+##         = 이코테 음료수 얼려먹기
+
 ```
 """
+# 백준 1926
 아이디어:
 2중 for문으로 각 노드에서 출발해봄
 각 노드에서 "BFS" 하나씩 실행
@@ -691,9 +695,9 @@ else:
 print(max_paint_size)  # 9
 
 ```
----
-## 기본문제2 - 백준 2667 단지 번호붙이기 - BFS / (DFS)
+
 ```
+# 백준 2667
 """
 아이디어:
 2중 for문으로 각 노드에서 출발
@@ -767,72 +771,46 @@ for each in size_list:
 ```
 ---
 
-## 기본문제3 - 이코테 음료수 얼려먹기 - BFS/DFS
+## 기본유형2 - 프로그래머스 게임 맵 최단거리 - BFS / (DFS) - 흐르는 알고리즘
+##         = 이코테 미로탈출
 
 ```
+"""
+아이디어:
+bfs로 전체탐색
+최소값갱신(원래값, 이전값 + 1 = 새로운 노드에 들어가는 값)
+맨 마지막값 리턴
+
+자료구조:
+bfs - queue
+visited 필요없지... 1인것만 가면 되니까
+move
+"""
+
 from collections import deque
-def solution(array):
-    x_num = len(array[0])
-    y_num = len(array)
 
-    # [x,y] 상/하/좌/우
-    move = [[0, -1], [0, 1], [-1, 0], [1, 0]]
+def solution(maps):
+    y_num = len(maps)
+    x_num = len(maps[0])
+    move = [[-1, 0], [1, 0], [0, -1], [0, 1]]  # 상 하 좌 우
 
-    # visited[y][x]
-    visited = [[False for _ in range(x_num)] for _ in range(y_num)]
+    queue = deque()
+    queue.append((0, 0))
+    while queue:
+        poped_y, poped_x = queue.popleft()
+        for each in move:
+            moved_y = poped_y + each[0]
+            moved_x = poped_x + each[1]
+            if (moved_y >= 0 and moved_x>= 0) and (moved_y < y_num and moved_x < x_num):
+                if maps[moved_y][moved_x] == 1:
+                    queue.append((moved_y, moved_x))
+                    maps[moved_y][moved_x] = maps[poped_y][poped_x] + 1
 
-    def dfs(dfs_x, dfs_y):
-        for move_x, move_y in move:
-            new_x = dfs_x + move_x
-            new_y = dfs_y + move_y
-
-            if (
-                new_x >= 0 and new_y >= 0 and new_x <= x_num - 1 and new_y <= y_num - 1
-            ):  # 바깥으로 나가지 않고
-                if array[new_y][new_x] != 1:  # 벽이 아니고
-                    if visited[new_y][new_x] == False:  # 방문한 적이 없으면
-                        visited[new_y][new_x] = True  # 방문
-                        dfs(new_x, new_y)
-
-    # 모든 지점에서 출발해본다.
-    count = 0
-    for idx_y in range(y_num):
-        for idx_x in range(x_num):
-
-            # # BFS
-            # if visited[idx_y][idx_x] == False and array[idx_y][idx_x] != 1:
-            #     count += 1
-            #     queue = deque([(idx_x, idx_y)])  # [x,y]
-            #     visited[idx_y][idx_x] = True
-            #     while queue:
-            #         poped_x, poped_y = queue.popleft()
-            #         for move_x, move_y in move:
-            #             new_x = poped_x + move_x
-            #             new_y = poped_y + move_y
-
-            #             if (
-            #                 new_x >= 0
-            #                 and new_y >= 0
-            #                 and new_x <= x_num - 1
-            #                 and new_y <= y_num - 1
-            #             ):  # 바깥으로 나가지 않고
-            #                 if array[new_y][new_x] != 1:  # 벽이 아니고
-            #                     if visited[new_y][new_x] == False:  # 방문한 적이 없으면
-            #                         visited[new_y][new_x] = True  # 방문
-            #                         queue.append((new_x, new_y))
-
-            # DFS
-            if visited[idx_y][idx_x] == False and array[idx_y][idx_x] != 1:
-                count += 1
-                visited[idx_y][idx_x] = True
-                dfs(idx_x, idx_y)
-    return count
-
-array = [[0, 0, 1, 1, 0], [0, 0, 0, 1, 1], [1, 1, 1, 1, 1], [0, 0, 0, 0, 0]]
-print(solution(array))  # 3
+    if maps[-1][-1] == 1:
+        return -1
+    else:
+        return maps[-1][-1]
 ```
----
-## 기본문제4 - 이코테 미로탈출 / 프로그래머스 게임 맵 최단거리 - BFS/DFS 
 ---
 
 ## 기본문제5 - 백준 15649 N과M - 백트래킹
