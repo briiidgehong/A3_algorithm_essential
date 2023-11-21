@@ -618,23 +618,78 @@ PREVIEW:
 
 ---
 
-## 기본문제1 - 백준 1926 - BFS
+## 기본문제1 - 백준 1926 그림 - BFS
 ```
+"""
+아이디어:
+2중 for문으로 각 노드에서 출발해봄
+각 노드에서 "BFS" 하나씩 실행
+그림갯수 및 그림의 크기 count
+
+상하좌우는 move list 사용
+"""
+
 from collections import deque
-def BFS_solution(graph):
-    dfs_search_list = []
-    visited = [False] * len(graph)
-    queue = deque([1]) 
-    visited[1] = True # 현재 노드를 방문 처리
-    while queue: # 큐가 빌때까지 반복
-        poped = queue.popleft() # 하나의 원소를 뽑는다.
-        dfs_search_list.append(poped)
-        # 아직 방문하지 않은 인접한 원소들을 큐에 삽입
-        for sub_idx in graph[poped]:
-            if not visited[sub_idx]:
-                queue.append(sub_idx)
-                visited[sub_idx] = True
-    return dfs_search_list
+
+# x_num = 5
+# y_num = 6
+
+# map_list = [
+#     [1, 1, 0, 1, 1],
+#     [0, 1, 1, 0, 0],
+#     [0, 0, 0, 0, 0],
+#     [1, 0, 1, 1, 1],
+#     [0, 0, 1, 1, 1],
+#     [0, 0, 1, 1, 1],
+# ]
+
+y_num, x_num = map(int, input().split())
+map_list = []
+for _ in range(y_num):
+    map_list.append(list(map(int, input().split())))
+
+paint_count = 0
+paint_sise_list = []
+
+visited = [[False for _ in range(x_num)] for _ in range(y_num)]
+move = [[-1, 0], [1, 0], [0, -1], [0, 1]]  # 상/하/좌/우, [y,x]
+
+def bfs(y, x):
+    queue = deque()
+    queue.append((y, x))
+    paint_size = 1
+    while queue:
+        poped_y, poped_x = queue.popleft()
+        for each in move:
+            moved_y = poped_y + each[0]
+            moved_x = poped_x + each[1]
+            if (moved_y < 0 or moved_x < 0) or (moved_y >= y_num or moved_x >= x_num):
+                continue
+            else:
+                if (
+                    visited[moved_y][moved_x] == False
+                    and map_list[moved_y][moved_x] == 1
+                ):
+                    visited[moved_y][moved_x] = True
+                    queue.append((moved_y, moved_x))
+                    paint_size += 1
+    return paint_size
+
+for idx_y in range(y_num):
+    for idx_x in range(x_num):
+        if visited[idx_y][idx_x] == False and map_list[idx_y][idx_x] == 1:
+            paint_count += 1
+            visited[idx_y][idx_x] = True
+            paint_size = bfs(idx_y, idx_x)
+            paint_sise_list.append(paint_size)
+
+print(paint_count)  # 4
+if len(paint_sise_list) > 0:
+    max_paint_size = max(paint_sise_list)
+else:
+    max_paint_size = 0
+print(max_paint_size)  # 9
+
 ```
 ---
 ## 기본문제2 - 백준 2667 그림 - DFS
