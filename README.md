@@ -774,6 +774,8 @@ for each in size_list:
 ## 기본유형2 - 프로그래머스 게임 맵 최단거리 - BFS / (DFS) - 흐르는 알고리즘
 ##         = 이코테 미로탈출
 
+<img width="1122" alt="스크린샷 2023-11-21 오후 11 24 13" src="https://github.com/briiidgehong/cote-essential/assets/73451727/1e5a2701-c5c6-4bd8-a919-a0fa3c3efe05">
+
 ```
 """
 아이디어:
