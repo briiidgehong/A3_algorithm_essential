@@ -618,7 +618,7 @@ PREVIEW:
 
 ---
 
-## 기본문제1 - 백준 1926 그림 - BFS
+## 기본문제1 - 백준 1926 그림 - BFS / (DFS)
 ```
 """
 아이디어:
@@ -692,7 +692,7 @@ print(max_paint_size)  # 9
 
 ```
 ---
-## 기본문제2 - 백준 2667 그림 - DFS
+## 기본문제2 - 백준 2667 단지 번호붙이기 - BFS / (DFS)
 ```
 def DFS_solution(graph):
     dfs_search_list = []
