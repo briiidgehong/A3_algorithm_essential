@@ -694,18 +694,76 @@ print(max_paint_size)  # 9
 ---
 ## 기본문제2 - 백준 2667 단지 번호붙이기 - BFS / (DFS)
 ```
-def DFS_solution(graph):
-    dfs_search_list = []
-    visited = [False] * len(graph) # 각 노드가 방문된 정보
+"""
+아이디어:
+2중 for문으로 각 노드에서 출발
+각 노드에서 bfs 돌려서
+count / size_list에 추가
 
-    def dfs(graph, idx, visited):
-        visited[idx] = True  # 현재노드를 방문처리
-        dfs_search_list.append(idx)
-        for sub_idx in graph[idx]:  # 현재노드와 연결된 다른 노드를 재귀적으로 방문
-            if not visited[sub_idx]:
-                dfs(graph, sub_idx, visited)
-    dfs(graph, 1, visited)
-    return dfs_search_list
+자료구조
+queue
+move
+map_list
+visited
+"""
+
+from collections import deque
+# n_num = 7
+# map_list = [
+#     [0, 1, 1, 0, 1, 0, 0],
+#     [0, 1, 1, 0, 1, 0, 1],
+#     [1, 1, 1, 0, 1, 0, 1],
+#     [0, 0, 0, 0, 1, 1, 1],
+#     [0, 1, 0, 0, 0, 0, 0],
+#     [0, 1, 1, 1, 1, 1, 0],
+#     [0, 1, 1, 1, 0, 0, 0],
+# ]
+
+n_num = int(input())
+map_list = []
+for _ in range(n_num):
+    input_str = input()
+    map_list.append(list(int(each) for each in input_str))
+
+visited = [[False for _ in range(n_num)] for _ in range(n_num)]
+move = [[-1, 0], [1, 0], [0, -1], [0, 1]]  # 상 하 좌 우
+
+size_list = []
+count = 0
+
+def bfs(y, x):
+    queue = deque()
+    queue.append((y, x))
+    size = 1
+    while queue:
+        poped_y, poped_x = queue.popleft()
+        for each in move:
+            moved_y = poped_y + each[0]
+            moved_x = poped_x + each[1]
+            if (moved_y >= 0 and moved_x >= 0) and (
+                moved_y < n_num and moved_x < n_num
+            ):
+                if (
+                    visited[moved_y][moved_x] == False
+                    and map_list[moved_y][moved_x] == 1
+                ):
+                    queue.append((moved_y, moved_x))
+                    visited[moved_y][moved_x] = True
+                    size += 1
+    return size
+
+for idx_y in range(n_num):
+    for idx_x in range(n_num):
+        if visited[idx_y][idx_x] == False and map_list[idx_y][idx_x] == 1:
+            count += 1
+            visited[idx_y][idx_x] = True
+            size = bfs(idx_y, idx_x)
+            size_list.append(size)
+print(count)
+size_list.sort()
+for each in size_list:
+    print(each)
+
 ```
 ---
 
