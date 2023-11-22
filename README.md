@@ -618,7 +618,7 @@ PREVIEW:
 
 ---
 
-## 기본유형1 - 백준 1926 그림  - BFS / (DFS)
+## 기본문제1 - 백준 1926 그림  - BFS / (DFS)
 ##         = 백준 2667 단지 번호붙이기 
 ##         = 이코테 음료수 얼려먹기
 
@@ -771,7 +771,7 @@ for each in size_list:
 ```
 ---
 
-## 기본유형2 - 프로그래머스 게임 맵 최단거리 - BFS / (DFS) - 흐르는 알고리즘
+## 기본문제2 - 프로그래머스 게임 맵 최단거리 - BFS / (DFS) - 흐르는 알고리즘
 ##         = 이코테 미로탈출
 
 <img width="1122" alt="스크린샷 2023-11-21 오후 11 24 13" src="https://github.com/briiidgehong/cote-essential/assets/73451727/1e5a2701-c5c6-4bd8-a919-a0fa3c3efe05">
@@ -815,7 +815,23 @@ def solution(maps):
 ```
 ---
 
-## 기본문제5 - 백준 15649 N과M - 백트래킹
+## 기본문제3 - 백준 1260 DFS와 BFS - BFS / (DFS)
+##         = 프로그래머스 여행경로
+```
+# 백준 1260
+# 그래프(노드+간선) BFS
+
+
+```
+
+```
+# 프로그래머스 여행경로
+# 그래프(노드+간선) BFS
+
+```
+---
+
+## 기본문제4 - 백준 15649 N과M - 백트래킹
 ```
 N, M = map(int, input().split())
 result = []
@@ -835,7 +851,14 @@ def recur(num):
 recur(0)
 ```
 ---
-## 기본문제6 - 릿트코드 17 Letter Combinations of a Phone Number - 백트래킹
+
+## 기본문제5 - 릿트코드 17 Letter Combinations of a Phone Number - 백트래킹
+```
+
+```
+---
+
+## 기본문제6 - 백준 9663 N Queen - 백트래킹
 ```
 
 ```
