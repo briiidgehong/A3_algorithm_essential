@@ -834,22 +834,44 @@ def solution(maps):
 
 ## 기본문제4 - 백준 15649 N과M - 백트래킹
 ```
-N, M = map(int, input().split())
-result = []
-visited = [False] * (N+1)
+"""
+아이디어:
+수열을 모두 구하는 프로그램 (중복X)
+모든 경우의 수, 트리 -> 백트래킹
 
-def recur(num):
-    if num == M:
-        print(' '.join(map(str, rs))
+
+자료구조:
+num_list = []
+visited
+
+"""
+
+import copy
+
+N, M = map(int, input().split())
+visited = [False] * (N+1)
+num_list = []
+
+result_list = []
+def recur(index):
+    if index == M:
+        result = copy.deepcopy(num_list)
+        result_list.append(result)
         return
-    for idx in range(1, N+1):
-        if visited[idx] == False:
-            visited[idx] = True
-            result.append(idx)
-            recur(num+1)
-            visited[idx] = False
-            result.pop()
+    for num in range(1, N+1):
+        if visited[num] == False:
+            visited[num] = True
+            num_list.append(num)
+            recur(index+1)
+            visited[num] = False
+            num_list.pop()
+            
 recur(0)
+
+for result in result_list:
+    for each in result:
+        print(each, end=" ")
+    print("")
 ```
 ---
 
