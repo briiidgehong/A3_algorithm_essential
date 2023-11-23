@@ -875,9 +875,41 @@ for result in result_list:
 ```
 ---
 
-## 기본문제5 - 릿트코드 17 Letter Combinations of a Phone Number - 백트래킹
+## 기본문제5 - 릿트코드  Letter Combinations of a Phone Number - 백트래킹
 ```
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        key_map = {
+            2: ["a","b","c"],
+            3: ["d","e","f"],
+            4: ["g","h","i"],
+            5: ["j","k","l"],
+            6: ["m","n","o"],
+            7: ["p","q","r","s"],
+            8: ["t","u","v"],
+            9: ["w","x","y","z"],
+        }
 
+        import copy
+
+        input_list = list(digits)
+        char_list = []
+        if len(input_list) == 0:
+            return []
+        result_list = []
+        def recur(index):
+            if index == len(input_list):
+                result = copy.deepcopy(''.join(char_list))
+                result_list.append(result)
+                return
+            
+            for string in key_map[int(input_list[index])]:
+                char_list.append(string)
+                recur(index+1)
+                char_list.pop()
+        recur(0)
+        
+        return result_list
 ```
 ---
 
