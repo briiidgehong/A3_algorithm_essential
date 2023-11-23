@@ -616,6 +616,7 @@ PREVIEW:
 
 <img width="921" alt="스크린샷 2023-07-19 오후 12 06 50" src="https://github.com/briiidgehong/cote/assets/73451727/9beb58cd-9a1f-473d-89f9-539d4d4c3f31">
 <img width="917" alt="스크린샷 2023-07-19 오후 12 07 17" src="https://github.com/briiidgehong/cote/assets/73451727/5a3c4bdc-a472-4dd2-b11d-3f681ea07161">
+<img width="1002" alt="스크린샷 2023-11-23 오후 10 24 13" src="https://github.com/briiidgehong/cote-essential/assets/73451727/9b2aa79d-2a5a-4ad5-82b5-a5b0cf782f6b">
 
 ---
 
