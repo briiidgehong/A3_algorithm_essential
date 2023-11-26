@@ -916,6 +916,67 @@ class Solution:
 
 ## 기본문제6 - 백준 9663 N Queen - 백트래킹
 ```
+# pypi 로 돌려야 시간초과 통과
+# N-Queens 문제:
+# N x N 체스보드에 N개의 퀸을 배치하는 문제
+# 같은 행 / 열 / 대각선에는 다른 퀸을 놓을 수 없다.
+
+"""
+아이디어:
+트리로 구조화 가능, 모든 경우의 수 -> 백트래킹
+
+idx_y: 0 -> 퀸이 하나 (경우의수 N가지)
+idx_y: 1 -> 퀸이 하나 (경우의수 N가지)
+idx_y: 2 -> 퀸이 하나 (경우의수 N가지)
+'''
+idx_y: N-1 -> 퀸이 하나 (경우의수 N가지)
+
+모든 경우의수는 N^N 이지만, 가지치기(=pruning)가 가능:
+유망한(=promising) 한 노드만 방문해서 가므로, 모든 탐색 없이 효과적으로 경우의 수를 구할 수 있다.
+
+가로 / 세로 / 대각선 체크 필요함
+가로는 하나만 선택을 가정하므로 체크 안해도됨
+세로 체크는 기존의 퀸이 속한 idx_x 를 담는 리스트 하나로 체크
+
+대각선 체크는 기존퀸(x,y) 새로 놓일 promising 퀸(x',y'라 했을때,
+|x-x'| = |y-y'| 이면 promising 하지 못한것으로 체크하면 된다.
+
+자료구조:
+dfs / 재귀 -> 백트래킹
+세로 체크하는 리스트
+기존 퀸의 위치를 체크하는 리스트
+
+"""
+
+N = int(input())
+
+sero_list = [] # idx_x
+queen_list = [] # [idx_y, idx_x]
+
+result_count = 0
+def dfs_recur(idx_y):
+    global result_count
+    if idx_y == N:
+        result_count += 1
+        return
+    
+    for idx_x in range(N):
+        # promising
+        if idx_x not in sero_list:
+            promising_flag = True
+            for queen in queen_list:
+                if abs(queen[0] - idx_y) == abs(queen[1] - idx_x):
+                    promising_flag = False
+                    break
+            if promising_flag:
+                queen_list.append([idx_y, idx_x])
+                sero_list.append(idx_x)
+                dfs_recur(idx_y+1)
+                queen_list.pop()
+                sero_list.pop()
+
+dfs_recur(0)
+print(result_count)
 
 ```
 ---
