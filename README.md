@@ -983,6 +983,46 @@ print(result_count)
 
 ## 기본문제7 - 백준 1182 부분수열의 합 - 백트래킹
 ```
+# 부분수열이 중복되도 상관없는 모든 경우의 수
+# "크기가 양수인 부분수열 중에서" -> 원소를 적어도 하나를 포함해야함
+"""
+아이디어:
+트리 / 모든경우의 수 -> 백트래킹
+def_recur(index)
+
+매순간 주어진 리스트의 특정 index를 수열에 
+추가하는경우
+추가하지 않는 경우 나눔
+
+자료구조:
+num_list = []
+visited = []
+
+"""
+N, S = map(int, input().split())
+N_list = list(map(int, input().split()))
+visited_list = []
+result_count = 0
+
+
+def dfs_recur(index):
+    global result_count
+
+    if index == N:
+        if sum(visited_list) == S and len(visited_list) > 0:
+            result_count += 1
+        return
+
+    # 해당 인덱스의 숫자를 포함하지 않는 경우
+    dfs_recur(index+1)
+    
+    # 해당 인덱스의 숫자를 포함하는 경우
+    visited_list.append(N_list[index])
+    dfs_recur(index+1)
+    visited_list.pop()
+    
+dfs_recur(0)
+print(result_count)
 
 ```
 
