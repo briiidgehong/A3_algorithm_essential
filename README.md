@@ -854,7 +854,7 @@ visited = [False] * (N+1)
 num_list = []
 
 result_list = []
-def recur(index):
+def dfs_recur(index):
     if index == M:
         result = copy.deepcopy(num_list)
         result_list.append(result)
@@ -898,7 +898,7 @@ class Solution:
         if len(input_list) == 0:
             return []
         result_list = []
-        def recur(index):
+        def dfs_recur(index):
             if index == len(input_list):
                 result = copy.deepcopy(''.join(char_list))
                 result_list.append(result)
