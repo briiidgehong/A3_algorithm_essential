@@ -1004,7 +1004,6 @@ N_list = list(map(int, input().split()))
 visited_list = []
 result_count = 0
 
-
 def dfs_recur(index):
     global result_count
 
@@ -1093,7 +1092,6 @@ num_list # 수열 리스트
 """
 
 N, M = map(int,input().split())
-visited = [False] * (N+1)
 num_list = []
 
 def dfs_recur(index):
@@ -1105,17 +1103,13 @@ def dfs_recur(index):
         return
     for num in range(1, N+1):
         if len(num_list) == 0:
-            visited[num] = True
             num_list.append(num)
             dfs_recur(index+1)
-            visited[num] = False
             num_list.pop()                   
         else:
             if num_list[-1] <= num:                
-                visited[num] = True
                 num_list.append(num)
                 dfs_recur(index+1)
-                visited[num] = False
                 num_list.pop()                  
 dfs_recur(0)
 ```
@@ -1133,7 +1127,6 @@ num_list # 수열 리스트
 """
 
 N, M = map(int,input().split())
-visited = [False] * (N+1)
 num_list = []
 
 def dfs_recur(index):
@@ -1144,14 +1137,49 @@ def dfs_recur(index):
         print()
         return
     for num in range(1, N+1):
-        visited[num] = True
         num_list.append(num)
         dfs_recur(index+1)
-        visited[num] = False
         num_list.pop()                  
 dfs_recur(0)
 ```
+---
 
+## 기본문제10 - 백준 N과 M (5) - 백트래킹
+```
+"""
+아이디어:
+모든 경우의 수 / 트리 -> 백트래킹
+중복 허용 X
+
+자료구조:
+result_list # 결과값 리스트
+num_list # 수열 리스트
+"""
+
+N, M = map(int,input().split())
+N_list = list(map(int, input().split()))
+N_list.sort()
+
+visited = [False] * 10000
+num_list = []
+
+def dfs_recur(index):
+    global result_list
+    if index == M:
+        for each in num_list:
+            print(each, end=" ")
+        print()
+        return
+    for num in N_list:
+        if visited[num] == False:
+            visited[num] = True
+            num_list.append(num)
+            dfs_recur(index+1)
+            visited[num] = False
+            num_list.pop()                                  
+dfs_recur(0)
+```
+---
 </details>
 
 <details>
