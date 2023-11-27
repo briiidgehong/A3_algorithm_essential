@@ -1185,6 +1185,18 @@ dfs_recur(0)
 <details>
 <summary> 최단거리(다익스트라, 플로이드 와샬) </summary>
 
+## 기본문제1 - 이코테 전보 
+```
+
+```
+---
+
+## 기본문제2 - 이코테 미래도시 
+```
+
+```
+---
+
 ### 문제 - 다익스트라
 ---
 <img width="766" alt="스크린샷 2023-10-28 오후 2 48 17" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2e359361-dd0f-43fe-b13f-c15ad9d18c12">
