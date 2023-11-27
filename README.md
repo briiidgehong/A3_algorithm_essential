@@ -1028,7 +1028,55 @@ print(result_count)
 
 ## 기본문제8 - 백준 15650 N과 M (2) - 백트래킹
 ```
+# 1부터 N까지 자연수 중에서 중복 없이 M개를 고른 수열
+# 고른 수열은 오름차순이어야 한다.
 
+"""
+아이디어:
+모든 경우의 수 / 트리 -> 백트래킹
+중복X
+
+promising 은 오름차순
+
+자료구조:
+visited
+result_list # 결과값 리스트
+num_list # 수열 리스트
+
+"""
+
+import copy
+N, M = map(int,input().split())
+visited = [False] * (N+1)
+result_list = []
+num_list = []
+
+def dfs_recur(index):
+    global result_list
+    if index == M:
+        result = copy.deepcopy(num_list)
+        result_list.append(result)        
+        return
+    for num in range(1, N+1):
+        if visited[num] == False:
+            if len(num_list) == 0:
+                visited[num] = True
+                num_list.append(num)
+                dfs_recur(index+1)
+                visited[num] = False
+                num_list.pop()                  
+            else:
+                if num_list[-1] < num:
+                    visited[num] = True
+                    num_list.append(num)
+                    dfs_recur(index+1)
+                    visited[num] = False
+                    num_list.pop()       
+dfs_recur(0)
+for each in result_list:
+    for sub_each in each:
+        print(sub_each, end=" ")
+    print()
 ```
 
 ## 기본문제9 - 백준 15651 N과 M (3) - 백트래킹
