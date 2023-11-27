@@ -1081,7 +1081,34 @@ for each in result_list:
 
 ## 기본문제9 - 백준 15651 N과 M (3) - 백트래킹
 ```
+"""
+아이디어:
+모든 경우의 수 / 트리 -> 백트래킹
+중복 허용
 
+자료구조:
+result_list # 결과값 리스트
+num_list # 수열 리스트
+"""
+
+N, M = map(int,input().split())
+visited = [False] * (N+1)
+num_list = []
+
+def dfs_recur(index):
+    global result_list
+    if index == M:
+        for each in num_list:
+            print(each, end=" ")
+        print()
+        return
+    for num in range(1, N+1):
+        visited[num] = True
+        num_list.append(num)
+        dfs_recur(index+1)
+        visited[num] = False
+        num_list.pop()                  
+dfs_recur(0)
 ```
 
 </details>
