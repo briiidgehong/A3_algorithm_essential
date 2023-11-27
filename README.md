@@ -1197,6 +1197,10 @@ dfs_recur(0)
 ```
 ---
 
+```
+1753 / 1916
+```
+
 ### 문제 - 다익스트라
 ---
 <img width="766" alt="스크린샷 2023-10-28 오후 2 48 17" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2e359361-dd0f-43fe-b13f-c15ad9d18c12">
