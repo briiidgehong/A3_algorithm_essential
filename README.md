@@ -1339,6 +1339,60 @@ for a in range(1, n + 1):
 ```
 # 힙(=우선순위큐) 을 이용한 다익스트라의 구현
 
+"""
+아이디어:
+노드, 간선, 가중치 -> 최단경로
+우선순위 큐를 이용한 다익스트라 알고리즘
+
+1. 최단거리 테이블을 초기화 
+    출발노드는 자기자신이므로 0, 나머지는 INF
+2. 우선순위큐(=힙) 선언 및 출발노드 삽입 (거리, 노드)
+3. 우선순위큐에서 최단거리인 원소를 pop 하면서, 해당 원소를 방문처리 처리
+4. 해당 원소와 연결된 원소들을 큐에 넣으면서 최단거리 테이블 갱신
+
+자료구조:
+graph
+최단거리테이블(min_table)
+우선순위큐(heap_queue)
+
+"""
+import heapq
+
+# N 노드 / M 간선 / start 출발노드
+N, M, start = map(int, input().split())
+
+graph = [[] for _ in range(N+1)]
+for _ in range(M):
+    x, y, z = map(int, input().split())
+    graph[x].append((y, z)) # x노드에서 y노드까지 가는 비용이 z라는 의미
+
+min_table = [200001] * (N+1)
+heap_queue = []
+
+# 시작노드 heap에 넣고, 최단거리 테이블에 갱신
+heapq.heappush(heap_queue, (0, start)) # (거리, 노드)
+min_table[start] = 0
+
+while heap_queue:
+    # 가장 최단거리가 짧은 노드 pop
+    distance, node = heapq.heappop(heap_queue)
+    if min_table[node] < distance:
+        continue
+    
+    # 현재 노드와 연결된 다른 인접노드 확인
+    for conn_node, conn_node_distance in graph[node]:
+        cost = distance + conn_node_distance
+        # 현재노드를 거쳐, 다른 노드로 이동하는 거리가 더 짧은 경우 갱신
+        if min_table[conn_node] > cost:
+            min_table[conn_node] = cost
+            heapq.heappush(heap_queue, (cost, conn_node))
+
+# 도시 C에서 보낸 메시지를 받는 도시의 총 갯수와 총 걸리는 시간 ?
+city = list(each for each in min_table if each != 200001)
+city_num = len(city) - 1
+city_time = max(city)
+print(city_num, end = " ")
+print(city_time)
 
 ```
 ---
