@@ -1235,7 +1235,7 @@ PREVIEW:
 <img width="699" alt="스크린샷 2023-11-28 오후 2 05 24" src="https://github.com/briiidgehong/cote-essential/assets/73451727/1acc086b-6441-4e4e-8388-d5b550142c40">
 
 ```
-<< min_table이 갱신되었으면 queue에 삽입 >>
+<< min_table이 갱신되면 queue에 삽입 >>
 
 queue
 (0,1) -> pop -> (2,2)갱신O / (5,3)갱신O / (1,4)갱신O
