@@ -1234,6 +1234,27 @@ PREVIEW:
 <img width="848" alt="스크린샷 2023-11-28 오후 2 05 13" src="https://github.com/briiidgehong/cote-essential/assets/73451727/c7e2c991-f70b-4a42-bf42-1df4d07d0949">
 <img width="699" alt="스크린샷 2023-11-28 오후 2 05 24" src="https://github.com/briiidgehong/cote-essential/assets/73451727/1acc086b-6441-4e4e-8388-d5b550142c40">
 
+```
+<< min_table이 갱신되었으면 queue에 삽입 >>
+
+queue
+(0,1) -> pop -> (2,2)갱신O / (5,3)갱신O / (1,4)갱신O
+(1,4) -> pop -> (4,3)갱신O / (2,5)갱신O
+(2,2) -> pop -> (5,3)갱신X / (4,4)갱신X
+(2,5) -> pop -> (4,6)갱신O / (3,3)갱신O
+(3,3) -> pop -> (8,6)갱신X / (6,2)갱신X 
+(4,3) -> pop -> if min_table[3] < 4: continue
+(4,6) -> pop 
+(5,3) -> pop -> if mint_table[3] < 5: continue
+
+min_table
+1 2 3 4 5 6
+I I I I I I
+0 2 5 1 I I
+    4   2 4
+    3
+0 2 3 1 2 4
+```
 
 ```
 import heapq
