@@ -1376,6 +1376,62 @@ print(city_time)
 ## 기본문제 2 - 백준 1238 파티 - 다익스트라
 
 ```
+"""
+아이디어:
+N개의 마을
+X번 마을까지의 최단거리 -> 다익스트라
+바꿔생각하면 start가 X이고 나머지 노드까지의 최단거리를 구하는 다익스트라
+갱신되면 큐에삽입
+
+자료구조:
+다익스트라 구현:
+    우선순위큐(=힙)
+    최단거리 테이블
+    graph
+"""
+
+import heapq
+
+N, M, X = map(int, input().split()) 
+# N: 마을의 갯수(=학생의 수)
+# M: 단방향 간선의 갯수 
+# X: 시작 노드
+if N == 1:
+    print(0)
+else:
+    graph = {} # 시작노드: [(끝노드 , 가중치)]
+    for _ in range(M):
+        start, end, cost = map(int, input().split())
+        if start not in graph.keys():
+            graph[start] = []
+        graph[start].append((end, cost))
+
+    min_dict = {}
+    for idx in range(1, N+1):
+        # << 다른 노드를 거쳐가는게 포함되므로 > (최대값 * N) 은 되어야 함>>
+        min_dict[idx] = [(101*(N+1))] * (N+1)
+        min_dict[idx][0] = 0
+        
+    for start in min_dict.keys():
+        queue = []
+        # start node insert (거리, 노드)
+        heapq.heappush(queue, (0, start))
+        min_dict[start][start] = 0
+
+        while queue:
+            queue_cost, queue_node = heapq.heappop(queue)
+            for end, cost in graph[queue_node]:
+                if min_dict[start][end] < queue_cost+cost:
+                    continue
+                min_dict[start][end] = queue_cost+cost
+                heapq.heappush(queue, ((queue_cost+cost), end))
+
+    result_list = [0] * (N+1)
+    for idx in range(1, N+1):
+        result_list[idx] = min_dict[idx][X] + min_dict[X][idx]
+
+    print(max(result_list))
+
 ```
 ---
 
