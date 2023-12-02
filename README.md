@@ -1462,24 +1462,6 @@ for a in range(1, n + 1):
 1753 / 1916
 ```
 
-### 문제 - 다익스트라
----
-<img width="766" alt="스크린샷 2023-10-28 오후 2 48 17" src="https://github.com/briiidgehong/cote-essential/assets/73451727/2e359361-dd0f-43fe-b13f-c15ad9d18c12">
-<img width="437" alt="스크린샷 2023-10-28 오후 2 49 11" src="https://github.com/briiidgehong/cote-essential/assets/73451727/893d1c3a-612c-4b77-ab79-62967fe5dace">
-<img width="760" alt="스크린샷 2023-10-28 오후 2 49 29" src="https://github.com/briiidgehong/cote-essential/assets/73451727/f6c12dde-9d66-4a51-834f-65b9bd2013d6">
-
-### 문제 - 플로이드 와샬
----
-<img width="789" alt="스크린샷 2023-10-28 오후 2 50 12" src="https://github.com/briiidgehong/cote-essential/assets/73451727/831ff6bb-383f-4127-9146-db5171c62f73">
-<img width="652" alt="스크린샷 2023-10-28 오후 2 50 26" src="https://github.com/briiidgehong/cote-essential/assets/73451727/d2b387af-62b0-4673-9bed-67755efc4bc0">
-
-### 문제 - BFS 활용
----
-<img width="786" alt="스크린샷 2023-10-28 오후 2 59 46" src="https://github.com/briiidgehong/cote-essential/assets/73451727/f6b75549-8fc6-47ea-97cf-5c805b122b64">
-답: 1 4 5 6 7
-
-https://github.com/briiidgehong/cote-essential/assets/73451727/e72568c3-54ea-4046-bfe6-3058c537a35a
-
 </details>
 
 <details>
