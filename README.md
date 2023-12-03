@@ -1382,59 +1382,70 @@ print(city_time)
 ```
 """
 아이디어:
-N개의 마을
-X번 마을까지의 최단거리 -> 다익스트라
-바꿔생각하면 start가 X이고 나머지 노드까지의 최단거리를 구하는 다익스트라
-갱신되면 큐에삽입
+N노드 각각에서 X 까지
+X에서 다시 N노드 각각으로 돌아오는 합이 가장 큰 시간을 구하라
+
+최단거리 사용 -> 다익스트라 or 플로이드 와샬
+시간복잡도 계산 -> 다익스트라 진행
+
+시간복잡도:
+E: 10000
+V: 1000
+
+다익스트라 -> O(ElogV) / E 간선, V 노드 -> 3 * 10000 * 1000
+플로이드 와샬 -> O(V^3) -> 1000 000 000
 
 자료구조:
-다익스트라 구현:
-    우선순위큐(=힙)
-    최단거리 테이블
-    graph
+우선순위큐(=힙) heapq
+최단거리 테이블
+graph
+
 """
 
 import heapq
 
-N, M, X = map(int, input().split()) 
-# N: 마을의 갯수(=학생의 수)
-# M: 단방향 간선의 갯수 
-# X: 시작 노드
-if N == 1:
-    print(0)
-else:
-    graph = {} # 시작노드: [(끝노드 , 가중치)]
-    for _ in range(M):
-        start, end, cost = map(int, input().split())
-        if start not in graph.keys():
-            graph[start] = []
-        graph[start].append((end, cost))
+V, E, start_node = map(int, input().split())
+min_table_dict = {}
+for each in range(1, V+1):
+    min_table_dict[each] = [1000000] * (V+1)
 
-    min_dict = {}
-    for idx in range(1, N+1):
-        # << 다른 노드를 거쳐가는게 포함되므로 > (최대값 * N) 은 되어야 함>>
-        min_dict[idx] = [(101*(N+1))] * (N+1)
-        min_dict[idx][0] = 0
-        
-    for start in min_dict.keys():
-        queue = []
-        # start node insert (거리, 노드)
-        heapq.heappush(queue, (0, start))
-        min_dict[start][start] = 0
+graph = {}
+for _ in range(E):
+    start, end, cost = map(int, input().split())
+    if start not in graph.keys():
+        graph[start] = []    
+    graph[start].append((end, cost))
+    
+def dijkstra(start):
+    # 시작노드를 큐에 삽입 (거리, 노드)
+    queue = []
+    heapq.heappush(queue, (0, start))
+    min_table_dict[start][start] = 0
 
-        while queue:
-            queue_cost, queue_node = heapq.heappop(queue)
-            for end, cost in graph[queue_node]:
-                if min_dict[start][end] < queue_cost+cost:
-                    continue
-                min_dict[start][end] = queue_cost+cost
-                heapq.heappush(queue, ((queue_cost+cost), end))
+    while queue:
+        poped_cost, poped_node = heapq.heappop(queue)
+        for each_node, each_cost in graph[poped_node]:
+            if min_table_dict[start][each_node] < poped_cost+each_cost:
+                continue
+            else: # 갱신 + queue에 삽입
+                min_table_dict[start][each_node] = poped_cost+each_cost
+                heapq.heappush(queue, (poped_cost+each_cost, each_node))
 
-    result_list = [0] * (N+1)
-    for idx in range(1, N+1):
-        result_list[idx] = min_dict[idx][X] + min_dict[X][idx]
+for each in range(1, V+1):
+    dijkstra(each)
 
-    print(max(result_list))
+result_list = [0] * (V+1)
+for idx in range(1, V+1):
+    # 가는거 + 오는거
+    result_list[idx] = min_table_dict[idx][start_node] + min_table_dict[start_node][idx]
+
+print(max(result_list))
+```
+
+```
+# 플로이드 와샬 풀이
+# 시간복잡도는 만족하지 않지만 공부겸해서 풀이해봄
+
 
 ```
 ---
