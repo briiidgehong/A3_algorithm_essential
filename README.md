@@ -1475,6 +1475,61 @@ for a in range(1, n + 1):
 
 ## 기본문제1 - 이코테 미래도시 
 ```
+"""
+아이디어:
+N개의 노드 / 노드끼리 연결된 간선 (양방향, cost는 1로 통일)
+N의 크기가 최대 100으로 충분히 적으므로 플로이드 와샬 써도 괜찮다.
+
+시간복잡도:
+O(V^3) = 100 00 00 백만 < 1억(1초)
+플로이드 와샬 괜찮다.
+
+자료구조:
+플로이드 와샬 점화식
+for k in range(1, N+1)
+    for a in range(1, N+1)
+        for b in range(1, N+1)
+        
+Dab = min(Dab, Dak + Dkb)
+
+graph[start] = [(end, cost), (end, cost)]
+
+"""
+
+# N: 노드 갯수 / M: 간선 갯수
+N, M = map(int, input().split())
+graph = {}
+for idx in range(1, N+1):
+    graph[idx] = [100000] * (N+1)
+
+for _ in range(M):
+    start, end = map(int, input().split())
+    graph[start][end] = 1
+    graph[end][start] = 1
+
+# 자기 자신의 cost는 0으로 초기화
+for idx_x in range(1, N+1):
+    for idx_y in range(1, N+1):
+        if idx_x == idx_y:
+            graph[idx_x][idx_y] = 0
+
+# X: 최종노드 / K: 거쳐갈 노드
+X, K = map(int, input().split())
+
+# 플로이드 와샬 알고리즘 수행
+for k in range(1, N+1):
+    for a in range(1, N+1):
+        for b in range(1, N+1):
+            graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b])
+
+# 결과값 리턴 (1 -> K) + (K -> X)
+cost_1 = graph[1][K]
+cost_2 = graph[K][X]
+
+if cost_1 == 100000 or cost_2 == 100000:
+    print(-1)
+else:
+    print(cost_1+cost_2)
 
 ```
 ---
