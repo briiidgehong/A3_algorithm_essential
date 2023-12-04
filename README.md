@@ -1619,7 +1619,8 @@ Dab = min(Dab, Dak + Dkb)
 N = int(input())
 M = int(input())
 
-min_table_graph = list([10000001]*(N+1) for _ in range(N+1))
+INF = int(1e9)
+min_table_graph = list([INF]*(N+1) for _ in range(N+1))
 
 # 자기자신 이동 0으로 초기화
 for idx_x in range(1, N+1):
@@ -1640,12 +1641,11 @@ for k in range(1, N+1):
 
 for idx_y in range(1, N+1):
     for idx_x in range(1, N+1):
-        if min_table_graph[idx_y][idx_x] == 10000001:
+        if min_table_graph[idx_y][idx_x] == INF:
             print(0, end=" ")
         else:
             print(min_table_graph[idx_y][idx_x], end=" ")
     print("")
-
 ```
 ---
 
