@@ -1596,6 +1596,54 @@ else:
 ## 기본문제2 - 백준 11404 플로이드 - 플로이드 와샬
 
 ```
+"""
+아이디어:
+노드 100 / 간선 100000
+모든 도시의 쌍 -> 플로이드 와샬
+
+시간복잡도:
+O(V^3) -> 100 00 00 < 1억(1초)
+플로이드 와샬 가능
+
+자료구조:
+min_table_graph = [[], [], [] ''']
+
+for k in range(1, N+1):
+    for a in range(1, N+1):
+        for b in range(1, N+1):
+
+Dab = min(Dab, Dak + Dkb)
+"""
+
+N = int(input())
+M = int(input())
+
+min_table_graph = list([10000001]*(N+1) for _ in range(N+1))
+
+# 자기자신 이동 0으로 초기화
+for idx_x in range(1, N+1):
+    for idx_y in range(1, N+1):
+        if idx_x == idx_y:
+            min_table_graph[idx_x][idx_y] = 0
+    
+
+for _ in range(M):
+    start, end, cost = map(int, input().split())
+    min_table_graph[start][end] = min(min_table_graph[start][end], cost)
+
+# 플로이드 와샬 진행
+for k in range(1, N+1):
+    for a in range(1, N+1):
+        for b in range(1, N+1):
+            min_table_graph[a][b] = min(min_table_graph[a][b], min_table_graph[a][k] + min_table_graph[k][b])
+
+for idx_y in range(1, N+1):
+    for idx_x in range(1, N+1):
+        if min_table_graph[idx_y][idx_x] == 100000:
+            print(0, end=" ")
+        else:
+            print(min_table_graph[idx_y][idx_x], end=" ")
+    print("")
 
 ```
 ---
