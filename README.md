@@ -1613,6 +1613,7 @@ for k in range(1, N+1):
         for b in range(1, N+1):
 
 Dab = min(Dab, Dak + Dkb)
+
 """
 
 N = int(input())
@@ -1639,7 +1640,7 @@ for k in range(1, N+1):
 
 for idx_y in range(1, N+1):
     for idx_x in range(1, N+1):
-        if min_table_graph[idx_y][idx_x] == 100000:
+        if min_table_graph[idx_y][idx_x] == 10000001:
             print(0, end=" ")
         else:
             print(min_table_graph[idx_y][idx_x], end=" ")
