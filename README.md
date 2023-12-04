@@ -1394,8 +1394,61 @@ print(max(result_list))
 
 ```
 # 플로이드 와샬 풀이
-# 시간복잡도는 만족하지 않지만 공부겸해서 풀이해봄
+# 시간복잡도는 만족하지 않지만 비교해서 풀이해봄
+# 자료구조 쓰는 방법 등의 차이를 다익스트라와 비교해서 잘 외워놓기 !
+# 다익스트라는 min_table = [] / graph[start] = [(거리, 노드), (거리, 노드) ''']
+# 플로이드 와샬은 2차원 min_table_graph = [[], [], [] ''']
 
+"""
+아이디어:
+플로이드 와샬 연습
+
+시간복잡도:
+O(V^3) = 1000 000 000 = 10억 > 1억(1초)
+플로이드 와샬은 못쓰지만, 그냥 풀이해봄
+
+자료구조:
+플로이드 와샬 점화식
+for k in range(1, N+1)
+    for a in range(1, N+1)
+        for b in range(1, N+1)
+        
+Dab = min(Dab, Dak + Dkb)
+
+graph[start] = [(end, cost), (end, cost)]
+
+"""
+
+# N: 노드 갯수 / M: 간선 갯수 / X: start_node
+N, M, X = map(int, input().split())
+
+# 2차원 최단거리 그래프 생성
+min_graph = []
+for idx in range(N+1):
+    min_graph.append([100000]*(N+1))
+
+# 자기자신 출발 / 도착은 0으로 초기화
+for idx_x in range(1, N+1):
+    for idx_y in range(1, N+1):
+        if idx_x == idx_y:
+            min_graph[idx_x][idx_y] = 0
+
+for _ in range(M):
+    start, end, cost = map(int, input().split())
+    min_graph[start][end] = cost
+
+# 플로이드 와샬 알고리즘 진행
+for k in range(1, N+1):
+    for a in range(1, N+1):
+        for b in range(1, N+1):
+            min_graph[a][b] = min(min_graph[a][b], min_graph[a][k] + min_graph[k][b])
+    
+# 답 return
+result_list = [0] * (N+1)
+for idx in range(1, N+1):
+    result_list[idx] = min_graph[idx][X] + min_graph[X][idx]
+
+print(max(result_list))
 
 ```
 ---
