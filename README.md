@@ -1477,9 +1477,59 @@ print(max(result_list))
 ```
 ---
 
-## 기본문제 7 - ICPC 화성탐사 - 다익스트라
+## 기본문제 7 - ICPC 화성탐사 - 다익스트라 - 풀어냈지만, 문제 접근에 대해서 깊게 생각해볼 문제 !
 ```
+"""
+아이디어:
+최단경로 -> 다익스트라? 플로이드 와샬?
+격자에서의 최단경로 -> BFS? 
 
+다익스트라 왜?? 다익스트라?
+
+시간복잡도:
+O(ElogV) = 9log125
+
+자료구조:
+graph[start] = [(거리, 노드), (거리, 노드) ''']
+min_table 이 2차원 격자
+
+"""
+
+# min_table[N-1][N-1]이 답
+import heapq
+N = int(input())
+
+INF = int(1e9)
+min_table = list([INF] * N for _ in range(N))
+
+input_map = []
+for _ in range(N):
+    input_map.append(list(map(int, input().split())))
+
+# 상 하 좌 우 # (y,x)
+move = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
+queue = []
+heapq.heappush(queue, (input_map[0][0], (0,0))) # (y, x)
+
+while queue:
+    poped_cost, poped_node = heapq.heappop(queue)
+    poped_node_y, poped_node_x = poped_node
+    
+    # 갱신되면, queue에 삽입
+    for y, x in move:
+        moved_y = poped_node_y+y
+        moved_x = poped_node_x+x
+        
+        if moved_y < 0 or moved_x < 0 or moved_y >= N or moved_x >= N:
+            continue
+        else:
+            if min_table[moved_y][moved_x] > input_map[moved_y][moved_x] + poped_cost:
+                min_table[moved_y][moved_x] = input_map[moved_y][moved_x] + poped_cost
+                heapq.heappush(queue, (input_map[moved_y][moved_x] + poped_cost, (moved_y, moved_x)))
+
+print(min_table[N-1][N-1])
+                
 ```
 ---
 
