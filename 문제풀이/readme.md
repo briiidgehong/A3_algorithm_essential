@@ -42,8 +42,11 @@ fraction knapsack - greedy
 
 ## 이진탐색 / bisect_left, right / 투포인터
 ```
-백준 1920 수 찾기 - 이진탐색 / bisect_left, right?
-이코테 떡볶이 떡 자르기 - 이진탐색 / bisect_left, right?
+# 이진탐색 문제는 일반 이진탐색풀이(start/end/mid) 와 bisect 로 풀수 있음
+# bisect 라이브러리가 곧 이진탐색이므로 동일하다고 보고 사용하면 됨
+
+백준 1920 수 찾기 - 이진탐색 / bisect_left, right
+이코테 떡볶이 떡 자르기 - 이진탐색 / bisect_left, right
 이코테 정렬된 배열에서 특정 수의 개수 구하기 - bisect_left, right
 백준 10816
 
