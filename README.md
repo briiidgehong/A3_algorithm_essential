@@ -1533,6 +1533,53 @@ while queue:
 print(min_table[N-1][N-1])
                 
 ```
+
+```
+"""
+BFS 흐르는 알고리즘으로 풀어보기
+그냥 BFS 탐색에서, 조건만 최소값 갱신시 queue에 삽입하는 조건으로 하면 풀림
+
+input:
+3
+5 5 4
+3 9 1
+3 2 7
+output:
+20
+
+"""
+
+from collections import deque
+
+N = int(input())
+
+cost_map = []
+for _ in range(N):
+    cost_map.append(list(map(int, input().split())))
+
+INF = int(1e9)
+min_map = list([INF]*N for _ in range(N))
+move = [(-1,0),(1,0),(0,-1),(0,1)]# 상/하/좌/우 (y, x)
+
+queue = deque()
+queue.append((0,0)) # (y, x)
+min_map[0][0] = cost_map[0][0]
+
+while queue:
+    poped_y, poped_x = queue.popleft()
+    for y, x in move:
+        moved_y = poped_y+y
+        moved_x = poped_x+x
+        if moved_y < 0 or moved_x < 0 or moved_y >= N or moved_x >= N:
+            continue
+        else:
+            # 최소값 갱신 / queue에 삽입
+            if min_map[moved_y][moved_x] > min_map[poped_y][poped_x] + cost_map[moved_y][moved_x]:
+                min_map[moved_y][moved_x] = min_map[poped_y][poped_x] + cost_map[moved_y][moved_x]
+                queue.append((moved_y, moved_x))
+
+print(min_map[-1][-1])
+```
 ---
 
 
