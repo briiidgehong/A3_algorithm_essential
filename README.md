@@ -1773,8 +1773,58 @@ MST 시간복잡도: O(ElogE)
 
 ```
 
-## 기본문제1 - 백준 1197 - 최소 스패닝 트리
+## 기본문제1 - 백준 1197 - 최소 스패닝 트리 - 프림 알고리즘
 ```
+"""
+아이디어:
+간선을 인접 리스트 형태로 저장
+시작점부터 힙에 넣고
+힙이 빌때까지,
+	해당 노드 방문 안한곳일 경우,
+	방문 체크, 비용 추가, 연결된 간선 새롭게 추가
+
+시간복잡도:
+O(ElogE)
+
+자료구조:
+queue (cost, node) 
+heapq
+
+visited
+"""
+
+import heapq
+import sys
+input = sys.stdin.readline
+
+V, E = map(int, input().split())
+visited = [False] * (V+1)
+
+graph = {}
+for node in range(1, V+1):
+    graph[node] = []
+
+for _ in range(E):
+    start, end, cost = map(int, input().split())
+    graph[start].append((cost, end))
+    graph[end].append((cost, start))
+
+queue = []
+heapq.heappush(queue, (0, 1)) # (cost, node)
+
+sum_cost = 0
+while queue:
+    poped_cost, poped_node = heapq.heappop(queue)
+    if visited[poped_node] == False:
+        visited[poped_node] = True
+        sum_cost += poped_cost
+    
+        for cost, node in graph[poped_node]:
+            if visited[node] == False:
+                heapq.heappush(queue, (cost, node))
+            
+print(sum_cost)
+
 ```
 
 ### 문제 - union find
