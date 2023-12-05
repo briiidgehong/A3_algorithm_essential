@@ -2546,6 +2546,7 @@ print(str_result)
 <details>
 <summary> 최소공배수 / 최대공약수 </summary>
 <img width="559" alt="스크린샷 2023-10-28 오전 11 47 58" src="https://github.com/briiidgehong/cote-essential/assets/73451727/e3404f13-3e76-4d7e-893b-138ac6c69aee">
+
 ```
 # import math
 # n,m = map(int, input().split())
@@ -2593,7 +2594,6 @@ else:
 
     print(lcm)
 ```
-
 
 </details>
 
