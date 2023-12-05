@@ -1758,6 +1758,25 @@ for idx_y in range(1, N+1):
 
 <details>
 <summary> MST (union-find / 크루스칼 / 프림) </summary>
+    
+## PREVIEW
+```
+Spanning Tree: 모든 노드가 연결된 트리
+MST(Minimum Spanning Tree): 
+최소의 비용으로 모든 노드가 연결된 트리
+
+MST 알고리즘은 크루스칼 / 프림 두가지가 존재
+크루스칼: 전체 간선 중 작은것부터 연결 (union-find 사용)
+프림: 현재 연결된 트리에 이어진 간선중 가장 작은것을 추가 (우선순위큐=힙 사용)
+
+MST 시간복잡도: O(ElogE)
+
+```
+
+## 기본문제1 - 백준 1197 - 최소 스패닝 트리
+```
+```
+
 ### 문제 - union find
 ---
 <img width="786" alt="스크린샷 2023-10-28 오후 2 51 05" src="https://github.com/briiidgehong/cote-essential/assets/73451727/fd8bec69-f538-4319-9b5a-038f2e0d9ccc">
