@@ -2476,48 +2476,6 @@ print(min(interval_list))
 
 
 ## 기타 알고리즘 유형
-<details>
-<summary> 위상정렬 </summary>
-
-### 문제
----
-<img width="789" alt="스크린샷 2023-10-28 오후 2 57 24" src="https://github.com/briiidgehong/cote-essential/assets/73451727/b574c392-3a3b-4843-846c-3d2d1300eb35">
-답: 3 4 5 6 2 1 8 9 7
-https://github.com/briiidgehong/cote-essential/assets/73451727/7ed82f54-1e8f-4a38-84f3-e4e5d7f72ed1
-
----
-<img width="782" alt="스크린샷 2023-10-28 오후 2 58 20" src="https://github.com/briiidgehong/cote-essential/assets/73451727/20248a27-a34a-46de-8ba5-6be2e27e55f5">
-답: 3 4 5 2 1 6 8 9 7
-https://github.com/briiidgehong/cote-essential/assets/73451727/1bc84762-755d-4161-abb6-4413380ff9cd
-
-
-
-</details>
-
-<details>
-<summary> hash / stack / queue / 정렬 </summary>
-### 정렬
----
-<img width="658" alt="스크린샷 2023-10-28 오후 12 16 09" src="https://github.com/briiidgehong/cote-essential/assets/73451727/8a369071-f934-4962-ac53-899ad021f3c1">
-<img width="656" alt="스크린샷 2023-10-28 오후 12 16 17" src="https://github.com/briiidgehong/cote-essential/assets/73451727/e9a8ee38-a626-4668-ad47-6fa77cc23ff3">
-
-
-```
-n = int(input())
-
-temp_list = []
-for idx in range(n):
-    input_list = list(map(int, input().split())) # 키, 몸무게
-    input_list.append(idx+1)
-    temp_list.append(input_list)
-
-temp_list = sorted(temp_list, key = lambda x:(x[0], -x[1]))
-
-for each in temp_list:
-    print(*each)
-```
-</details>
-
 
 <details>
 <summary> 소수판별 </summary>
@@ -2661,6 +2619,44 @@ else:
 백준 1007, 백준 1197, 백준 10942, 백준 1509, 백준 1194, 백준 1562, 백준 1799
 ```
 
+<details>
+<summary> 위상정렬 / trie 알고리즘</summary>
 
+### 문제
+---
+<img width="789" alt="스크린샷 2023-10-28 오후 2 57 24" src="https://github.com/briiidgehong/cote-essential/assets/73451727/b574c392-3a3b-4843-846c-3d2d1300eb35">
+답: 3 4 5 6 2 1 8 9 7
+https://github.com/briiidgehong/cote-essential/assets/73451727/7ed82f54-1e8f-4a38-84f3-e4e5d7f72ed1
+
+---
+<img width="782" alt="스크린샷 2023-10-28 오후 2 58 20" src="https://github.com/briiidgehong/cote-essential/assets/73451727/20248a27-a34a-46de-8ba5-6be2e27e55f5">
+답: 3 4 5 2 1 6 8 9 7
+https://github.com/briiidgehong/cote-essential/assets/73451727/1bc84762-755d-4161-abb6-4413380ff9cd
+
+</details>
+
+<details>
+<summary> hash / stack / queue / 정렬 </summary>
+### 정렬
+---
+<img width="658" alt="스크린샷 2023-10-28 오후 12 16 09" src="https://github.com/briiidgehong/cote-essential/assets/73451727/8a369071-f934-4962-ac53-899ad021f3c1">
+<img width="656" alt="스크린샷 2023-10-28 오후 12 16 17" src="https://github.com/briiidgehong/cote-essential/assets/73451727/e9a8ee38-a626-4668-ad47-6fa77cc23ff3">
+
+
+```
+n = int(input())
+
+temp_list = []
+for idx in range(n):
+    input_list = list(map(int, input().split())) # 키, 몸무게
+    input_list.append(idx+1)
+    temp_list.append(input_list)
+
+temp_list = sorted(temp_list, key = lambda x:(x[0], -x[1]))
+
+for each in temp_list:
+    print(*each)
+```
+</details>
 
 
