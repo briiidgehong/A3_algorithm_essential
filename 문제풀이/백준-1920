@@ -1,0 +1,43 @@
+```
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+input_list = list(map(int, input().split()))
+input_list.sort()
+
+M = int(input())
+M_list = list(map(int, input().split()))
+
+# 일반 이진탐색 풀이
+# for each in M_list:
+# 	start = 0
+# 	end = N-1
+# 	find_flag = False
+# 	while start <= end:
+# 		mid = int((start+end)/2)
+# 		if each == input_list[mid]:
+# 			find_flag = True
+# 			break
+# 		elif each < input_list[mid]:
+# 			end = mid - 1
+# 		else: 
+# 			start = mid + 1
+			
+# 	if find_flag:
+# 		print(1)
+# 	else:
+# 		print(0)
+
+# bisect 풀이
+from bisect import bisect_left, bisect_right
+
+for each in M_list:
+    left = bisect_left(input_list, each)
+    right = bisect_right(input_list, each)
+    if left == right:
+        print(0)
+    else:
+        print(1)
+
+```
