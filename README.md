@@ -462,10 +462,11 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 </details>
 
 <details>
-<summary> 이진탐색 </summary>
+<summary> 이진탐색 / 투포인터 </summary>
 
 ```
 PREVIEW:
+이진탐색:
 정렬되어있을 경우 사용
 인데스 기준, 시작점 / 끝점 / 중간점을 이용해 탐색 범위를 설정
 
@@ -476,6 +477,10 @@ PREVIEW:
   - 일반적으로 코테에서 파라메트릭 서치 문제는 이진탐색을 이용한다.
 
 * lower bound / upper bound = bisect left / right
+
+투포인터:
+
+
 
 시간복잡도:
 어떤값 찾을때 O(N) -> O(logN)
