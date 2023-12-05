@@ -39,6 +39,9 @@ fraction knapsack - greedy
 이코테 떡볶이 떡 자르기
 이코테 정렬된 배열에서 특정 수의 개수 구하기
 
+bisect_left, right 문제?
+투포인터 문제?
+
 ```
 
 ## BFS / DFS / 백트래킹
@@ -76,6 +79,10 @@ icpc 화성탐사
 
 ## MST (union-find / 크루스칼 / 프림)
 ```
+union-find 문제?
+크루스칼 문제?
+프림 문제?
+
 ```
 
 ## 구현 / 시뮬레이션 
