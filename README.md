@@ -462,7 +462,7 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 </details>
 
 <details>
-<summary> 이진탐색 / 투포인터 </summary>
+<summary> 이진탐색 / bisect_left, right / 투포인터 </summary>
 
 ```
 PREVIEW:
