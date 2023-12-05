@@ -2495,45 +2495,6 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/1bc84762-755d-416
 </details>
 
 <details>
-<summary> 우선순위큐 </summary>
-ㄴㅇㅁ
-</details>
-
-
-<details>
-<summary> 투포인터 </summary>
-ㄴㅇㅁ
-</details>
-
-
-<details>
-<summary> heap </summary>
-
-### PREVIEW
----
-```
-비어 있는 최소 힙에 7, 6, 5, 4, 3, 2, 1 을 순서대로 삽입
-```
-https://github.com/briiidgehong/cote-essential/assets/73451727/6920245e-512e-4f6e-884a-fd5523ca57cf
-
-
-
-### 시간복잡도
----
-
-### 핵심코드
----
-
-### 문제1
----
-
-### 문제2
----
-
-</details>
-
-
-<details>
 <summary> hash / stack / queue / 정렬 </summary>
 ### 정렬
 ---
