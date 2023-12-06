@@ -467,20 +467,40 @@ https://github.com/briiidgehong/cote-essential/assets/73451727/0c52acb3-1656-48c
 ```
 PREVIEW:
 이진탐색:
-정렬되어있을 경우 사용
-인데스 기준, 시작점 / 끝점 / 중간점을 이용해 탐색 범위를 설정
-
-*파라메트릭 서치
-  - 최적화 문제를 결정 문제(예/아니오) 로 바꾸어 해결하는 기법
-  - 최적화 문제: 어떤 함수의 값을 최대한 낮추거나/높이는 문제
-  - 특정한 조건을 만족하는 가장 알맞은 값을 빠르게 찾는 최적화 문제
-  - 일반적으로 코테에서 파라메트릭 서치 문제는 이진탐색을 이용한다.
-
-* lower bound / upper bound = bisect left / right
+	정렬되어있을 경우 사용
+	인데스 기준, 시작점 / 끝점 / 중간점을 이용해 탐색 범위를 설정
+	
+	*파라메트릭 서치
+		  - 최적화 문제를 결정 문제(예/아니오) 로 바꾸어 해결하는 기법
+		  - 최적화 문제: 어떤 함수의 값을 최대한 낮추거나/높이는 문제
+		  - 특정한 조건을 만족하는 가장 알맞은 값을 빠르게 찾는 최적화 문제
+		  - 일반적으로 코테에서 파라메트릭 서치 문제는 이진탐색을 이용한다.
+	
+	* lower bound / upper bound = bisect left / right
+		이진탐색 문제를 bisect로 풀수 있음
+		from bisect import bisect_left, bisect_right
 
 투포인터:
-
-
+	각 원소마다 모든 값을 순회해야할때
+	두개의 포인터가 움직이면서 계산 하는 투포인터를 활용
+	계속 한 방향으로 연속하다는 특성을 이용해 O(N) 의 시간복잡도로 처리 가능
+	
+		일반 풀이: -> O(N^2)
+			for i in range(N):
+				for j in range(interval): 인터벌 만큼 sum
+					sum
+		
+		투포인터 풀이: -> O(2N) -> O(N)
+			처음에 K개의 값을 구함
+			for문: 다음 인덱스의 값을 더하고, 앞의 값을 뺌
+	
+	처음부터 생각하기 어려움, 쉬운방법부터 생각하고 시간복잡도 계산해보자
+	    - O(N^2) 시간복잡도 초과한다면
+	    - 연속하다는 특징을 활용할수 있는지 확인
+	
+	투포인터 문제 종류 
+	    - 두개 다 왼쪽에서 출발 / 각각 왼쪽, 오른쪽에서 출발 / 각각 다른 배열
+	    - 기본 투포인터 O(N) / 정렬 후 투포인터 O(NlogN)
 
 시간복잡도:
 어떤값 찾을때 O(N) -> O(logN)
@@ -579,6 +599,63 @@ def solution(target_number, list):
     return count_by_range(list, target_number, target_number)
 
 print(solution(2, [1, 1, 2, 2, 2, 2, 3]))
+```
+---
+
+## 기본문제4 - 백준 2559 수열 - 구간합의 최대값 - 투포인터
+```
+"""
+아이디어:
+	일반 풀이: -> O(N^2)
+		for i in range(N):
+			for j in range(interval): 인터벌 만큼 sum
+				sum
+	
+	투포인터 풀이: -> O(2N) -> O(N)
+		처음에 K개의 값을 구함
+		for문: 다음 인덱스의 값을 더하고, 앞의 값을 뺌
+		
+시간복잡도:
+N = 100000
+K = 100000
+
+일반 풀이
+O(N^2) = 100000 00000 > 1억(1초)
+
+투포인터 풀이
+O(2N) = 200000
+
+자료구조:
+
+
+"""
+
+N, interval = map(int, input().split())
+
+input_list = list(map(int, input().split()))
+
+interval_sum_list = []
+
+# 일반풀이
+# for i in range(N-interval+1):
+# 	sum = 0
+# 	for j in range(i, i+interval):
+# 		sum += input_list[j] 
+# 	interval_sum_list.append(sum)
+
+# print(max(interval_sum_list))
+
+# 투포인터 풀이
+interval_sum_list = []
+init_sum = sum(input_list[0:interval])
+interval_sum_list.append(init_sum)
+for i in range(interval, N):
+	init_sum += input_list[i]
+	init_sum -= input_list[i-interval]
+	interval_sum_list.append(init_sum)
+	
+print(max(interval_sum_list))
+
 ```
 ---
 
