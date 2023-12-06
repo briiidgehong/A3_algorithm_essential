@@ -1,0 +1,57 @@
+# 구간합의 최대값
+"""
+아이디어:
+	일반 풀이: -> O(N^2)
+		for i in range(N):
+			for j in range(interval): 인터벌 만큼 sum
+				sum
+	
+	투포인터 풀이: -> O(2N) -> O(N)
+		처음에 K개의 값을 구함
+		for문: 다음 인덱스의 값을 더하고, 앞의 값을 뺌
+		
+시간복잡도:
+N = 100000
+K = 100000
+
+일반 풀이
+O(N^2) = 100000 00000 > 1억(1초)
+
+투포인터 풀이
+O(2N) = 200000
+
+자료구조:
+
+
+"""
+
+N, interval = map(int, input().split())
+
+input_list = list(map(int, input().split()))
+
+interval_sum_list = []
+
+# 일반풀이
+# for i in range(N-interval+1):
+# 	sum = 0
+# 	for j in range(i, i+interval):
+# 		sum += input_list[j] 
+# 	interval_sum_list.append(sum)
+
+# print(max(interval_sum_list))
+
+# 투포인터 풀이
+interval_sum_list = []
+init_sum = sum(input_list[0:interval])
+interval_sum_list.append(init_sum)
+for i in range(interval, N):
+	init_sum += input_list[i]
+	init_sum -= input_list[i-interval]
+	interval_sum_list.append(init_sum)
+	
+print(max(interval_sum_list))
+	
+	
+
+		
+	
