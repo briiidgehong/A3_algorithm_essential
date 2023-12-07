@@ -1,0 +1,43 @@
+"""
+아이디어:
+Ai + Aj = X 가 되는 모든 쌍을 구하여라
+for i in range(N):
+	for j in range(N):
+O(N^2)은 사용못함 100000 00000 > 1억
+O(N)으로 줄여야하는데, 이런경우 투포인터가 유력함
+
+정렬후, 양쪽에서 포인터 각각 출발
+while start_p != end_p:
+	합이 X보다 크면 오른쪽 포인터를 줄이고
+	합이 X보다 작으면 왼쪽 포인터를 늘린다.
+
+시간복잡도:
+O(N^2) -> O(N)
+
+자료구조:
+
+"""
+
+# 수열의 크기 N: 100000
+N = int(input())
+input_list = list(map(int, input().split()))
+input_list.sort()
+
+# 타겟이 되는 숫자 X: 2000000
+X = int(input())
+
+start_p = 0 
+end_p = N-1
+
+count = 0
+while start_p != end_p:
+	sum = input_list[start_p] + input_list[end_p]
+	if sum == X:
+		count += 1
+		start_p += 1
+	elif sum > X:
+		end_p -= 1
+	else: # sum < X:
+		start_p += 1
+
+print(count)
