@@ -1,0 +1,47 @@
+"""
+아이디어:
+산성 (특성값 1~10000000) / 알칼리 (특성값 -1 ~ 10000000) 두 종류의 용액
+두 용액을 혼합한 용액의 특성값 (산성 특성값 + 알칼리 특성값)
+두 용액을 혼합하여, 특성값이 0에 가장 가까운 용액을 만들려고 한다.
+* 두개의 산성 / 두개의 알칼리로도 혼합용액 만들 수 있음
+
+모든 경우의 수 구해야 함
+
+정렬하고, 양쪽에 포인터 두고
+합산값이 + 이면, 오른쪽 포인터르 줄이고
+합산값이 - 이면, 왼쪽 포인터를 늘인다.
+
+시간복잡도:
+N: 100000
+모든 경우의 수 일반풀이 O(N^2) 안됨 > 1억
+
+자료구조:
+0에 가까운 수를 찾기위해 abs한 가중치를 heapq에 삽입
+import heapq
+queue = []
+
+"""
+
+# N 용액의 수
+N = int(input())
+input_list = list(map(int, input().split()))
+input_list.sort()
+
+import heapq
+queue = []
+
+start_p = 0
+end_p = N-1
+while start_p < end_p:
+    sum = input_list[start_p] + input_list[end_p]
+    heapq.heappush(queue, (abs(sum), (input_list[start_p], input_list[end_p])))
+    if sum == 0:
+        break
+    elif sum > 0:
+        end_p -= 1
+    elif sum < 0:
+        start_p += 1
+
+start, end = queue[0][1]
+print(start, end=" ")
+print(end)
