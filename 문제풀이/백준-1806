@@ -1,0 +1,38 @@
+"""
+아이디어:
+투포인터
+왼쪽에서 두개의 포인터가 출발
+S와 비교해서 왼쪽에서 빼주고, 오른쪽에서 더해주고
+for 안에서 계속해서 sum() 하게되면, 시간초과
+
+시간복잡도:
+O(N)
+
+자료구조:
+left_p / right_p
+
+"""
+
+N, S = map(int, input().split())
+input_list = list(map(int, input().split()))
+min_length = int(1e9)
+
+left_p, right_p = 0, 0
+sum_num = input_list[0]
+
+if sum(input_list) < S:
+	print(0)
+else:
+	while left_p <= right_p:
+		if sum_num >= S:
+			min_length = min(min_length, right_p - left_p + 1)
+			# print(f"{left_p} -> {right_p} = min_length:{min_length}")
+			sum_num -= input_list[left_p]
+			left_p += 1
+		else:
+			right_p +=1
+			if right_p == N:
+				break
+			sum_num += input_list[right_p]
+			
+	print(min_length)
