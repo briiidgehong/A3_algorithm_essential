@@ -1,0 +1,70 @@
+"""
+아이디어:
+# 자연수 N을 연속된 소수의 합으로 나타낼 수 있는 경우의 수를 출력
+
+N이 주어졌을때, 1~N까지 소수의 리스트를 만든다.
+정렬되어 있는 상태로, 구간합이 N이 되는 경우의 수를 모두 구한다.
+
+투포인터
+
+시간복잡도:
+O(N)
+
+자료구조:
+소수의 집합 리스트
+left_p / right_p
+
+"""
+
+# # 일반 소수 판별 함수 ''' 대박... 이것때문에 시간초과
+# def is_prime_number(x):
+#     for i in range(2, x):
+#         if x % i == 0:
+#             return False 
+#     return True
+    
+# 개선된 소수 판별 함수
+import math
+def is_prime_number(x):
+    for i in range(2, int(math.sqrt(x)) + 1):
+        if x % i == 0:
+            return False 
+    return True 
+    
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+if N == 1:
+	print(0)
+else:
+	# 소수의 리스트를 만든다.
+	prime_number_list = []
+	for num in range(2, N+1):
+		if is_prime_number(num) == True:
+			prime_number_list.append(num)
+	
+	# 투포인터 구현
+	# 구간합이 N이 되는 모든 경우의 수를 구한다.
+	
+	left_p = 0
+	right_p = 0
+	sum_num = prime_number_list[0]
+	prime_number_list_length = len(prime_number_list)
+	
+	result_list = []
+	while left_p <= right_p:
+		if sum_num <= N:
+			if sum_num == N:
+				result_list.append((left_p, right_p))
+			right_p += 1
+			if right_p == prime_number_list_length:
+				break
+			sum_num += prime_number_list[right_p]
+		else: # sum_num > N:
+			sum_num -= prime_number_list[left_p]
+			left_p += 1
+			
+	# print(prime_number_list)
+	# print(result_list)
+	print(len(result_list))
