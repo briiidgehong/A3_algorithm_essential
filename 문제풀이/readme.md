@@ -19,7 +19,6 @@
 이코테 1이 될때까지
 이코테 모험가길드
 백준 1463 1로 만들기
-fraction knapsack - greedy
 
 ```
 
@@ -37,8 +36,14 @@ fraction knapsack - greedy
 코드트리 정수 사각형
 코드트리 편집거리
 
-0/1 knapsack - dp
+TODO: 
+백준 2579 계단 오르기 - 1차원 DP
+0/1 knapsack - 2차원 dp (무게, 가치)
     백준 12865 평범한 배낭
+
+    함께 풀어볼만한 문제:
+    fraction knapsack - greedy
+    백준 1450 냅색문제 - 투포인터
 
 ```
 
@@ -61,9 +66,6 @@ fraction knapsack - greedy
     왼쪽에서 포인터 출발
 백준 1644 소수의 연속합 - 투포인터
     개선된 소수판별 / 구간합
-백준 1450 냅색문제 - 투포인터
-    백준 12865 평범한 배낭 DP 풀이와 비교
-
 
 
 투포인터 문제 종류 
