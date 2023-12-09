@@ -1,0 +1,37 @@
+"""
+아이디어:
+그리디? DP?
+메모이제이션 사용가능 -> DP
+	점화식:
+	dp[i] = max( (w[i]+dp[i-2]), (w[i]+w[i-1]+dp[i-3]) )
+	dp[0] / dp[1] / dp[2] 초기화 하고 시작
+
+시간복잡도:
+
+자료구조:
+weight -> w = []
+dp_table -> dp = []
+
+"""
+
+N = int(input())
+w = []
+for _ in range(N):
+	w.append(int(input()))
+
+dp = [0] * N
+if N == 1:
+	print(w[0])
+elif N == 2:
+	print(w[0]+w[1])
+elif N == 3:
+	print(max((w[1]+w[2]),(w[0]+w[2])))
+else:
+	dp[0] = w[0]
+	dp[1] = w[0] + w[1]
+	dp[2] = max((w[1]+w[2]),(w[0]+w[2]))
+	
+	for i in range(3, N):
+		dp[i] = max((w[i]+dp[i-2]), (w[i]+w[i-1]+dp[i-3]))
+	
+	print(dp[N-1])
