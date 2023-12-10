@@ -41,7 +41,9 @@
 
 함께 풀어볼만한 문제:
     fraction knapsack - greedy
-    백준 1450 냅색문제 - 투포인터 - meet in the middle - 보류
+    백준 1450 냅색문제 - 투포인터 - meet in the middle - 어렵지만 아이디어 자체는 해볼만함
+        from itertools import combinations
+        from bisect import bisect_left, bisect_right
 
 ```
 
