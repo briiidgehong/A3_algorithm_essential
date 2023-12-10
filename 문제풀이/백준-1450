@@ -1,0 +1,63 @@
+"""
+아이디어:
+N개의 물건을 가방에 넣는 방법의 수
+가치의 최대값을 구하는 knapsack이 아닌(DP),
+
+물건을 가방에 넣는 경우의 수를 구하는 knapsack
+	https://www.youtube.com/watch?v=nW5y7PFLR3M
+	https://my-coding-notes.tistory.com/249
+	단순풀이 2^30 = 10억 > 1초 시간초과
+	2^15만 되어도 해볼만 하다.
+	
+	반으로 쪼개서, 각각의 부분집합을 구한다. (combinations)
+	두번째 집합을 정렬하고, 첫번째 집합의 인덱스를 하나씩 돌리면서
+	몇번째 수까지 조합이 가능한지 탐색해서 (bisect) 경우의 수에 추가한다.
+	
+시간복잡도:
+N: 30
+단순풀이 -> 특정 물건을 가방에 넣는 / 넣지않는 경우의 수 2개
+	O(2^N)
+meet in the middle 
+	O(2^(N/2)) = O(2^15)
+	
+자료구조:
+from itertools import combinations
+from bisect import bisect_left, bisect_right
+
+"""
+
+from itertools import combinations
+from bisect import bisect_left, bisect_right
+
+N, C = map(int, input().split())
+weight = list(map(int, input().split()))
+weight.sort()
+
+array_1 = weight[:N//2]
+array_2 = weight[N//2:]
+
+array_1_set = []
+array_2_set = []
+
+for i in range(len(array_1) + 1):
+    comb_a = combinations(array_1, i)
+
+    for comb in comb_a:
+        array_1_set.append(sum(comb))
+        
+for i in range(len(array_2) + 1):
+    comb_b = combinations(array_2, i)
+    
+    for comb in comb_b:
+        array_2_set.append(sum(comb))
+
+array_2_set.sort()
+
+count = 0 
+for each in array_1_set:
+	if C - each < 0:
+		continue
+	bisect_num = bisect_right(array_2_set, C-each)
+	count += bisect_num
+
+print(count)
