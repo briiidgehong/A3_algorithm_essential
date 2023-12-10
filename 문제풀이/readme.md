@@ -41,8 +41,7 @@
 
 함께 풀어볼만한 문제:
     fraction knapsack - greedy
-    TODO:
-        백준 1450 냅색문제 - 투포인터
+    백준 1450 냅색문제 - 투포인터 - meet in the middle - 보류
 
 ```
 
