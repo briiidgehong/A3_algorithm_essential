@@ -1,0 +1,41 @@
+"""
+아이디어:
+구현/시뮬레이션 문제
+하라는대로 하면됨
+time으로 쪼개서 생각하면 쉬움
+1분에 주차 몇대 / 2분에 주차 몇대 / 3분에 주차 몇대
+ 
+시간복잡도:
+자료구조:
+"""
+ 
+A,B,C = map(int, input().split())
+park_time = [] # (트럭이 주차장에 도착한 시간, 떠난 시간)
+all_time = []
+ 
+for _ in range(3):
+	start, end = map(int, input().split())
+	all_time.append(start)
+	all_time.append(end)
+	park_time.append(list(time for time in range(start, end)))
+ 
+all_time.sort()
+ 
+payment = 0
+for time in range(all_time[0], all_time[-1]):
+	count = 0
+	if time in park_time[0]:
+		count += 1
+	if time in park_time[1]:
+		count += 1
+	if time in park_time[2]:
+		count += 1
+ 
+	if count == 1:
+		payment += A
+	elif count == 2:
+		payment += (2*B)
+	elif count == 3:
+		payment += (3*C)
+ 
+print(payment)
