@@ -1,0 +1,27 @@
+"""
+아이디어:
+그리디
+
+시간복잡도:
+N: 100000
+K: 100000
+
+자료구조:
+"""
+
+N, K = map(int, input().split())
+# 1. N에서 K를 뺀다.
+# 2. N이 K로 나누어질때) N을 K로 나눈다.
+# 1이 될때까지 수행하는 연산의 최소횟수
+
+count = 0
+while True:
+	if N % K == 0:
+		N = N // K
+	else:
+		N -= K
+	count += 1
+	if N == 1:
+		break
+	
+print(count)
