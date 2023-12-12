@@ -1,0 +1,36 @@
+"""
+아이디어:
+하나씩 더해가면서 sum 해서 sum_table을 구해놓는다.
+이중 3개를 중복포함하여 골라 다시 sum한 테이블을 만들어놓는다.
+이 테이블에 입력된 숫자가 속하는지 확인한다.
+
+시간복잡도:
+K=1000
+sum을 다 계산해도... 시간복잡도 남아돌음
+
+자료구조:
+
+"""
+
+sum_table = [1]
+num = 1
+while sum_table[-1] <= 3000:
+	num += 1
+	sum_table.append(sum_table[-1] + num)
+
+sum_sum_table = []
+for i in sum_table:
+	for j in sum_table:
+		for k in sum_table:
+			if i+j+k <= 1000:
+				sum_sum_table.append(i+j+k)	
+
+sum_sum_table = list(set(sum_sum_table))
+sum_sum_table.sort()
+
+N = int(input())
+for _ in range(N):
+	if int(input()) in sum_sum_table:
+		print(1)
+	else:
+		print(0)
