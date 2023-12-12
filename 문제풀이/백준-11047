@@ -1,0 +1,21 @@
+"""
+아이디어:
+그리디
+"""
+
+N, K = map(int, input().split())
+
+coin_list = []
+for _ in range(N):
+	coin_list.append(int(input()))
+
+count = 0
+for each in reversed(coin_list):
+	divide_num = K // each
+	if divide_num > 0:
+		count += divide_num
+		K -= (each * divide_num)
+	if K == 0:
+		break
+
+print(count)
