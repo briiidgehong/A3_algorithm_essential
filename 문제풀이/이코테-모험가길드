@@ -1,0 +1,27 @@
+"""
+아이디어:
+최대 그룹수를 만드는 문제 
+X 공포도를 가진 사람은 X명 이상의 그룹에 속해야 하기 때문에
+작은 공포도를 가진 사람부터 묶어나가면 된다.
+-> 그리디
+
+시간복잡도:
+자료구조:
+"""
+
+N = int(input())
+input_list = list(map(int, input().split()))
+
+input_list.sort()
+
+left_p = 0
+group_count = 0
+while True:
+	num = input_list[left_p]
+	left_p += num
+	if left_p < N:
+		group_count += 1
+	else:
+		break
+
+print(group_count)
