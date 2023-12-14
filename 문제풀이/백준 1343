@@ -1,0 +1,29 @@
+"""
+아이디어:
+우선 그리디
+시간복잡도:
+최대크기 50
+
+자료구조:
+"""
+
+input_str = input()
+
+left_p = 0
+
+result = ""
+while left_p <= len(input_str) - 1:
+	if input_str[left_p:left_p+4] == "XXXX":
+		result += "AAAA"
+		left_p += 4
+	elif input_str[left_p:left_p+2] == "XX":
+		result += "BB"
+		left_p += 2
+	elif input_str[left_p] == "X":
+		result = -1
+		break
+	else: # input_str[left_p] == "."
+		result += "."
+		left_p += 1
+
+print(result)
