@@ -1,0 +1,44 @@
+"""
+아이디어:
+N: O | O | O |
+M: -----
+
+떨어지는 사과 갯수 J
+떨어지는 위치
+
+가장 처음에 바구니는 왼쪽 M칸을 차지하고 있다.
+모든 사과를 담기 위해 바구니가 이동해야 하는 거리의 최솟값?
+-> 우선 그리디
+
+시간복잡도:
+자료구조:
+"""
+
+N, M = map(int, input().split())
+J = int(input())
+M_list = []
+for each in range(1, M+1):
+	M_list.append(each)
+	
+apple_list = []
+for _ in range(J):
+	apple_list.append(int(input()))
+
+move = 0 
+for apple in apple_list:
+	if apple in M_list:
+		continue
+	elif apple > M_list[-1]:
+		move_count = apple - M_list[-1]
+		for M in range(len(M_list)):
+			M_list[M] += move_count
+		move += move_count
+		continue
+	elif apple < M_list[0]:
+		move_count = M_list[0] - apple
+		for M in range(len(M_list)):
+			M_list[M] -= move_count
+		move += move_count
+		continue
+		
+print(move)
