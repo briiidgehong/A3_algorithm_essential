@@ -1,0 +1,28 @@
+"""
+아이디어:
+손님이 2원짜리와 5원짜리로만 거스름돈을 달라고 한다.
+동전의 개수가 최소가 되도록 거슬러 주어야 한다.
+최소 동전의 개수
+
+-> 단순하게는 5원부터 주면 될것같다. -> 그리디
+
+시간복잡도:
+자료구조:
+"""
+
+N = int(input())
+
+five_num = N // 5
+five_num_list = list(num for num in range(five_num+1))
+
+count = -1
+for num in reversed(five_num_list):
+	temp_num = N - (5 * num)
+	if temp_num % 2 != 0:
+		continue
+	else:
+		count = num
+		count += temp_num // 2
+		break
+
+print(count)
