@@ -1,0 +1,48 @@
+"""
+아이디어:
+M x N 보드
+검/흰
+이 보드를 잘라서 8 x 8 체스판으로 만드려 한다.
+맨 왼위가 흰 혹은 검
+어딜 잘라도 됨 / 다시 칠해야 하는 정사각형의 최소 개수를 구해라
+
+시간복잡도:
+N x M = 50 x 50 = 2500
+각 노드에서 출발했을때 50 x (50 x 50) = 125000 < 1억 가능
+각 노드가 흰/검 일때 2 * 125000 = 250000
+
+자료구조:
+"""
+
+y, x = map(int, input().split()) # y x
+
+color_map = []
+for _ in range(y):
+	color_map.append(list(input()))
+
+
+count = int(1e9)
+for idx_y in range(0, (y-8+1)):
+	for idx_x in range(0, (x-8+1)):
+		w_count = 0
+		b_count = 0
+		# 왼쪽위 시작노드 map[idx_y][idx_x]
+		for map_y in range(idx_y,idx_y+8):
+			for map_x in range(idx_x,idx_x+8):
+				if (map_y + map_x) % 2 == 0:
+					if color_map[map_y][map_x] == "W":
+						b_count += 1
+					else:
+						w_count += 1
+				else:
+					if color_map[map_y][map_x] == "B":
+						b_count += 1
+					else:
+						w_count += 1
+						
+		count = min(count, w_count, b_count)
+print(count)
+			
+	
+		
+
