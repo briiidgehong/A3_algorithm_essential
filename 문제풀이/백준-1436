@@ -1,0 +1,22 @@
+"""
+아이디어:
+N이 10000 이므로 N=10000이어도 약 300만회의 시간복잡도 나옴
+그냥 +1씩 하면서 브루트포스
+
+시간복잡도:
+N: 10000
+"""
+
+N = int(input())
+
+num = 666
+count = 0
+
+while True:
+	if "666" in str(num):
+		count += 1
+		if count == N:
+			break
+	num += 1
+	
+print(num)
