@@ -1,0 +1,31 @@
+"""
+아이디어:
+커스텀 정렬
+-> 구현 / 시뮬레이션
+N을 N-1씩 전수조사해서 랭킹 매기면 된다.
+
+시간복잡도:
+N:50 O(N^2) = 2500
+
+자료구조:
+"""
+
+from collections import deque
+
+N = int(input())
+
+wh = []
+for idx in range(N):
+	wh.append(list(map(int, input().split())))
+
+for idx, each in enumerate(wh):
+	ranking = 1
+	for sub_idx, sub_each in enumerate(wh):
+		if idx == sub_idx:
+			continue
+		else:
+			if each[0] < sub_each[0] and each[1] < sub_each[1]:
+				ranking += 1
+			else:
+				continue
+	print(ranking, end=" ")
