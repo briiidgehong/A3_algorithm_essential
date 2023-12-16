@@ -1,0 +1,32 @@
+"""
+아이디어:
+  랭킹풀이: 하나씩 비교해보면서 +1해가는 방식
+
+"""
+
+N, K = map(int, input().split())
+
+nation_medal = []
+target_list = []
+for _ in range(N):
+	input_list = list(map(int, input().split()))
+	if input_list[0] == K:
+		target_list = input_list
+	else:
+		nation_medal.append(input_list)
+
+ranking = 1
+for each in nation_medal:
+	if each[1:] == target_list[1:]:
+		continue
+	else:
+		# sort
+		if each[1] > target_list[1]:
+			ranking += 1
+		elif each[1] == target_list[1]:
+			if each[2] > target_list[2]:
+				ranking += 1
+			elif each[2] == target_list[2]:
+				if each[3] > target_list[3]:
+					ranking += 1
+print(ranking)
