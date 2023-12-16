@@ -28,10 +28,12 @@ F: fail
     앞의 모든숫자들 앞에 삽입하는게 아님...
     deque.insert()
 
-백준 8979 올림픽 T
+백준 8979 올림픽 PT
+    랭킹풀이
     정렬, nation_list.sort(key = lambda x:(x[1],x[2],x[3]), reverse=True)
 
 백준 7568 덩치 PT
+    랭킹풀이
 백준 9017 크로스 컨트리		
 백준 10709 기상캐스터		
 백준 2852 NBA 농구	
