@@ -1,0 +1,41 @@
+"""
+아이디어:
+N가지 화폐의 종류, 최소한으로 이용해서 그 가치의 합이 M 이 되도록 !
+그리디? DP?
+
+DP:
+	dp_table 활용:
+		dp[i]: i화폐를 만들기 위한 coin의 최소 횟수
+	점화식: 
+		for coin in coin_list:
+			dp[idx] = min(dp[idx], dp[idx-coin])
+시간복잡도:
+N: 100
+M: 10000
+
+자료구조:
+dp_table = []
+coin_list = []
+
+"""
+
+N, M = map(int, input().split()) # 화폐의 종류
+
+coin_list = [0]
+for _ in range(N):
+	coin_list.append(int(input()))
+
+dp = [int(1e9)] * (M+1)
+
+for idx in range(1, M+1):
+	for coin in coin_list:
+		if idx == coin:
+			dp[idx] = 1
+		else:
+			if idx - coin >= 0:
+				dp[idx] = min(dp[idx], dp[idx-coin]+1)
+
+if dp[M] == int(1e9):
+	print(-1)
+else:
+	print(dp[M])
