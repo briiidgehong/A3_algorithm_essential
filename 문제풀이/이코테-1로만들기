@@ -1,0 +1,50 @@
+"""
+아이디어:
+연산종류 4가지:
+X가 5로 나누어 떨어지면, 5로 나눔
+    3
+    2
+X - 1
+
+N이 주어졌을때 1로 만드는 연산의 최소 횟수 !?
+
+DP:
+	메모제이션 사용
+	점화식: 
+		dp[i] = min(dp[i-1]+1, 
+					if i % 5 == 0: dp[i // 5]+1,
+					if i % 3 == 0: dp[i // 3]+1,
+					if i % 2 == 0: dp[i // 2]+1,
+					)
+시간복잡도:
+N: 30000
+
+자료구조:
+
+"""
+
+N = int(input())
+
+dp = [int(1e9)] * (N+1)
+dp[0] = 0
+dp[1] = 0
+
+# dp[i] = min(dp[i-1]+1, 
+# 			if i % 5 == 0: dp[i // 5]+1,
+# 			if i % 3 == 0: dp[i // 3]+1,
+# 			if i % 2 == 0: dp[i // 2]+1,
+# 			)
+
+for idx in range(2, N+1):
+	dp[idx] = dp[idx-1]+1
+	if idx % 5 == 0:
+		dp[idx] = min(dp[idx], dp[idx//5]+1)
+	if idx % 3 == 0:
+		dp[idx] = min(dp[idx], dp[idx//3]+1)	
+	if idx % 2 == 0:
+		dp[idx] = min(dp[idx], dp[idx//2]+1)		
+	
+print(dp[N])
+
+
+
