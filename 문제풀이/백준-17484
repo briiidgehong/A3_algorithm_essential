@@ -1,0 +1,52 @@
+"""
+아이디어:
+행렬의 최소거리
+브루트 포스
+
+시간복잡도:
+N, M = 6
+6^6 얼마 안됨 -> 브루트 포스로 풀어버리자
+# BFS 로 움직여서 브루트 포스 해보자
+	BFS도 좌표뿐 아니라, 
+	sum_num / direction 등을 다음 스텝으로 같이 넘길수 있다 !
+
+자료구조:
+
+"""
+
+y, x = map(int, input().split())
+
+dmap = [] # distance_map
+for _ in range(y):
+	dmap.append(list(map(int, input().split())))
+	
+
+from collections import deque
+
+move = [(1, -1), (1, 0), (1, 1)] # 0:왼아래 / 1:아래 / 2왼오른 / -1:빈값
+queue = deque() # 방향 / 현재sum값 / 좌표(y, x)
+
+# 첫번째열 초기화
+for idx in range(x):
+	queue.append([-1, dmap[0][idx], (0, idx)])
+
+result_count = []
+while queue:
+	poped_list = queue.popleft()
+	direction = poped_list[0]
+	sum_num = poped_list[1]
+	poped_y, poped_x = poped_list[2]
+	
+	if poped_y == y-1:
+		result_count.append(sum_num)
+		continue
+	
+	for idx, value in enumerate(move):
+		if direction != -1 and idx == direction:
+			continue
+		move_y = poped_y + value[0]
+		move_x = poped_x + value[1]
+		if move_y >= 0 and move_y < y and move_x >=0 and move_x < x:
+			queue.append([idx, sum_num+dmap[move_y][move_x], (move_y, move_x)])
+
+print(min(result_count))
