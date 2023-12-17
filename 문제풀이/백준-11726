@@ -1,0 +1,27 @@
+"""
+아이디어:
+2×n 크기의 직사각형을 채우는 방법의 수를 10,007로 나눈 나머지를 출력한다.
+
+DP: dp_table / 메모이제이션 / 점화식 사용
+	점화식: dp[i] = dp[i-1] + dp[i-2]
+	N=1 -> 1
+	N=2 -> 2
+	N=3 -> 3
+	N=4 -> 5
+
+시간복잡도:
+N: 1000
+
+자료구조:
+"""
+
+N = int(input())
+if N == 1:
+	print(1)
+else:
+	dp_table = [0] * (N+1)
+	dp_table[1] = 1
+	dp_table[2] = 2
+	for idx in range(3, N+1):
+		dp_table[idx] = dp_table[idx-1] + dp_table[idx-2]
+	print(dp_table[N] % 10007)
