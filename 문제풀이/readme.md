@@ -151,6 +151,11 @@ LCS: 가장 긴 공통 부분 수열
     백준 9252 LCS 2
     LCS 문제집: https://www.acmicpc.net/workbook/view/5080
 
+    함께 풀어볼만한 문제:
+        Shortest common supersequence (최단 공통 상위 수열)
+        컴퓨터 과학에서 두 시퀀스 X와 Y의 가장 짧은 공통 상위 시퀀스는 X와 Y를 하위 시퀀스로 갖는 가장 짧은 시퀀스입니다.
+        이는 최장 공통 부분 수열 문제와 밀접한 관련이 있는 문제입니다.
+
 최대 연속 부분수열의 합
 
 
