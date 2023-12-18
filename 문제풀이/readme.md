@@ -135,9 +135,11 @@ F: fail
 
 LIS: 가장 긴 증가하는 부분수열
     이코테 병사 배치하기 T
+    TODO: 백준 문제 2개
     LIS 문제집: https://www.acmicpc.net/workbook/view/801
 
 LCS: 가장 긴 공통 부분 수열
+    TODO: 백준 문제 2개
     LCS 문제집: https://www.acmicpc.net/workbook/view/5080
 
 
