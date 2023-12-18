@@ -151,6 +151,8 @@ LCS: 가장 긴 공통 부분 수열
     백준 9252 LCS 2
     LCS 문제집: https://www.acmicpc.net/workbook/view/5080
 
+최대 연속 부분수열의 합
+
 
 백준 2579 계단 오르기 - 1차원 DP
 백준 12865 평범한 배낭 - 0/1 knapsack - 2차원 dp (무게, 가치)
