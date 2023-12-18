@@ -1,0 +1,29 @@
+"""
+아이디어:
+가장 긴 증가하는 부분수열: LIS
+dp_table 사용
+	dp[i] = i번째 array를 포함했을때, 부분수열의 최대값
+	dp[i] 는 자기 자신만을 포함하는 1로 초기화
+	0<=j<i, dp[i] = if array[j] < array[i] max(dp[i], dp[j]+1)
+ 
+	for i in range(N):
+		for j in range(0, i):
+			if array[j] < array[i]:
+				dp[i] = max(dp[i], dp[j]+1)
+ 
+시간복잡도:
+자료구조:
+array[i]
+dp[i]
+"""
+ 
+N = int(input())
+array = list(map(int, input().split()))
+dp = [1]*N
+ 
+for i in range(N):
+	for j in range(0, i):
+		if array[j] < array[i]:
+			dp[i] = max(dp[i], dp[j]+1)
+ 
+print(max(dp))
