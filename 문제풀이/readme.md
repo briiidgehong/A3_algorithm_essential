@@ -132,8 +132,14 @@ F: fail
 이코테 1로 만들기 P
 이코테 효율적인 화폐구성 P
 이코테 금광 P
-이코테 병사 배치하기 (LIS: 가장 긴 증가하는 부분수열) T
+
+LIS: 가장 긴 증가하는 부분수열
+    이코테 병사 배치하기 T
     LIS 문제집: https://www.acmicpc.net/workbook/view/801
+
+LCS: 가장 긴 공통 부분 수열
+    LCS 문제집: https://www.acmicpc.net/workbook/view/5080
+
 
 백준 2579 계단 오르기 - 1차원 DP
 백준 12865 평범한 배낭 - 0/1 knapsack - 2차원 dp (무게, 가치)
