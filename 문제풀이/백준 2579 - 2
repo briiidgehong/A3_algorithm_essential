@@ -1,0 +1,33 @@
+"""
+아이디어:
+dp_table 사용
+	점화식:
+		dp[i] = i를 포함하는 i 인덱스 까지의 최대 합
+		dp[i] = max(a[i]+a[i-1]+dp[i-3], a[i]+dp[i-2])
+		
+시간복잡도:
+N: 300 / 1초
+자료구조:
+"""
+
+N = int(input())
+dp = [0] * N
+num_list = []
+for _ in range(N):
+	num_list.append(int(input()))
+
+if N == 1:
+	print(num_list[0])
+elif N == 2:
+	print(num_list[0] + num_list[1])
+elif N == 3:
+	print(max(num_list[1] + num_list[2], num_list[0] + num_list[2]))
+else:
+	dp[0] = num_list[0]
+	dp[1] = num_list[0] + num_list[1]
+	dp[2] = max(num_list[1] + num_list[2], num_list[0] + num_list[2])
+	
+	for idx in range(3, N):
+		dp[idx] = max(num_list[idx]+num_list[idx-1]+dp[idx-3], num_list[idx]+dp[idx-2])
+		
+	print(dp[N-1])
