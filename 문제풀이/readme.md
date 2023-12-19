@@ -146,8 +146,7 @@ LIS: 가장 긴 증가하는 부분수열
     LIS 문제집: https://www.acmicpc.net/workbook/view/801
 
 LCS: 가장 긴 공통 부분 수열
-    TODO:
-    백준 9251 LCS
+    백준 9251 LCS T
     백준 9252 LCS 2
     LCS 문제집: https://www.acmicpc.net/workbook/view/5080
 
