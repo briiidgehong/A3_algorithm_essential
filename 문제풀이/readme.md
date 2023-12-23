@@ -170,7 +170,7 @@ LCS: 가장 긴 공통 부분 수열
         from bisect import bisect_left, bisect_right
 
 실버:
-백준 9655 돌 게임	
+백준 9655 돌 게임 PT
 백준 1463 1로 만들기	
 백준 2193 이친수	
 백준 11726 2×n 타일링	
