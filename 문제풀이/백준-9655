@@ -1,0 +1,56 @@
+"""
+아이디어:
+돌 N개
+상근, 창영 돌을 1개 또는 3개 가져갈 수 있다.
+마지막에 돌을 가져가는 사람이 게임을 이긴다.
+ 
+N = 1 상근 승
+N = 2 창영 승
+N = 3 상근 승
+N = 4 창영 승
+N = 5 상근 승
+
+1. 홀/짝 풀이
+2. DP 풀이
+dp[i-1] == X -> X의 반대가 승
+dp[i-3] == X -> X의 반대가 승
+
+ 
+시간복잡도:
+N: 1000
+ 
+자료구조:
+"""
+ 
+N = int(input())
+
+# # 풀이 1
+# if N % 2 == 0:
+# 	print("CY")
+# else:
+# 	print("SK")
+
+# 풀이 2
+if N == 1:
+	print("SK")
+elif N == 2:
+	print("CY")
+elif N == 3:
+	print("SK")
+else:
+	dp = [-1] * (N+1)
+	dp[1] = "SK"
+	dp[2] = "CY"
+	dp[3] = "SK"
+	
+	for idx in range(4, N+1):
+		if dp[idx-1] == "SK" or dp[idx-3] == "SK":
+			dp[idx] = "CY"
+		else:
+			dp[idx] = "SK"
+	
+	print(dp[N])
+	
+
+
+
