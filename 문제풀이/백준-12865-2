@@ -1,0 +1,29 @@
+"""
+아이디어:
+DP
+	dp[보석 i][무게 j] = 보석i를 담는경우, 담지않는 경우 최대값
+	dp[i][j] = max(보석을 담지않는경우, 담는경우)
+	dp[i][j] = max(dp[i-1][j], dp[i-1][j-weight[i]] + value[i])
+ 
+시간복잡도:
+N: 100
+자료구조:
+"""
+ 
+N, K = map(int, input().split())
+ 
+wv = []
+for _ in range(N):
+	wv.append(list(map(int, input().split())))
+ 
+dp = list([0] * (K+1) for _ in range(N+1))
+ 
+for i in range(1, N+1):
+	for j in range(1, K+1):
+		# dp[i][j] = max(dp[i-1][j], dp[i-1][j-weight[i]] + value[i])
+		if j-wv[i][0] >= 0:
+			dp[i][j] = max(dp[i-1][j], dp[i-1][j-wv[i][0]] + wv[i][1])	
+		else:
+			dp[i][j] = dp[i-1][j]
+ 
+print(dp[N][K])
