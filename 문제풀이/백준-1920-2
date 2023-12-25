@@ -1,0 +1,33 @@
+"""
+아이디어:
+N개의 정수
+M개의 정수 가 있을때, 
+M개의 정수가 N 안에 존재하는지 확인
+
+N 을 정렬후,
+이진탐색 / bisect_left == bisect_right 인지 확인하면 됨
+같으면 존재하지 않고, 다르면 존재한다.
+
+시간복잡도:
+N: 100000
+M: 100000
+
+자료구조:
+"""
+
+from bisect import bisect_left, bisect_right
+
+N = int(input())
+n_list = list(map(int, input().split()))
+n_list.sort()
+
+M = int(input())
+m_list = list(map(int, input().split()))
+
+for each in m_list:
+	left_idx = bisect_left(n_list, each)
+	right_idx = bisect_right(n_list, each)
+	if left_idx == right_idx:
+		print(0)
+	else:
+		print(1)
