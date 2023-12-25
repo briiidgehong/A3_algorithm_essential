@@ -210,8 +210,8 @@ LCS: 가장 긴 공통 부분 수열
 백준 1920 수 찾기 - 이진탐색 / bisect_left, right P
 백준 2805 나무 자르기 T
     이코테 떡볶이 떡 만들기 - 이진탐색 / bisect_left, right
-이코테 정렬된 배열에서 특정 수의 개수 구하기 - bisect_left, right
-백준 10816
+백준 10816 숫자카드2
+    이코테 정렬된 배열에서 특정 수의 개수 구하기 - bisect_left, right
 
 백준 2559 수열 - 투포인터
 백준 3273 두수의합 - 투포인터
@@ -294,6 +294,9 @@ trie 알고리즘 - 보류
 
 ## 참조
 ```
+동빈북 백준 링크:
+https://github.com/ndb796/python-for-coding-test/issues?q=is%3Aissue+is%3Aopen+%EB%B0%B1%EC%A4%80
+
 해야함:
 dfs : 깊이우선탐색으로 완전탐색을 할때 사용한다.
 백트래킹 : dfs에서 더이상 정답이 아니라고 판단되는 부분은 탐색하지 않도록 가지를 치며 탐색하는 방법
