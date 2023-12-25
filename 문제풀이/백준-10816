@@ -1,0 +1,36 @@
+"""
+아이디어:
+이진탐색 bisect
+from bisect import bisect_left, bisect_right
+if bisect_left_num == bisect_right_num:
+	result = 0
+else:
+	result = bisect_right_num - bisect_left_num
+
+idx  0 1 2  3  4  5  6
+list 1 2 10 10 10 13 14	
+bisect_left_num = 2
+bisect_right_num = 5
+
+시간복잡도:
+자료구조:
+"""
+
+N = int(input())
+n_list = list(map(int, input().split()))
+n_list.sort()
+
+M = int(input())
+m_list = list(map(int, input().split()))
+
+from bisect import bisect_left, bisect_right
+
+for each in m_list:
+	bisect_left_idx = bisect_left(n_list, each)
+	bisect_right_idx = bisect_right(n_list, each) 
+	if bisect_left_idx == bisect_right_idx:
+		print(0)
+	else:
+		print(bisect_right_idx - bisect_left_idx)
+
+
