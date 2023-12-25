@@ -1,0 +1,42 @@
+"""
+아이디어:
+절단기에 높이를 지정하면 줄지어진 떡을 한번에 절단
+19, 14, 10, 17 -> 절단기 높이 15 -> 떡의 길이 4 0 0 2
+손님은 6 만큼을 가져간다.
+적어도 M만큼의 떡을 얻기 위해 절단기에 설정할수 있는 높이의 최대값 ?
+
+완전탐색:
+n_list.sort()의 가장 적은수부터 가장 많은 수까지 높이를 하나씩 
+대입하면서 잘라봄 
+
+이진탐색:
+중간값을 잘라보면서 M보다 큰지 적은지 판단해가면서 조절한다.
+* max값을 구해야하므로 sum_count가 M보다 같거나 크면, max_num = max(max_num, mid)
+* start는 array[0]이 아닌, 0부터 시작해야한다. 높이의 범위가 array[0] ~ array[-1] 이 아니기 때문에
+
+시간복잡도:
+자료구조:
+"""
+
+N, M = map(int, input().split()) # 5 20
+n_list = list(map(int, input().split())) # 4 26 40 42 46
+n_list.sort()
+
+start = 0
+end = n_list[-1]
+
+max_num = 0
+while start <= end:
+	mid = (start+end) // 2
+	sum_count = 0
+	for each in n_list:
+		if each > mid:
+			sum_count += each - mid
+	
+	if sum_count < M: # 작은경우에는 h를 줄여 가져가는 길이를 늘린다.
+		end = mid - 1
+	else: # 같거나 큰 경우에는 높인다.
+		max_num = max(max_num, mid)
+		start = mid + 1
+
+print(max_num)
