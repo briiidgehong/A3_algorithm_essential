@@ -1,0 +1,66 @@
+"""
+아이디어:
+리스트안에서 두개의 수를 뽑아 
+두 수의 합이 X가 되는 경우의 수를 구하여라
+
+단순하게는 
+	1. combination -> 각각 sum -> return count
+	2. for문
+
+3. 투포인터 
+	정렬후, 양쪽에서 포인터 각각 출발
+	합이 X보다 크면 오른쪽 포인터를 줄이고
+	합이 X보다 작으면 왼쪽 포인터를 늘린다.
+
+시간복잡도:
+N: 100 000
+
+자료구조:
+"""
+
+N = int(input())
+n_list = list(map(int, input().split()))
+X = int(input())
+
+n_list.sort()
+
+# # 1. combination 풀이
+# from itertools import combinations
+# comb_list = combinations(n_list,2)
+# count = 0
+# for each in comb_list:
+# 	if sum(each) == X:
+# 		count += 1
+# print(count)
+
+# # 2. for문 풀이
+# # 1 2 3 4 5
+# # 1 2 3 4 5
+# # 1: 2 3 4 5
+# # 2: 3 4 5
+# # 3: 4 5
+# # 4: 5
+# count = 0
+# for i in range(N):
+# 	for j in range(i+1, N):
+# 		if n_list[i] + n_list[j] == X:
+# 			count += 1
+# print(count)
+		
+# 3. 투포인터 풀이
+start_p = 0
+end_p = N-1
+
+count = 0
+while start_p != end_p:
+	sum_num = n_list[start_p] + n_list[end_p]
+	if sum_num == X:
+		count += 1
+		start_p += 1
+	elif sum_num > X:
+		end_p -= 1
+	else: # sum_num < X:
+		start_p += 1
+print(count)
+
+
