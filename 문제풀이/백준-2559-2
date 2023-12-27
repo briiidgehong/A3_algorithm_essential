@@ -1,0 +1,38 @@
+"""
+아이디어:
+구간합의 최대값을 구하라
+
+일반풀이 시간초과 !
+
+시간복잡도:
+N=100000
+1 <= K <= N
+
+자료구조:
+"""
+
+# 일반풀이
+# # 5 2
+# # idx 0 1 2 3
+# N, K = map(int, input().split())
+# n_list = list(map(int, input().split()))
+
+# sum_list = []
+# for idx in range(0, N-K+1):
+# 	sum_list.append(sum(n_list[idx:idx+K]))
+
+# print(max(sum_list))
+
+# 투포인터
+# 5 3
+# 234
+N, K = map(int, input().split())
+n_list = list(map(int, input().split()))
+
+start_p = 0
+end_p = K-1
+max_sum_list = [sum(n_list[0:K])]
+for idx in range(1, N-K+1):
+	max_sum_list.append(max_sum_list[-1] - n_list[start_p+idx-1] + n_list[end_p+idx])
+	
+print(max(max_sum_list))
