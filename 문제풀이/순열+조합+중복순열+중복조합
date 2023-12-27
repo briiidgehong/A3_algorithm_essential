@@ -1,0 +1,35 @@
+"""
+num_list = [1,2,3,4]
+str_list = ['a', 'b']
+
+순열: 순서 구분해서 두개를 뽑음 (1,4) != (4,1)
+	from itertools import permutations
+	permutations(num_list, 2)
+	# [(1, 2), (1, 3), (1, 4), (2, 1), (2, 3), (2, 4), 
+	# (3, 1), (3, 2), (3, 4), (4, 1), (4, 2), (4, 3)]
+
+조합: 순서 구분하지 않고 두개를 뽑음 (1,4) = (4,1)
+	from itertools import combinations
+	combinations(num_list, 2)
+	# [(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)]
+
+중복순열:
+	from itertools import product
+	product(num_list, str_list)
+	# [(1, 'a'), (1, 'b'), (2, 'a'), (2, 'b'), 
+	# (3, 'a'), (3, 'b'), (4, 'a'), (4, 'b')]
+	
+	product(num_list, repeat=2)
+	# [(1, 1), (1, 2), (1, 3), (1, 4), (2, 1), (2, 2), (2, 3), (2, 4), 
+	# (3, 1), (3, 2), (3, 3), (3, 4), (4, 1), (4, 2), (4, 3), (4, 4)]
+	
+중복조합:
+	from itertools import combinations_with_replacement
+	combinations_with_replacement(num_list, 2)
+	# [(1, 1), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), 
+	# (2, 4), (3, 3), (3, 4), (4, 4)]
+	
+"""
+
+
+
