@@ -1,0 +1,35 @@
+"""
+아이디어:
+연속된 수들의 부분합 중에 
+그 합이 S 이상이 되는 것 중, 가장 짧은 것의 길이
+
+구간합, 왼쪽에서 같이 출발하는 투포인터 !
+
+시간복잡도:
+N: 100 000
+자료구조:
+"""
+
+N, S = map(int, input().split())
+n_list = list(map(int, input().split()))
+
+start_p = 0
+end_p = 0
+
+sum_num = n_list[start_p]
+length = int(1e9)
+if sum(n_list) < S:
+	print(0)
+else:
+	while start_p <= end_p:
+		if sum_num >= S:
+			length = min(length, end_p-start_p+1)
+			sum_num -= n_list[start_p]
+			start_p += 1
+		else:
+			end_p += 1
+			if end_p == N:
+				break
+			sum_num += n_list[end_p]
+	
+	print(length)
