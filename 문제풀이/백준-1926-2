@@ -1,0 +1,46 @@
+"""
+아이디어:
+BFS 
+
+시간복잡도:
+N: 가로 500 * 세로 500 250000
+자료구조:
+
+"""
+
+from collections import deque
+
+move = [[-1, 0], [1,0], [0,-1], [0,1]] # [y, x]상/하/좌/우
+
+y, x = map(int, input().split())
+
+map_list = []
+for _ in range(y):
+	map_list.append(list(map(int, input().split())))
+
+count = 0
+max_size = 0
+visited = list([False] * x for _ in range(y))
+# 각 노드에서 출발해본다.
+for idx_y in range(y):
+	for idx_x in range(x):
+		if visited[idx_y][idx_x] == False and map_list[idx_y][idx_x] == 1:
+			visited[idx_y][idx_x] = True
+			count += 1
+			# BFS
+			size = 1
+			queue = deque()
+			queue.append((idx_y, idx_x))
+			while queue:
+				poped_y, poped_x = queue.popleft()
+				for move_y, move_x in move:
+					moved_y = poped_y + move_y 
+					moved_x = poped_x + move_x 
+					if moved_y >= 0 and moved_y < y and moved_x >= 0 and moved_x < x:
+						if visited[moved_y][moved_x] == False and map_list[moved_y][moved_x] == 1:
+							visited[moved_y][moved_x] = True
+							queue.append((moved_y, moved_x))
+							size += 1
+			max_size = max(max_size, size)
+print(count)
+print(max_size)
