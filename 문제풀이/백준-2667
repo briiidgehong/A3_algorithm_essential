@@ -1,0 +1,56 @@
+"""
+백준 2667
+아이디어:
+BFS 탐색
+	from collections import deque
+	map_list
+	visited
+	move
+
+시간복잡도:
+가로 25 세로 25
+자료구조:
+"""
+
+from collections import deque
+
+move = [(-1,0),(1,0),(0,-1),(0,1)]# (x,y) 상/하/좌/우
+
+y = int(input())
+x = y
+
+map_list = []
+for _ in range(y):
+	map_list.append(list(map(int, list(input()))))
+	
+visited = list([False] * y for _ in range(y))
+
+count = 0
+size_list = []
+for idx_y in range(y):
+	for idx_x in range(x):
+		if visited[idx_y][idx_x] == False and map_list[idx_y][idx_x] == 1:
+			count += 1
+			size = 1
+		
+			# BFS
+			queue = deque()
+			queue.append((idx_y, idx_x))
+			visited[idx_y][idx_x] = True
+			
+			while queue:
+				poped_y, poped_x = queue.popleft()
+				for m_y, m_x in move:
+					moved_y = poped_y + m_y
+					moved_x = poped_x + m_x
+					if moved_y >= 0 and moved_y < y and moved_x >= 0 and moved_x < x:
+						if visited[moved_y][moved_x] == False and map_list[moved_y][moved_x] == 1:
+							size +=1
+							queue.append((moved_y, moved_x))
+							visited[moved_y][moved_x] = True
+			size_list.append(size)
+
+print(count)
+size_list.sort()
+for each in size_list:
+	print(each)
