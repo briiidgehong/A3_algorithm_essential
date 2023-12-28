@@ -1,0 +1,50 @@
+"""
+아이디어:
+연속된 소수의 합
+	1부터 소수 구해서 list 만들고,
+	구간합, 왼쪽에서 함께 출발하는 투포인터 !
+시간복잡도:
+자료구조:
+"""
+
+N = int(input())
+if N == 1:
+	print(0)
+else:
+	import math
+	# 소수: 1보다 큰 자연수 중, 1과 자기 자신만을 약수로 가지는 수
+	# = 1과 자기자신 외의 숫자로 나누어 떨어지지 않는 수
+	def is_prime_num(num):
+		for idx in range(2, int(math.sqrt(num))+1):
+			if num % idx == 0:
+				return False
+		return True
+	
+	prime_num_list = []
+	for idx in range(2, N+1):
+		if is_prime_num(idx):
+			prime_num_list.append(idx)
+	
+	# 구간합
+	start_p = 0
+	end_p = 0
+	sum_num = prime_num_list[0]
+	prime_num_length = len(prime_num_list)
+	count = 0
+	while start_p <= end_p:
+		if sum_num == N:
+			count += 1
+			end_p += 1
+			if end_p == prime_num_length:
+				break
+			sum_num += prime_num_list[end_p]
+		else:
+			if sum_num > N:
+				sum_num -= prime_num_list[start_p]
+				start_p += 1
+			else: # sum_num < N:
+				end_p += 1
+				if end_p == prime_num_length:
+					break
+				sum_num += prime_num_list[end_p]
+	print(count)
