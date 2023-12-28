@@ -1,0 +1,33 @@
+"""
+백준 2178
+아이디어:
+(1,1) -> (N,M) 끝까지 이동할때, 지나야 하는 최소 칸의 수
+BFS - 흐르는 알고리즘
+ 
+시간복잡도:
+자료구조:
+"""
+ 
+from collections import deque
+ 
+y, x = map(int, input().split())
+map_list = []
+for _ in range(y):
+	map_list.append(list(map(int, list(input()))))
+ 
+move = [(-1,0),(1,0),(0,-1),(0,1)]# (y,x) 상/하/좌/우
+ 
+queue = deque()
+queue.append((0,0))
+while queue:
+	poped_y, poped_x = queue.popleft()
+	for m_y, m_x in move:
+		moved_y = m_y + poped_y
+		moved_x = m_x + poped_x
+		if moved_y >= 0 and moved_y < y and moved_x >= 0 and moved_x < x:
+			if map_list[moved_y][moved_x] == 1:
+				map_list[moved_y][moved_x] += map_list[poped_y][poped_x]
+				queue.append((moved_y, moved_x))
+ 
+print(map_list)
+print(map_list[-1][-1])
