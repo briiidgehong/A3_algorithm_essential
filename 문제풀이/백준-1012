@@ -1,0 +1,40 @@
+"""
+아이디어:
+시간복잡도:
+자료구조:
+"""
+
+T = int(input()) # 테스트 케이스의 개수
+for _ in range(T):
+	x, y, k = map(int, input().split()) 
+	# 격자 가로길이 / 격자 세로길이 / 배추가 심어져있는 위치의 갯수
+	map_list = list([0]*x for _ in range(y))
+	for _ in range(k):
+		input_x, input_y = map(int, input().split())
+		map_list[input_y][input_x] = 1
+	
+	# 모든 노드에서 BFS 출발
+	from collections import deque
+	
+	move = [(-1,0),(1,0),(0,-1),(0,1)] # (y,x) 상 하 좌 우
+	visited = list([False]*x for _ in range(y))
+	
+	count = 0
+	for idx_y in range(y):
+		for idx_x in range(x):
+			if map_list[idx_y][idx_x] == 1 and visited[idx_y][idx_x] == False:
+				count += 1
+				queue = deque()
+				queue.append((idx_y, idx_x)) # (y, x)
+				visited[idx_y][idx_x] = True
+				while queue:
+					poped_y, poped_x = queue.popleft()
+					for m_y, m_x in move:
+						moved_y = poped_y + m_y
+						moved_x = poped_x + m_x
+						if moved_y >= 0 and moved_y < y and moved_x >= 0 and moved_x < x:
+							if map_list[moved_y][moved_x] == 1 and visited[moved_y][moved_x] == False:
+								visited[moved_y][moved_x] = True
+								queue.append((moved_y, moved_x))
+	
+	print(count)
