@@ -1,0 +1,41 @@
+"""
+아이디어:
+부모와 자식 사이를 1촌
+a 출발해서 b까지의 depth를 구하면 됨 -> bfs
+
+시간복잡도:
+자료구조:
+"""
+
+N = int(input()) # 전체 인원수
+start_node, end_node = map(int, input().split()) # a와 b의 촌수 출력
+M = int(input()) # 간선의 갯수
+
+graph = {}
+for each in range(1, N+1):
+	graph[each] = []
+
+for _ in range(M): # (부모, 자식)
+	parent, child = map(int, input().split())
+	graph[parent].append(child)
+	graph[child].append(parent)
+
+visited = [False] * (N+1)
+
+from collections import deque
+queue = deque()
+queue.append((start_node, 0)) # (node, depth)
+visited[start_node] = True
+
+end_node_depth = -1
+while queue:
+	poped_node, depth = queue.popleft()
+	if poped_node == end_node:
+		end_node_depth = depth
+		break
+	for node in graph[poped_node]:
+		if visited[node] == False:
+			visited[node] = True
+			queue.append((node, depth+1))
+			
+print(end_node_depth)
