@@ -33,18 +33,18 @@ for key, value in graph.items():
 	graph[key] = sorted_value
  
 # DFS - 재귀 사용
-def dfs(node, visited):
-	visited[node] = True
-	for each_node in graph[node]:
-		if visited[each_node] == False:
-			visited[each_node] = True
-			dfs_result_list.append(each_node)
-			dfs(each_node, visited)
+def dfs(node):
+	bfs_visited[node] = True
+	for end_node in graph[node]:
+		if bfs_visited[end_node] == False:
+			bfs_visited[end_node] = True
+			dfs_result_list.append(end_node)
+			dfs(end_node)
  
 bfs_visited = [False] * (N+1)
-dfs_result_list = [] # 노드 방문 순서
+dfs_result_list = [] # 방문 노드 순서
 dfs_result_list.append(start_node)
-dfs(start_node, bfs_visited)
+dfs(start_node)
  
 for each in dfs_result_list:
 	print(each, end=" ")
@@ -59,7 +59,6 @@ bfs_result_list = [] # 방문 노드 순서
 queue = deque()
 queue.append(start_node)
 bfs_visited[start_node] = True
-bfs_visited.append(start_node)
 bfs_result_list.append(start_node)
  
 while queue:
