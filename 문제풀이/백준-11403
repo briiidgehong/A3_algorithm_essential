@@ -1,0 +1,56 @@
+"""
+백준 11403 경로 찾기
+아이디어:
+start -> end 로 가는 경로가 존재하는지 구하시오
+연결요소를 구해서, 연결요소 dictionary 구해놓고 인접행렬 출력
+
+!!! 방향 그래프 !!! 
+graph[start].append(end)
+graph[end].append(start) X
+
+시간복잡도:
+자료구조:
+"""
+
+N = int(input())
+
+graph = {}
+for idx in range(N):
+	graph[idx] = []
+	
+map_list = [] # 인접행렬
+for start_idx in range(N):
+	input_list = list(map(int, input().split()))
+	for end_idx, value in enumerate(input_list):
+		if value == 1:
+			graph[start_idx].append(end_idx)
+
+# 연결요소 그래프 만들기
+conn_graph = {}
+for idx in range(N):
+	conn_graph[idx] = []
+
+from collections import deque
+
+# 각각에서 출발해봄
+for start_node in range(N):
+	visited = [False] * N
+	queue = deque()
+	queue.append(start_node)
+	# visited[start_node] = True 
+	# 다시 자기 자신에서 올수 있는지 확인하기 위해 True 처리 안함
+	while queue:
+		poped_node = queue.popleft()
+		for end_node in graph[poped_node]:
+			if visited[end_node] == False:
+				visited[end_node] = True
+				queue.append(end_node)
+				conn_graph[start_node].append(end_node)
+
+for idx_y in range(N):
+	for idx_x in range(N):
+		if idx_x in conn_graph[idx_y]:
+			print(1, end=" ")
+		else:
+			print(0, end=" ")
+	print("")
