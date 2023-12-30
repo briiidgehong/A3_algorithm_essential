@@ -1,0 +1,44 @@
+"""
+아이디어:
+격자에서의 이동(=탐색) -> BFS
+start에서 end로 가는 최단 거리 -> BFS ! 흐르는 알고리즘
+
+시간복잡도:
+자료구조:
+move = 8가지 경우의 수
+
+"""
+
+T = int(input())
+for _ in range(T):
+	y = int(input())# 한변의 길이
+	x = y
+	
+	start_y, start_x = map(int, input().split()) # 나이트가 현재 있는 칸
+	end_y, end_x = map(int, input().split()) # 이동하려 하는 칸
+	
+	move = [(-1,-2),(-2,-1),(-2,1),(-1,2),(1,2),(2,1),(2,-1),(1,-2)] # (y, x) 방향: 10 11 1 2 4 5 7 8
+	
+	# visited 와 min 가중치를 함께 사용 (= 흐르는 알고리즘)
+	visited = list([0] * x for _ in range(y))
+	
+	from collections import deque
+	
+	queue = deque()
+	queue.append((start_y, start_x))
+	visited[start_y][start_x] = 1
+	
+	while queue:
+		poped_y, poped_x = queue.popleft()
+		for m_y, m_x in move:
+			moved_y = poped_y + m_y
+			moved_x = poped_x + m_x
+			if moved_y >= 0 and moved_y < y and moved_x >= 0 and moved_x < x:
+				if visited[moved_y][moved_x] == 0: # False
+					visited[moved_y][moved_x] = visited[poped_y][poped_x] + 1
+					queue.append((moved_y, moved_x))
+				
+				if moved_y == end_y and moved_x == end_x:
+					break
+	
+	print(visited[end_y][end_x]-1)
