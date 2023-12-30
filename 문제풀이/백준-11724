@@ -1,0 +1,42 @@
+"""
+아이디어:
+노드 간선 -> graph !
+graph 만들어서 탐색 -> BFS
+
+이코테 음료수 얼려먹기 처럼 count +1 씩 하면서 풀수 있을듯
+= 각 노드에서 모두 출발해봄 !!
+
+시간복잡도:
+N: 1000
+V: 1000(1000-1)/2
+자료구조:
+"""
+
+N, V = map(int, input().split())  # 노드, 간선
+
+graph = {}
+for idx in range(1, N+1):
+	graph[idx] = []
+for _ in range(V):
+	a, b = map(int, input().split())
+	graph[a].append(b)
+	graph[b].append(a)
+
+
+from collections import deque
+
+visited = [False] * (N+1)
+count = 0 # 연결요소 개수
+for start_node in range(1, N+1):
+	if visited[start_node] == False:
+		count += 1
+		queue = deque()
+		queue.append(start_node)
+		
+		while queue:
+			poped_node = queue.popleft()
+			for end_node in graph[poped_node]:
+				if visited[end_node] == False:
+					visited[end_node] = True
+					queue.append(end_node)
+print(count)
