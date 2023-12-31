@@ -32,4 +32,28 @@ str_list = ['a', 'b']
 """
 
 
+"""
+순열과 조합의 for문 구현의 차이
+3개의 수가 주어졌을때 2의 수로 만들수 있는 순열과 조합을 구하여라
+"""
+
+num_list = [1,2,3]
+
+
+# 순열 (= idx 기준[value 기준 아님], (1,2)와 (2,1) 을 각각 하나의 경우의 수로 취급
+permutations = []
+for idx_1 in range(len(num_list)):
+	for idx_2 in range(len(num_list)):
+		if idx_1 != idx_2:
+			permutations.append((num_list[idx_1], num_list[idx_2]))
+			
+# 조합 (= idx 기준[value 기준 아님], (1,2)와 (2,1) 을 하나의 경우의 수로 취급 
+combinations = []
+for idx_1 in range(len(num_list)):
+	for idx_2 in range(idx_1+1, len(num_list)):
+		combinations.append((num_list[idx_1], num_list[idx_2]))
+
+print(f"순열: {permutations}")
+print(f"조합: {combinations}")
+
 
