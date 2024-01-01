@@ -1,0 +1,36 @@
+"""
+백준-15650
+아이디어:
+1부터 N까지 자연수 중에서 중복 없이 M개를 고른 수열 -> 순열
+모든 경우의수, 트리, 순열 -> 백트래킹
+
+시간복잡도:
+자료구조:
+"""
+
+N, M = map(int, input().split())
+num_list = list(each for each in range(1, N+1))
+
+result_list = []
+def recur(recur_idx, recur_num_list, recur_visited):
+	if recur_idx == M:
+		result_list.append(recur_num_list)
+		return
+	for idx, value in enumerate(num_list):
+		if recur_visited[idx] == False:
+			if len(recur_num_list) == 0:
+					recur_visited[idx] = True
+					recur(recur_idx+1, recur_num_list+[value], recur_visited)
+					recur_visited[idx] = False				
+			else:
+				if recur_num_list[-1] < value:
+					recur_visited[idx] = True
+					recur(recur_idx+1, recur_num_list+[value], recur_visited)
+					recur_visited[idx] = False
+				
+recur(0, [], [False]*N)
+
+for each in result_list:
+	for sub_each in each:
+		print(sub_each, end=" ")
+	print("")
