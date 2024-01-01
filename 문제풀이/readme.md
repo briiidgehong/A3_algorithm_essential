@@ -310,7 +310,7 @@ DFS 골드
 백준 15649 N과 M T
 백준 15650 N과 M (2) P
 백준 15651 N과 M (3) P
-백준 15654 N과 M (5)
+백준 15654 N과 M (5) P
 
 릿트코드 letter combinations of a phone number
 백준 9663 n queen
