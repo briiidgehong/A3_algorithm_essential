@@ -1,0 +1,39 @@
+"""
+백준-15654
+아이디어:
+순열 문제 -> 먼저 입력, 출력 확인 중복순열 아님 -> 그냥 순열
+N개의 자연수 중에서 M개를 고른 수열 
+모든 경우의수, 트리, 순열 -> 백트래킹
+def recur(recur_idx, recur_num_list, recur_visited)
+
+시간복잡도:
+자료구조:
+"""
+import traceback
+try:
+	N, M = map(int, input().split())
+	num_list = list(map(int, input().split()))
+	num_list.sort()
+	
+	
+	result_list = []
+	def recur(recur_idx, recur_num_list, recur_visited):
+		# 종료조건부터 명시
+		if recur_idx == M:
+			result_list.append(recur_num_list)
+			return
+		
+		for idx, value in enumerate(num_list):
+			if recur_visited[idx] == False:
+				recur_visited[idx] = True
+				recur(recur_idx+1, recur_num_list+[value], recur_visited)
+				recur_visited[idx] = False
+			
+	recur(0, [], [False]*N)
+	
+	for each in result_list:
+		for sub_each in each:
+			print(sub_each, end = " ")
+		print("")
+except Exception:
+	print(traceback.format_exc())
