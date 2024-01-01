@@ -1,0 +1,40 @@
+"""
+백준-15651
+아이디어:
+1부터 N까지 자연수 중에서 M개를 고른 수열, 중복 허용 -> 중복순열 product
+모든 경우의수, 트리, 순열 -> 백트래킹
+
+시간복잡도:
+자료구조:
+"""
+
+N, M = map(int, input().split())
+num_list = list(each for each in range(1, N+1))
+
+
+# # 1. 중복순열 product 풀이
+# from itertools import product
+
+# result_list = list(product(num_list, repeat=M))
+# for each in result_list:
+# 	for sub_each in each:
+# 		print(sub_each, end=" ")
+# 	print("")
+
+# 2. 백트래킹 풀이 
+# 중복허용이므로 기존 순열 풀이에서 visited 안쓰면 된다 !
+
+result_list = []
+def recur(recur_idx, recur_num_list):
+	if recur_idx == M:
+		result_list.append(recur_num_list)
+		return
+	for idx, value in enumerate(num_list):
+		recur(recur_idx+1, recur_num_list+[value])
+		
+recur(0, [])
+
+for each in result_list:
+	for sub_each in each:
+		print(sub_each, end=" ")
+	print("")
