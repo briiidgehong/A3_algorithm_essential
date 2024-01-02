@@ -1,0 +1,57 @@
+"""
+백준 1182 부분수열의 합
+아이디어:
+N개의 정수로 이루어진 수열이 있을 때,
+크기가 양수인 부분수열 중에서
+그 수열의 원소를 다 더한 값이 S가 되는 경우의 수를 구하라
+
+부분수열 -> 1. combinations 풀이 
+				for 1부터 N+1까지 각각 개수대로 부분수열을 만들어서 sum 해봄
+			2. 백트래킹 풀이
+				
+				
+구간합이나, 부분수열의 개수가 두개로 딱 정해져 있으면 투포인터 쓰면됨
+
+시간복잡도:
+N:20
+S:1000 000
+
+자료구조:
+"""
+
+N, S = map(int, input().split())
+n_list = list(map(int, input().split()))
+
+# # 1. combinations 풀이
+# from itertools import combinations
+
+# count = 0
+# for idx in range(1, N+1):
+# 	comb_list = list(combinations(n_list, idx))
+# 	for each in comb_list:
+# 		if sum(each) == S:
+# 			count += 1
+# print(count)
+
+# 2. 백트래킹 풀이 -> 시간초과
+count = 0
+def recur(recur_idx, recur_sub_list, recur_visited):
+	global count
+	
+	if recur_idx == N: # 종료조건 명시
+		if sum(recur_sub_list) == S:
+			count += 1
+		return	
+	
+	if len(recur_sub_list) >= 1:
+		if sum(recur_sub_list) == S:
+			count += 1		
+
+	for idx in range(recur_idx+1, N):
+		if recur_visited[idx] == False:
+			recur_visited[idx] = True
+			recur(recur_idx+1, recur_sub_list+[n_list[idx]], recur_visited)
+			recur_visited[idx] = False
+			
+recur(0, [], [False]*N)
+print(count)
