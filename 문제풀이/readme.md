@@ -312,7 +312,7 @@ DFS 골드
 백준 15651 N과 M (3) P
 백준 15654 N과 M (5) P
 
-릿트코드 letter combinations of a phone number
+릿트코드 letter combinations of a phone number T
 백준 9663 n queen
 백준 1182 부분수열의 합
 
