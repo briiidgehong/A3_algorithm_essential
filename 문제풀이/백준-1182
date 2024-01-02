@@ -33,25 +33,36 @@ n_list = list(map(int, input().split()))
 # 			count += 1
 # print(count)
 
-# 2. 백트래킹 풀이 -> 시간초과
-count = 0
-def recur(recur_idx, recur_sub_list, recur_visited):
-	global count
+# # 2. 백트래킹 풀이 1 -> 시간초과
+# count = 0
+# def recur(recur_idx, recur_sum):
+# 	global count
 	
-	if recur_idx == N: # 종료조건 명시
-		if sum(recur_sub_list) == S:
-			count += 1
-		return	
+# 	if recur_idx == N: # 종료조건 명시
+# 		if recur_sum == S:
+# 			count += 1
+# 		return	
 	
-	if len(recur_sub_list) >= 1:
-		if sum(recur_sub_list) == S:
-			count += 1		
+# 	if recur_idx > 0:
+# 		if recur_sum == S:
+# 			count += 1		
 
-	for idx in range(recur_idx+1, N):
-		if recur_visited[idx] == False:
-			recur_visited[idx] = True
-			recur(recur_idx+1, recur_sub_list+[n_list[idx]], recur_visited)
-			recur_visited[idx] = False
+# 	for idx in range(recur_idx+1, N):
+# 		recur(recur_idx+1, recur_sum+n_list[idx])
 			
-recur(0, [], [False]*N)
+# recur(0, 0)
+# print(count)
+
+# 3. 백트래킹 풀이 2 -> 정답 // 이걸 왜 이렇게 돌리지...?
+count = 0
+def recur(recur_idx, recur_sum):
+    global count
+    if recur_idx > 0:
+        if recur_sum == S:
+            count += 1
+
+    for idx in range(recur_idx, N):
+        recur(idx+1, recur_sum+n_list[idx]) # recur_idx 가 아닌 idx !!
+
+recur(0, 0)
 print(count)
