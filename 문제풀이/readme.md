@@ -313,9 +313,9 @@ DFS 골드
 백준 15654 N과 M (5) P
 
 릿트코드 letter combinations of a phone number T
-백준 9663 n queen
-백준 1182 부분수열의 합
+백준 1182 부분수열의 합 T
 
+백준 9663 n queen
 프로그래머스 여행경로
     DFS / 백트래킹
 
