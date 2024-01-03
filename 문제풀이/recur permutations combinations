@@ -1,0 +1,37 @@
+N = 3
+n_list = [1,2,3]
+
+"""
+recur permutations
+"""
+comb_list = []
+def recur(recur_idx, recur_sub_list, recur_visited):
+	if recur_idx == 2:
+		comb_list.append(recur_sub_list)
+		return
+		
+	for idx in range(N):
+		if recur_visited[idx] == False:
+			recur_visited[idx] = True
+			recur(recur_idx+1, recur_sub_list + [n_list[idx]], recur_visited)
+			recur_visited[idx] = False
+recur(0, [], [False]*N)
+print(f"permutations: {comb_list}")
+
+"""
+recur combinations
+"""
+comb_list = []
+def recur(recur_idx, recur_last_idx, recur_sub_list, recur_visited):
+	if recur_idx == 2:
+		comb_list.append(recur_sub_list)
+		return
+		
+	for idx in range(recur_last_idx+1, N):
+		if recur_visited[idx] == False:
+			recur_visited[idx] = True
+			recur(recur_idx+1, idx, recur_sub_list + [n_list[idx]], recur_visited)
+			recur_visited[idx] = False
+			
+recur(0, -1, [], [False]*N)
+print(f"combinations: {comb_list}")
