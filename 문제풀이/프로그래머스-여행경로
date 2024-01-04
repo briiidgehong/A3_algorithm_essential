@@ -1,0 +1,45 @@
+"""
+프로그래머스 여행경로
+아이디어:
+방향 그래프 graph = {start: [end_1, end_2]} -> dfs recur 백트래킹
+시간복잡도:
+자료구조:
+
+input: [["ICN", "JFK"], ["HND", "IAD"], ["JFK", "HND"]]	
+output: ["ICN", "JFK", "HND", "IAD"]
+input: [["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]	
+output: ["ICN", "ATL", "ICN", "SFO", "ATL", "SFO"]
+"""
+
+tickets = [["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]	
+graph = {}
+visited = {}
+for start, end in tickets:
+	if start not in graph.keys():
+		graph[start] = []
+		visited[start] = []
+	graph[start].append(end)
+
+for key, value in graph.items():
+	graph[key] = sorted(value)
+	visited[key] = [False]*len(value)
+
+
+result_sub_list = []
+def recur(recur_start_node, recur_sub_list):
+	if len(recur_sub_list) == len(tickets):
+		last_node = ""
+		for idx, value in enumerate(graph[recur_start_node]):
+			if visited[recur_start_node][idx] == False:
+				last_node = value
+		result_sub_list.append(recur_sub_list+[last_node])
+		return
+	for idx, value in enumerate(graph[recur_start_node]):
+		if visited[recur_start_node][idx] == False and (value in graph.keys()):
+			visited[recur_start_node][idx] = True
+			recur(value, recur_sub_list + [value])
+			visited[recur_start_node][idx] = False
+	
+recur("ICN", ["ICN"])
+result_sub_list.sort()
+print(result_sub_list[0])
