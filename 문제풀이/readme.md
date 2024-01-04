@@ -307,17 +307,19 @@ DFS 골드
     모든 경우의 수를 확인해야 할때
         깊이가 가변이라서 for 로는 확인 불가능한 경우
 
+릿트코드 letter combinations of a phone number T
 백준 15649 N과 M T
 백준 15650 N과 M (2) P
 백준 15651 N과 M (3) P
 백준 15654 N과 M (5) P
-
-릿트코드 letter combinations of a phone number T
 백준 1182 부분수열의 합 T
 백준 9663 n queen P
-
-프로그래머스 여행경로
+프로그래머스 여행경로 P
     DFS / 백트래킹
+
+백트래킹 실버
+
+백트래킹 골드
 
 ```
 
