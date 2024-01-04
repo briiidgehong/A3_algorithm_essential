@@ -1,0 +1,28 @@
+"""
+아이디어:
+한 행을 트리의 한 depth로 취급 -> dfs recur 백트래킹
+시간복잡도:
+자료구조:
+"""
+ 
+N = int(input())
+count = 0
+def recur(recur_idx, recur_sub_list):
+	global count
+	if recur_idx == N: # 종료조건
+		count += 1
+		return
+	for idx in range(N):
+		# (y, x) = (recur_idx, idx)
+		available_flag = True
+		for sub_idx_y, sub_idx_x in recur_sub_list:
+			if recur_idx == sub_idx_y or sub_idx_x == idx:
+				available_flag = False
+				break
+			if abs(sub_idx_y-recur_idx) == abs(sub_idx_x-idx):
+				available_flag = False
+				break
+		if available_flag:
+			recur(recur_idx+1, recur_sub_list + [(recur_idx, idx)]) # (y, x)
+recur(0, [])
+print(count)
