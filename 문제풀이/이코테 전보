@@ -1,0 +1,56 @@
+"""
+이코테 전보
+아이디어:
+특정 도시에서 메시지를 보낼때 
+	메시지를 받는 도시의 총 개수
+	도시들이 모두 메시지를 받는 데까지 걸리는 시간(최대값)
+	
+방향그래프 / 간선존재 
+	메시지를 받는데까지 걸리는 시간(최단경로)
+	특정 도시에서 다른 모든 도시까지
+	-> heapq와 min_table을 활용한 다익스트라
+
+시간복잡도:
+O(ElogN) = 200 000 * 4~5  = 1000 000
+100 2
+1000 3
+10000 4
+N: 30000
+E: 200 000
+
+자료구조:
+"""
+
+N, E, start_node = map(int, input().split())
+graph = {}
+for _ in range(E):
+	start, end, cost = map(int, input().split())
+	if start not in graph.keys():
+		graph[start] = []
+	graph[start].append((end,cost))
+
+import heapq
+min_table = [int(1e9)]*(N+1)
+
+queue = []
+heapq.heappush(queue, (start_node, 0))
+min_table[start_node] = 0
+
+while queue:
+	poped_node, poped_cost = heapq.heappop(queue)
+	if poped_node in graph.keys():
+		for each_node, each_cost in graph[poped_node]:
+			if min_table[each_node] < poped_cost + each_cost:
+				continue
+			else: # 갱신되는 경우
+				min_table[each_node] = poped_cost + each_cost
+				heapq.heappush(queue, (each_node, poped_cost + each_cost))
+
+count = 0
+min_cost = 0
+for idx in range(1, N+1):
+	if min_table[idx] != int(1e9) and min_table[idx] != 0:
+		count+=1
+		min_cost = max(min_cost, min_table[idx])
+print(count, end=" ")
+print(min_cost)
