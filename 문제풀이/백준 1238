@@ -1,0 +1,54 @@
+"""
+아이디어:
+시간복잡도상 다익스트라 진행
+다익스트라:
+	"min_table과 heapq를 이용한 다익스트라"
+
+시간복잡도:
+V: 1000
+E: 10 000
+다익스트라: O(ElogV) = 10 000 * (4~5) = 50000
+플로이드 와샬: O(V^3) = 1000 000 000 
+
+자료구조: 
+
+"""
+
+N, E, target_node = map(int, input().split())
+graph = {}
+for _ in range(E):
+	start, end, cost  = map(int, input().split())
+	if start not in graph.keys():
+		graph[start] = []
+	graph[start].append((end, cost)) 
+
+dij_dict = {} # (start_node, [cost_1, cosst_2, ''])
+for each_start_node in range(1, N+1):
+	dij_dict[each_start_node] = []
+
+# dij 시행
+for each_start_node in range(1, N+1):
+	import heapq
+	queue = []
+	min_table = [int(1e9)] * (N+1)
+	min_table[each_start_node] = 0
+	heapq.heappush(queue, (each_start_node, 0))
+	while queue:
+		poped_node, poped_cost = heapq.heappop(queue)
+		for next_node, next_cost in graph[poped_node]:
+			if min_table[next_node] < poped_cost + next_cost:
+				continue
+			else:
+				min_table[next_node] = poped_cost + next_cost
+				heapq.heappush(queue, (next_node, poped_cost + next_cost))
+	dij_dict[each_start_node] = min_table
+# 각 학생별로 오고 가는 cost 를 계산한 결과값
+cost_list = [] # (node, cost)
+for each_start_node in range(1, N+1):
+	# go cost + back cost
+	cost_list.append((each_start_node, 
+		dij_dict[each_start_node][target_node] + 
+		dij_dict[target_node][each_start_node]))
+	
+cost_list = sorted(cost_list, key=lambda x:x[1])
+print(cost_list[-1][1]) 
