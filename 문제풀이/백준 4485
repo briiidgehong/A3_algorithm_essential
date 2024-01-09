@@ -1,0 +1,53 @@
+"""
+백준 4485 녹색 옷 입은 애가 젤다지?
+고민해볼 포인트:
+    if min_table[moved_y][moved_x] <= poped_cost + next_cost: continue O
+    if min_table[moved_y][moved_x] < poped_cost + next_cost: continue X 시간초과
+
+    heapq.heappush(queue, (min_table[moved_y][moved_x], moved_y, moved_x)) O
+    heapq.heappush(queue, (moved_y, moved_x)) X 결과값이 다름
+
+아이디어:
+ N x N 크기의 동굴의 제일 왼쪽 위에 위치 
+ [0][0] -> [N-1][N-1]까지 이동해야 한다.
+ 각 칸마디 가중치가 존재, 가중치만큼 소지금을 잃게된다.
+ 잃는 금액을 최소화하여 이동할때, 경로 가중치 합의 최소값은 ?
+ 상/하/좌/우 이동 가능함
+
+가중치가 있는 최단경로
+	-> 다익스트라:
+		"min_table과 heapq를 이용한 다익스트라"
+
+시간복잡도:
+자료구조:
+
+"""
+count = 1
+while True:
+	N = int(input())
+	if N == 0:
+		break
+	map_list = []
+	for _ in range(N):
+		map_list.append(list(map(int, input().split())))
+	move = [(-1,0),(1,0),(0,-1),(0,1)] # 상/하/좌/우
+	
+	import heapq
+	queue = []
+	min_table = list([int(1e9)] * N for _ in range(N)) # [y][x]
+	min_table[0][0] = map_list[0][0]
+	heapq.heappush(queue, (min_table[0][0], 0,0)) # (y, x)
+	while queue:
+		poped_cost, poped_y, poped_x = heapq.heappop(queue)
+		for move_y, move_x in move:
+			moved_y = poped_y + move_y
+			moved_x = poped_x + move_x
+			if moved_y >=0 and moved_y < N and moved_x >= 0 and moved_x < N:
+				next_cost = map_list[moved_y][moved_x]
+				if min_table[moved_y][moved_x] <= poped_cost + next_cost:
+					continue
+				else:
+					min_table[moved_y][moved_x] = poped_cost + next_cost
+					heapq.heappush(queue, (min_table[moved_y][moved_x], moved_y, moved_x))
+	print(f"Problem {count}: {min_table[-1][-1]}")
+	count +=1
