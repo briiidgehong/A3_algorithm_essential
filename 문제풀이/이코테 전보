@@ -45,6 +45,8 @@ while queue:
 			else: # 갱신되는 경우
 				min_table[each_node] = poped_cost + each_cost
 				heapq.heappush(queue, (each_node, poped_cost + each_cost))
+				# 잘못되었음 최소 heap 자료구조는 첫번째 원소를 기준으로 배치되므로,
+				# (poped_cost+each_cost, each_node) 가 되어야함
 
 count = 0
 min_cost = 0
