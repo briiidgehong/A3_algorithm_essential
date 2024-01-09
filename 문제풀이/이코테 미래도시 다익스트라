@@ -1,0 +1,62 @@
+"""
+이코테 미래도시 다익스트라
+아이디어:
+1번노드 -> K -> X 의 최단경로
+다익스트라 두번으로 가능할듯
+1 -> K / K -> X
+"min_table과 heapq를 이용한 다익스트라"
+
+시간복잡도:
+N: 100
+M: 100
+
+자료구조:
+"""
+
+N, M = map(int, input().split())
+
+graph = {}
+for _ in range(M):
+	start, end = map(int, input().split())
+	if start not in graph.keys():
+		graph[start] = []
+	if end not in graph.keys():
+		graph[end] = []
+	graph[start].append(end)
+	graph[end].append(start)
+
+X, K = map(int, input().split())
+
+# 1 -> K 
+import heapq
+queue = []
+min_table = [int(1e9)] * (N+1)
+heapq.heappush(queue, (0, 1)) # (cost, node)
+while queue:
+	poped_cost, poped_node = heapq.heappop(queue)
+	for next_node in graph[poped_node]: 
+		next_cost = 1
+		if min_table[next_node] > poped_cost + next_cost:
+			min_table[next_node] = poped_cost + next_cost
+			heapq.heappush(queue, (poped_cost + next_cost, next_node))
+step_one_result = min_table[K]
+
+
+# K -> X
+import heapq
+queue = []
+min_table = [int(1e9)] * (N+1)
+heapq.heappush(queue, (0, K)) # (cost, node)
+while queue:
+	poped_cost, poped_node = heapq.heappop(queue)
+	for next_node in graph[poped_node]: 
+		next_cost = 1
+		if min_table[next_node] > poped_cost + next_cost:
+			min_table[next_node] = poped_cost + next_cost
+			heapq.heappush(queue, (poped_cost + next_cost, next_node))
+step_two_result = min_table[X]
+
+if step_one_result + step_two_result > int(1e9):
+	print(-1)
+else:
+	print(step_one_result + step_two_result)
