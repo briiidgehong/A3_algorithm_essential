@@ -1,0 +1,45 @@
+"""
+가중치 단방향 간선 최단경로 알고리즘
+모든 도시의 쌍 (A, B)에 대해서 도시 A에서 B로 가는데 필요한 비용의 최솟값
+N: 100
+M: 100 000
+다익스트라 vs 플로이드 와샬:
+	다익스트라 O(V*ElogV) = 100 * 100 000 * 2 = 200 00 000
+	플로이드 와샬 O(V^3) = 100 00 00
+	-> 플로이드 와샬로 풀어야함 !
+	플로이드 와샬:
+		"점화식을 이용한 플로이드 와샬"
+		점화식 Dab = min(Dab, Dak + Dkb)
+		
+"""
+
+N = int(input())
+M = int(input())
+
+graph = list([int(1e9)] * (N+1) for _ in range(N+1)) # graph[start][end]
+
+# check point: 같은 index인 경우 0 처리 해준다.
+for idx in range(1, N+1):
+	graph[idx][idx] = 0
+
+for _ in range(M):
+	start, end, cost = map(int, input().split())
+	# check point: 노선이 하나가 아닐 수 있으므로, min값을 계산해서 넣어준다.
+	graph[start][end] = min(graph[start][end], cost)
+
+for k in range(1, N+1):
+	for a in range(1, N+1):
+		for b in range(1, N+1):
+			graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b])
+
+for idx_start in range(1, N+1):
+	for idx_end in range(1, N+1):
+		print(graph[idx_start][idx_end], end=" ")
+	print("")
+	
+
+
+
+
+	
+	
