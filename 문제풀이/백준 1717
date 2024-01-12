@@ -24,7 +24,7 @@ def union_parent(a,b):
 		
 import sys
 input = sys.stdin.readline
-sys.setrecursionlimit(1000000) # 재귀 깊이 제한 늘리기 check point
+sys.setrecursionlimit(int(1e6)) # 재귀 깊이 제한 늘리기 check point
 N, M = map(int, input().split()) # N 노드의 갯수 M 연산 횟수
 
 parent_table = [0] * (N+1)
