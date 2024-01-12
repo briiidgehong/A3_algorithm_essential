@@ -419,7 +419,7 @@ DFS 골드
 ## MST (union-find / 크루스칼 / 프림)
 ```
 union-find:
-1717 집합의 표현
+1717 집합의 표현 T (check point)
 1976 여행 가자
 9938 방 청소
 10775 공항
