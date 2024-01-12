@@ -1,0 +1,45 @@
+"""
+백준 1717 집합의 표현
+집합을 함치고, 서로 같은 집합에 속하는지 확인
+union find
+
+"""
+
+# 특정 원소가 속한 집합을 찾기
+def find_parent(x):
+	# 경로 압축 
+	# 각 집합에 속한 원소들이 모두 집합의 최상단 노드를 바라보도록 한다.
+	if parent_table[x] != x:
+		parent_table[x] = find_parent(parent_table[x])
+	return parent_table[x]
+
+# 두 원소가 속한 집합을 합치기
+def union_parent(a,b):
+	a = find_parent(a)
+	b = find_parent(b)
+	if a <= b:
+		parent_table[b] = a
+	else:
+		parent_table[a] = b
+		
+import sys
+input = sys.stdin.readline
+sys.setrecursionlimit(1000000) # 재귀 깊이 제한 늘리기 check point
+N, M = map(int, input().split()) # N 노드의 갯수 M 연산 횟수
+
+parent_table = [0] * (N+1)
+for idx in range(1, N+1):
+	parent_table[idx] = idx
+
+for _ in range(M):
+	type, x_1, x_2 = map(int, input().split())
+	if type == 0: # union
+		union_parent(x_1, x_2)
+	else: # find
+		if find_parent(x_1) == find_parent(x_2):
+			print('YES')
+		else:
+			print('NO')
+		
+		
+		
