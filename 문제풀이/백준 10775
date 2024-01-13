@@ -1,0 +1,60 @@
+"""
+공항에는 G개의 게이트가 있으며 각각은 1에서 G까지의 번호를 가지고 있다.
+공항에는 P개의 비행기가 순서대로 도착할 예정이며, 
+당신은 i번째 비행기를 1번부터 gi (1 ≤ gi ≤ G) 번째 게이트중 하나에 영구적으로 도킹하려 한다. 
+비행기가 어느 게이트에도 도킹할 수 없다면 공항이 폐쇄되고, 
+이후 어떤 비행기도 도착할 수 없다.
+비행기를 최대 몇 대 도킹시킬 수 있는가?
+
+4
+3
+4: 첫번째 비행기, 1~4번 탑승구 중 한 군데 가능
+1: 두번째 비행기, 1번 탑승구만 가능
+1: 세번째 비행기, 1번 탑승구만 가능
+
+union find:
+	union_parent / find_parent (경로압축)
+특정 탑승구에 도킹할때 find_parent(g) 를 통해
+입장하려는 게이트의 root 노드를 찾고, 그 root 노드가 0인지 확인
+0 이라면 자리가 없는것이므로 break
+아니라면, 다음처리시 같은 게이트에 비행기가 들어올 수 있도록
+union(root, root-1) 을 진행해준다.
+
+"""
+
+G = int(input()) # 게이트 수
+P = int(input()) # 비행기 수
+
+def find_parent(x):
+	if x != parent_table[x]:
+		parent_table[x] = find_parent(parent_table[x])
+	return parent_table[x]
+
+def union_parent(a,b):
+	a = find_parent(a)
+	b = find_parent(b)
+	if a <= b:
+		parent_table[b] = a
+	else:
+		parent_table[a] = b
+
+parent_table = [0] * (G+1)
+for idx in range(1, len(parent_table)):
+	parent_table[idx] = idx
+
+count = 0
+for _ in range(P):
+	g = int(input())
+	root = find_parent(g)
+	if root == 0:
+		break
+	union_parent(root-1, root)
+	count += 1
+
+print(count)
+	
+	
+	
+	
+	
+	
