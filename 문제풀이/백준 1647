@@ -1,0 +1,55 @@
+"""
+V 100 000
+E 1000 000
+
+두 개의 분리된 마을로 분할 
+마을에는 집이 하나 이상 있어야 한다.
+각각의 마을 안에 최소 스패닝 트리를 만들어라 -> 크루스칼 풀기
+
+크루스칼:
+	"union find 사용, 전체 간선 중 가중치가 작은것부터 연결"
+	O(ElogE) = 1000 000 * 6
+프림:
+	O(ElogV) = 1000 000 * 5
+
+최소 스패닝 트리를 만든후, 가장 가중치가 큰 간선 하나를 제거한다.
+"""
+
+V, E = map(int, input().split())
+
+edge_list = []
+for _ in range(E):
+	start, end, cost = map(int, input().split())
+	edge_list.append((cost, start, end))
+edge_list.sort()
+
+parent_table = [0] * (V+1)
+for idx in range(1, V+1):
+	parent_table[idx] = idx
+
+def find_parent(x):
+	if x != parent_table[x]:
+		parent_table[x] = find_parent(parent_table[x])
+	return parent_table[x]
+
+def union_parent(a,b):
+	a = find_parent(a)
+	b = find_parent(b)
+	if a <= b:
+		parent_table[b] = a
+	else:
+		parent_table[a] = b
+
+cost_list = []
+for each_cost, each_start, each_end in edge_list:
+	each_start = find_parent(each_start)
+	each_end = find_parent(each_end)
+	if each_start == each_end:
+		continue
+	else:
+		union_parent(each_start, each_end)
+		cost_list.append(each_cost)
+
+
+cost_list.sort()
+print(sum(cost_list[:-1]))
