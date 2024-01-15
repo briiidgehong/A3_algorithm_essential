@@ -1,0 +1,22 @@
+"""
+소수 판별 
+	특정한 수의 소수 판별
+		"2부터 제곱근까지"
+"""
+
+N = int(input())
+num_list = list(map(int, input().split()))
+
+import math
+def is_sosu(x):
+	for idx in range(2, int(math.sqrt(x))+1):
+		if x % idx == 0:
+			return False
+	return True
+
+count = 0
+for each in num_list:
+	if each > 1:
+		if is_sosu(each):
+			count += 1
+print(count)
