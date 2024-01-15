@@ -73,7 +73,42 @@ F: fail
 
 
 소수판별:
-    개선된 소수 판별 함수(=에라토스테네스의 체)
+    소수: 1보다 큰 수 중에서, 1과 자기 자신을 제외하고는 나누어 떨어지지 않는 수
+    특정 수의 소수 판별 함수 (=2부터 제곱근까지 확인)
+        제곱근을 기준으로 좌우 대칭을 이루므로,
+        """
+        import math
+        def is_prime_number(x):
+            for i in range(2, int(math.sqrt(x)) + 1):
+                if x % i == 0:
+                    return False 
+            return True
+        """
+
+    다수의 소수 판별 함수 (=에라토스테네스의 체)
+        N보다 작나 같은 모든 소수를 찾을 때 사용
+            1. 2부터 N까지의 수를 나열
+            2. 남은 수 중에서 아직 처리하지 않은 가장 작은 소수 m을 찾는다.
+            3. 남은 수 중에서 m을 제외한 m의 배수를 모두 제거한다.
+            4. N의 제곱근값까지 2번 3번을 반복한다.
+        """
+        import math
+        N = int(input())
+        
+        sosu_table = [True for _ in range(N+1)]
+        
+        for idx in range(2, int(math.sqrt(N))+1):
+            if sosu_table[idx] == True:
+                sum_idx = (idx * 2)
+                while sum_idx <= N:
+                	sosu_table[sum_idx] = False
+                	sum_idx += idx
+                	
+        for idx in range(2, N+1):
+            if sosu_table[idx] == True:
+                print(idx, end=" ")      
+        """
+
     1978 소수 찾기
     1929 소수 구하기
     2581 소수
