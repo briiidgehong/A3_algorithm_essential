@@ -1,0 +1,40 @@
+"""
+소수 판별
+	M 이상 N 이하 소수 출력
+		다수 소수 판별 함수 (=에라토스테네스의 체)
+			"2부터 N까지의 수를 나열"
+"""
+
+# # 특정 소수 판별
+# M, N = map(int, input().split())
+
+# import math
+# def is_sosu(x):
+# 	for idx in range(2, int(math.sqrt(x))+1):
+# 		if x % idx == 0:
+# 			return False
+# 	return True
+
+# for idx in range(M, N+1):
+# 	if idx == 1:
+# 		continue
+# 	if is_sosu(idx):
+# 		print(idx)
+
+# 다수 소수 판별
+M, N = map(int, input().split())
+
+sosu_table = [True] * (N+1)
+
+import math
+for idx in range(2, int(math.sqrt(N))+1):
+	sum_idx = (2*idx)
+	while sum_idx <= N:
+		sosu_table[sum_idx] = False
+		sum_idx += idx
+
+for idx in range(M, N+1):
+	if idx == 1:
+		continue
+	if sosu_table[idx]:
+		print(idx)
