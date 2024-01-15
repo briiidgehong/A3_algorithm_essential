@@ -1,0 +1,30 @@
+"""
+n에 대하여, n보다 크고, 2n보다 작거나 같은 소수는 적어도 하나 존재
+"""
+
+input_list = []
+while True:
+	num = int(input())
+	if num == 0:
+		break
+	input_list.append(num)
+
+N = max(input_list) # 가장 큰 수
+sosu_table = [True] * ((2*N)+1)
+
+import math
+for idx in range(2, int(math.sqrt(2*N))+1):
+	sum_idx = (idx * 2)
+	while sum_idx <= 2*N:
+		sosu_table[sum_idx] = False
+		sum_idx += idx
+
+for each in input_list:
+	count = 0
+	idx_list = []
+	for idx in range(each+1, (2*each)+1):
+		if idx != 1:
+			if sosu_table[idx] == True:
+				count += 1
+				idx_list.append(idx)
+	print(count)
