@@ -1,0 +1,14 @@
+"""
+백준 9613 GCD 합
+gcd, lcm 
+"""
+import math
+from itertools import combinations
+N = int(input())
+for _ in range(N):
+	temp_list = list(map(int, input().split()))[1:]
+	comb_list = combinations(temp_list, 2)
+	sum_num = 0
+	for each in comb_list:
+		sum_num += math.gcd(*each)
+	print(sum_num)
