@@ -1,0 +1,23 @@
+"""
+백준 3036 링
+링 N개, 링의 반지름이 주어질때, 
+
+첫 번째 링을 한 바퀴 돌리면, 
+나머지 링은 몇 바퀴 돌아가는지 구하는 프로그램을 작성
+기약 분수 형태 A/B로 출력
+
+원둘레 = 2 파이 r
+input:
+3
+8 4 2
+output:
+2/1
+4/1
+"""
+N = int(input())
+half_list = list(map(int, input().split()))
+
+import math
+for idx in range(1, N):
+	gcd = math.gcd(half_list[0], half_list[idx])
+	print(f"{int(half_list[0]/gcd)}/{int(half_list[idx]/gcd)}")
