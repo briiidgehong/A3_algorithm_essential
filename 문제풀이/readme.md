@@ -154,6 +154,26 @@ F: fail
     14490 백대열
 
 진수 변환:
+    """
+    n진수 -> 10진수: int(string, base)
+        print(int('111',2))
+
+    10진수 -> n진수: 직접 함수 작성
+        import string
+        tmp = string.digits+string.ascii_lowercase
+        def convert(num, base) :
+            q, r = divmod(num, base)
+            if q == 0 :
+                return tmp[r] 
+            else :
+                return convert(q, base) + tmp[r]
+        print(convert(10,2))
+
+    n진수 -> n진수: n진수 -> 10진수 -> n진수
+        print(convert(int('a',16),2))
+        
+    """
+
     2998 8진수
     3460 이진수
     1550 16진수
