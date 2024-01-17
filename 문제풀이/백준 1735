@@ -1,0 +1,23 @@
+"""
+백준 1735 분수 합
+2/7 + 3/5
+10/35 + 21/35
+print 31 35
+"""
+
+one_child, one_parent = map(int, input().split())
+two_child, two_parent = map(int, input().split())
+
+import math
+lcm = math.lcm(one_parent, two_parent)
+one_child *= int(lcm / one_parent)
+two_child *= int(lcm / two_parent)
+
+child = one_child + two_child
+parent = lcm
+gcd = math.gcd(child, parent)
+if gcd != 1:
+	parent = int(parent / gcd)
+	child = int(child / gcd)
+print(child, end=" ")
+print(parent)
