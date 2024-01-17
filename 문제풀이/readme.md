@@ -155,23 +155,22 @@ F: fail
 
 진수 변환:
     """
-    n진수 -> 10진수: int(string, base)
-        print(int('111',2))
-
-    10진수 -> n진수: 직접 함수 작성
-        import string
-        tmp = string.digits+string.ascii_lowercase
-        def convert(num, base) :
-            q, r = divmod(num, base)
-            if q == 0 :
-                return tmp[r] 
-            else :
-                return convert(q, base) + tmp[r]
-        print(convert(10,2))
-
-    n진수 -> n진수: n진수 -> 10진수 -> n진수
-        print(convert(int('a',16),2))
-        
+    # N 진수 -> 10진수
+    print(int('110',3)) # 12
+    
+    def convert(n, q):
+        base = ''
+        while n > 0:
+            n, mod = divmod(n, q)
+            base += str(mod)
+        return base[::-1]
+              
+    # 10 진수 -> N진수
+    print(convert(12, 3)) # 110
+    
+    # N진수 -> N진수
+    num_10 = int('110', 3) # 3진수 -> 10진수 # 12
+    print(convert(num_10, 2)) # 10진수 -> 2진수 # 1100
     """
 
     2998 8진수
