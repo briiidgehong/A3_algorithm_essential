@@ -155,8 +155,8 @@ F: fail
 
 진수 변환:
     """
-    ### N진수 -> 10진수
-    print(int('110',3)) # 12
+    ### N진수 -> 10진수 (2진수 -> 10진수)
+    print(int('1110',2)) # 14
     
     def convert(n, q):
         base = ''
@@ -165,12 +165,11 @@ F: fail
             base += str(mod)
         return base[::-1]
 
-    ### 10진수 -> N진수 
+    ### 10진수 -> N진수 (10진수 -> 3진수)
     14
-    7(몫) ''' 0(나머지)
-    3 ''' 1
+    4(몫) ''' 2(나머지)
     1 ''' 1
-    -> 1110
+    -> 112
     
     def convert(num, c):
     	reverse_str = ''
@@ -182,14 +181,11 @@ F: fail
     			reverse_str += str(head)
     			break
     	return reverse_str[::-1]
-    print(convert(14,3))
-              
-    # 10 진수 -> N진수
-    print(convert(12, 3)) # 110
+    print(convert(14, 3)) # 112
     
-    # N진수 -> N진수
-    num_10 = int('110', 3) # 3진수 -> 10진수 # 12
-    print(convert(num_10, 2)) # 10진수 -> 2진수 # 1100
+    # N진수 -> N진수 (2진수 -> 3진수)
+    num_10 = int('112', 3) # 2진수 1110 -> 10진수 14
+    print(convert(14, 3)) # 10진수 14 -> 3진수 112
     """
 
     2998 8진수
