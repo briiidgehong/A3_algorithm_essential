@@ -155,7 +155,7 @@ F: fail
 
 진수 변환:
     """
-    # N 진수 -> 10진수
+    ### N진수 -> 10진수
     print(int('110',3)) # 12
     
     def convert(n, q):
@@ -164,6 +164,25 @@ F: fail
             n, mod = divmod(n, q)
             base += str(mod)
         return base[::-1]
+
+    ### 10진수 -> N진수 
+    14
+    7(몫) ''' 0(나머지)
+    3 ''' 1
+    1 ''' 1
+    -> 1110
+    
+    def convert(num, c):
+    	reverse_str = ''
+    	while True:
+    		head, rest = divmod(num, c) # 몫, 나머지
+    		num = head
+    		reverse_str += str(rest)
+    		if head == 1:
+    			reverse_str += str(head)
+    			break
+    	return reverse_str[::-1]
+    print(convert(14,3))
               
     # 10 진수 -> N진수
     print(convert(12, 3)) # 110
