@@ -1,0 +1,41 @@
+"""
+백준 2998
+
+2진수 -> 8진수
+step1 2진수->10진수
+step2 10진수->2진수
+"""
+num = input()
+num_10 = int(num, 2)
+
+def convert(num, criteria):
+	result_string = ''
+	while num > 0:
+		num, rest = divmod(num, criteria)
+		result_string = str(rest) + result_string
+	return result_string
+
+print(convert(num_10, 8))
+
+"""
+백준 3460
+10진수 -> 2진수
+"""
+
+repeat_num = int(input())
+
+def convert(num, criteria):
+	result_str = ''
+	while num > 0:
+		num, rest = divmod(num, criteria)
+		result_str = str(rest) + result_str
+	return result_str
+	
+for _ in range(repeat_num):
+	n = int(input())
+	converted_num = convert(n, 2)
+	converted_num = converted_num[::-1]
+	for idx in range(len(converted_num)):
+		if converted_num[idx] == '1':
+			print(idx, end=" ")
+	print("")
