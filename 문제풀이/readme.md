@@ -171,16 +171,12 @@ F: fail
     1 ''' 1
     -> 112
     
-    def convert(num, c):
-    	reverse_str = ''
-    	while True:
-    		head, rest = divmod(num, c) # 몫, 나머지
-    		num = head
-    		reverse_str += str(rest)
-    		if head == 1:
-    			reverse_str += str(head)
-    			break
-    	return reverse_str[::-1]
+    def convert(num, criteria):
+        result_str = ''
+        while num > 0:
+            num, rest = divmod(num, criteria)
+            result_str = str(rest) + result_str
+        return result_str
     print(convert(14, 3)) # 112
     
     ### N진수 -> N진수 (2진수 -> 3진수: 2진수 -> 10진수 + 10진수 -> 3진수)
@@ -192,6 +188,7 @@ F: fail
     3460 이진수
     1550 16진수
     2745 진법 변환
+
     4839 소진법
     5692 팩토리얼 진법
     8741 이진수 합
