@@ -170,13 +170,15 @@ F: fail
     4(몫) ''' 2(나머지)
     1 ''' 1
     -> 112
-    
+
+    # check point: 외우기
     def convert(num, criteria):
         result_str = ''
         while num > 0:
             num, rest = divmod(num, criteria)
             result_str = str(rest) + result_str
         return result_str
+
     print(convert(14, 3)) # 112
     
     ### N진수 -> N진수 (2진수 -> 3진수: 2진수 -> 10진수 + 10진수 -> 3진수)
