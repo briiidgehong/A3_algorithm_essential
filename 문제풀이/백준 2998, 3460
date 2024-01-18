@@ -1,6 +1,5 @@
 """
 백준 2998
-
 2진수 -> 8진수
 step1 2진수->10진수
 step2 10진수->2진수
@@ -21,7 +20,6 @@ print(convert(num_10, 8))
 백준 3460
 10진수 -> 2진수
 """
-
 repeat_num = int(input())
 
 def convert(num, criteria):
