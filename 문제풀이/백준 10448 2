@@ -1,27 +1,28 @@
 """
 완전탐색 - 중복 combinations
 """
-
+ 
 T = int(input())
 input_list = []
 for _ in range(T):
 	input_list.append(int(input()))
-
-from itertools import combinations_with_replacement
-
+ 
+# from itertools import combinations_with_replacement
+ 
 count = 2
 tri_num_list = [1]
 three_sum_list = []
 while tri_num_list[-1] <= max(input_list):
     tri_num_list.append(tri_num_list[-1] + count)
     count += 1
-    for each in list(combinations_with_replacement(tri_num_list, 3)):
-    	three_sum_list.append(sum(each))
-
+    # for each in list(combinations_with_replacement(tri_num_list, 3)):
+    # 	three_sum_list.append(sum(each))
+    for i in tri_num_list:
+        for j in tri_num_list:
+            for k in tri_num_list:
+                three_sum_list.append(i+j+k)
 for each in input_list:
 	if each in three_sum_list:
 		print(1)
 	else:
 		print(0)
-
-
