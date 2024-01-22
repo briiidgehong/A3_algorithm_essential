@@ -1,0 +1,24 @@
+"""
+동전 N종류
+가치의 합을 K로
+이때 필요한 동전 개수의 최소값
+
+최대한 큰것들의 조합으로 만들어야 함 -> 그리디
+"""
+
+N, K = map(int, input().split())
+n_list = []
+for _ in range(N):
+	n_list.append(int(input()))
+
+n_list = list(each for each in n_list if each <= K)
+
+count = 0
+for each_coin in reversed(n_list):
+	head, rest = divmod(K, each_coin)
+	count += head
+	if rest == 0:
+		break
+	else:
+		K = rest
+print(count)
