@@ -1,0 +1,26 @@
+"""
+N이 1이 될 때까지 
+다음의 두 과정 중 하나를 반복적으로 선택하여 수행
+
+N에서 K를 뺀다.
+N을 K로 나눈다.
+
+최소 횟수를 구하시오.
+"""
+
+N, K = map(int, input().split())
+
+count = 0
+while N > 1:
+	head, rest = divmod(N, K)
+	if head == 0:
+		count += (rest - 1)
+		break
+	else:
+		if rest == 0:
+			N = N // K
+			count += 1
+		else:
+			count += rest
+			N -= rest
+print(count)
