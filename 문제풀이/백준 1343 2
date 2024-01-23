@@ -1,0 +1,23 @@
+"""
+백준 1343 폴리오미노
+구현, 그리디
+"""
+input_str = input()
+
+idx = 0
+result = ""
+while idx < len(input_str):
+	if input_str[idx:idx+4] == "XXXX":
+		result += "AAAA"
+		idx += 4
+	elif input_str[idx:idx+2] == "XX":
+		result += "BB"
+		idx += 2
+	elif input_str[idx:idx+1] == ".":
+		result += "."
+		idx += 1
+	elif input_str[idx:idx+1] == "X":
+		result = -1
+		break
+
+print(result)
