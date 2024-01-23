@@ -1,29 +1,22 @@
 """
-백준 11726 2xN 타일링
-2×n 크기의 직사각형을 1×2, 2×1 타일로 채우는 방법의 수
-DP: 상향식으로 시도해보면서 규칙을 찾는다.
-dp[i] = dp[i-1] + dp[i]
-"""
-"""
+백준 11726
 1: 1
 2: 2
 3: 3
 4: 5
-5: 8
-6: 13
-7: 21
-8: 34
-9: 55
+'''
+DP[i] = DP[i-1] + DP[i-2]
 """
-N = int(input())
 
-dp_table = [0] * (N+1)
-dp_table[0] = 1
-dp_table[1] = 2
-if N == 1 or N == 2:
-	pass
+N = int(input())
+if N == 1:
+	print(1)
+elif N == 2:
+	print(2)
 else:
-	for idx in range(2, N+1):
+	dp_table = [0] * (N+1)
+	dp_table[1] = 1
+	dp_table[2] = 2
+	for idx in range(3, N+1):
 		dp_table[idx] = dp_table[idx-1] + dp_table[idx-2]
-		
-print(dp_table[N-1] % 10007)
+	print(dp_table[N] % 10007)
