@@ -1,0 +1,34 @@
+"""
+백준 12865 평범한 배낭 (2차원 DP)
+N개의 물건이 있다. 각 물건은 무게 W와 가치 V를 가진다.
+최대 K만큼의 무게만을 넣을 수 있는 배낭
+배낭에 넣을 수 있는 물건들의 가치의 최댓값을 구하시오.
+
+dp[물건(N) i][무게(K) j] = 물건을 1번부터 N번까지 차례차례로 넣으려고 할때,
+물건 i가 담기는경우, 담기지 않는경우 + 무게가 j 인 경우 가치의 최대값
+
+if j-weight[i]:
+	dp[i][j] = max(dp[i-1][j], dp[i-1][j-weight[i]] + value[i])
+else:
+	dp[i][j] = dp[i-1][j]
+print(dp[N][K])
+"""
+
+N, K = map(int, input().split())
+wv = [[0,0]]
+for _ in range(N):
+	w, v = map(int, input().split())
+	wv.append([w,v])
+
+dp = list([0]* (K+1) for _ in range(N+1))
+for i in range(N+1):
+	for j in range(K+1):
+		if j-wv[i][0] >= 0:
+			dp[i][j] = max(dp[i-1][j], dp[i-1][j-wv[i][0]]+ wv[i][1])
+		else:
+			dp[i][j] = dp[i-1][j]
+print(dp[N][K])
+
+
+
+
