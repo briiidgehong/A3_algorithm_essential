@@ -289,7 +289,6 @@ F: fail
     2차원 dp (무게, 가치)
 
 LIS: 가장 긴 증가하는 부분수열
-    이코테 병사 배치하기 T
     백준 11053 가장 긴 증가하는 부분 수열 P
     LIS 문제집: https://www.acmicpc.net/workbook/view/801
 
