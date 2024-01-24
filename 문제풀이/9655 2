@@ -1,0 +1,63 @@
+"""
+백준 9655 돌 게임
+
+두명이 진행
+탁자 위에 돌 N개
+상근이와 창영이는 턴을 번갈아가면서 돌을 가져가며, 
+돌은 1개 또는 3개 가져갈 수 있다. 
+
+마지막 돌을 가져가는 사람이 게임을 이기게 된다.
+이기는 사람은?
+
+1. 그리디 -> 홀/짝
+2. DP -> dp[i] = dp[i-1] (or dp[i-3])의 반대
+"""
+
+"""
+5
+상근 1
+창영 1
+상근 3
+
+6
+상근3
+창영3
+
+상근1
+창영1
+상근3
+창영1
+
+7
+상근3
+창영3
+상근1
+
+"""
+
+N = int(input())
+
+# if N % 2 == 0:
+# 	print("CY")
+# else:
+# 	print("SK")
+
+if N == 1:
+	print("SK")
+elif N == 2:
+	print("CY")
+elif N == 3:
+	print("SK")
+else:
+	dp = [-1] * (N+1)
+	dp[1] = "SK"
+	dp[2] = "CY"
+	dp[3] = "SK"
+	
+	for idx in range(4, N+1):
+		if dp[idx-1] == "SK" or dp[idx-3] == "SK":
+			dp[idx] = "CY"
+		else:
+			dp[idx] = "SK"
+	
+	print(dp[N])
