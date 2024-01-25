@@ -342,10 +342,16 @@ LCS: 가장 긴 공통 부분 수열
 
 ```
 
-## 이진탐색 / bisect_left, right / 투포인터
+## 이진탐색(=bisect_left, right) / 투포인터
 ```
 # 이진탐색 문제는 일반 이진탐색풀이(start/end/mid) 와 bisect 로 풀수 있음
 # bisect 라이브러리가 곧 이진탐색이므로 동일하다고 보고 사용하면 됨
+    일치하는 값이 존재할때
+        bisect_left: 값의 실제 인덱스
+        bisect_right: 값의 실제 인덱스 + 1
+	일치하는 값이 존재하지 않을 경우
+        bisect_left = bisect_right
+
 
 백준 1920 수 찾기 - 이진탐색 / bisect_left, right P
 백준 2805 나무 자르기 T
