@@ -353,7 +353,7 @@ LCS: 가장 긴 공통 부분 수열
         bisect_left = bisect_right
 
 
-백준 1920 수 찾기 - 이진탐색 / bisect_left, right P
+백준 1920 수 찾기 - 이진탐색 / bisect_left, right P P
 백준 2805 나무 자르기 T
     이코테 떡볶이 떡 만들기 - 이진탐색 / bisect_left, right
 백준 10816 숫자카드2 P
