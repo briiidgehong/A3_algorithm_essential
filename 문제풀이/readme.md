@@ -352,11 +352,11 @@ LCS: 가장 긴 공통 부분 수열
 	일치하는 값이 존재하지 않을 경우
         bisect_left = bisect_right
 
-
+백준 30792 랭킹 - 이진탐색 / bisect_left P
 백준 1920 수 찾기 - 이진탐색 / bisect_left, right P P
 백준 2805 나무 자르기 T PT
     이코테 떡볶이 떡 만들기 - 이진탐색 / bisect 풀이 쓰지 못함
-백준 10816 숫자카드2 P
+백준 10816 숫자카드2 P P
     이코테 정렬된 배열에서 특정 수의 개수 구하기 - bisect_left, right
 
 백준 2559 수열 - 투포인터 PT
