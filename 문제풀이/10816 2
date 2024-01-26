@@ -1,0 +1,26 @@
+"""
+백준 10816 숫자 카드 2
+숫자 카드 N개를 가지고 있다.
+정수 M개가 주어졌을 때, 
+
+이 수가 적혀있는 숫자 카드를 
+상근이가 몇 개 가지고 있는지 구하시오
+"""
+
+N = int(input())
+n_list = list(map(int, input().split()))
+M = int(input())
+m_list = list(map(int, input().split()))
+n_list.sort()
+
+from bisect import bisect_left, bisect_right
+# left == right target_num과 일치하는 숫자가 존재하지 않음
+# left != right target_num과 일치하는 숫자가 존재
+
+for target_num in m_list:
+	left = bisect_left(n_list, target_num)
+	right = bisect_right(n_list, target_num)
+	if left == right:
+		print(0, end=" ")
+	else:
+		print(right-left, end=" ")
