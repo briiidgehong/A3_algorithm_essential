@@ -1,0 +1,21 @@
+x, y, c = map(float, input().split())
+import math
+start = 0
+end = min(x,y)
+
+result = 0
+while start <= end:
+	mid = (start + end)/2
+	d = mid
+	hx = math.sqrt((x*x) - (d*d))
+	hy = math.sqrt((y*y) - (d*d))
+	guess_c = (hx*hy)/(hx+hy)
+
+	
+	# d가 작아지면 guess_c 는 커진다.
+	if c >= guess_c: # guess_c가 커져야 하므로 d는 작아져야 한다.
+		result = mid
+		end = mid - 0.000001
+	else:
+		start = mid + 0.000001
+print(result)
