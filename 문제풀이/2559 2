@@ -1,0 +1,19 @@
+"""
+구간합
+투포인터
+"""
+N, K = map(int, input().split())
+n_list = list(map(int, input().split()))
+
+front_idx = 0
+back_idx = K
+sum_list = [sum(n_list[front_idx:back_idx])]
+while True:
+	front_idx += 1 # 1
+	back_idx += 1 # K+1
+	if back_idx <= N:
+		sum_list.append(sum_list[-1] - n_list[front_idx-1] + n_list[back_idx-1])
+	else:
+		break
+
+print(max(sum_list))
