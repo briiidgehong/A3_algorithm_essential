@@ -1,0 +1,23 @@
+"""
+두개 골라서 X 가 되는 쌍의 개수
+combinations -> 메모리 초과
+투포인터: 정렬후, 양쪽에서 각각 포인터 출발
+"""
+N = int(input())
+n_list = list(map(int, input().split()))
+X = int(input())
+n_list.sort()
+
+debug_list = []
+start = 0
+end = N-1
+count = 0
+while start < end:
+	sum_num = n_list[start] + n_list[end]
+	if sum_num >= X:
+		if sum_num == X:
+			count += 1
+		end -= 1
+	else:
+		start += 1
+print(count)
