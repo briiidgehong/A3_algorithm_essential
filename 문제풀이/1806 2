@@ -1,0 +1,28 @@
+"""
+자연수로 이루어진 길이 N짜리 수열
+연속된 수들의 부분합 중에 
+그 합이 S 이상이 되는 것 중, 가장 짧은 것의 길이를 구하라
+
+구간합 // -> 투포인터
+"""
+
+N, S = map(int, input().split())
+n_list = list(map(int, input().split()))
+if sum(n_list) < S:
+	print(0)
+else:
+	start = 0
+	end = 0
+	min_interval = int(1e9)
+	sum_num = n_list[0]
+	while start <= end:
+		if sum_num < S:
+			end += 1
+			if end == N:
+				break
+			sum_num = sum_num + n_list[end]
+		else:
+			min_interval = min(min_interval, end-start+1)
+			sum_num = sum_num  - n_list[start]
+			start += 1
+	print(min_interval)
