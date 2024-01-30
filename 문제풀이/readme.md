@@ -581,8 +581,29 @@ union-find:
     크루스칼
 
 ```
-
 ---
+## check point (암기가 필요한 코드 정리)
+```
+
+1. 소수판별:
+- 일반 소수판별:
+import math
+def is_prime_number(x):
+	for idx in range(2, int(math.sqrt(x))+1):
+		if x % idx == 0:
+			return False
+	return True
+- 에라토스테네스의 체:
+prime_number_table = [True for _ in range(N+1)]
+import math
+for idx in range(2, int(math.sqrt(N))+1):
+    if prime_number_table[idx] == True:
+	next_idx = idx + idx
+	while next_idx <= N:
+		prime_number_table[next_idx] = False
+		next_idx += idx
+
+```
 ---
 ---
 
