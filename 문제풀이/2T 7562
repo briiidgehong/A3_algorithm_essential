@@ -1,0 +1,26 @@
+T = int(input())
+for _ in range(T):
+	move = [(-2,-1),(-1,-2),(1,-2),(2,-1),(2,1),(1,2),(-1,2),(-2,1)]
+	N = int(input())
+	start_y, start_x = map(int, input().split())
+	end_y, end_x = map(int, input().split())
+	
+	visited = list([False] * N for _ in range(N))
+	from collections import deque
+	queue = deque()
+	queue.append((start_y, start_x, 0))
+	visited[start_y][start_x] = True
+	result_count = 0
+	while queue:
+		poped_y, poped_x, poped_depth = queue.popleft()
+		for move_y, move_x in move:
+			moved_y = poped_y + move_y
+			moved_x = poped_x + move_x
+			if moved_y >= 0 and moved_y < N and moved_x >= 0 and moved_x < N:
+				if visited[moved_y][moved_x] == False:
+					visited[moved_y][moved_x] = True
+					queue.append((moved_y, moved_x, poped_depth + 1))
+					if moved_y == end_y and moved_x == end_x:
+						result_count = poped_depth + 1
+						break
+	print(result_count)
