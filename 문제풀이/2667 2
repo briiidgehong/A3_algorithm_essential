@@ -1,0 +1,41 @@
+"""
+각 단지에 속하는 집의 수를 오름차순으로 정렬하여 출력
+"""
+
+N = int(input())
+map_list = []
+for _ in range(N):
+	data = input()
+	sub_list = []
+	for each in data:
+		sub_list.append(int(each))
+	map_list.append(sub_list)
+
+move = [[-1,0],[1,0],[0,-1],[0,1]]# y,x 상 하 좌 우
+visited = list([False] * N for _ in range(N))
+result_list = []
+for idx_y in range(N):
+	for idx_x in range(N):
+		if map_list[idx_y][idx_x] == 1 and visited[idx_y][idx_x] == False:
+			visited[idx_y][idx_x] = True
+			# BFS
+			from collections import deque
+			queue = deque()
+			queue.append((idx_y, idx_x))
+			count = 1
+			while queue:
+				poped_y, poped_x = queue.popleft()
+				for move_y, move_x in move:
+					moved_y = poped_y + move_y
+					moved_x = poped_x + move_x
+					if moved_y >= 0 and moved_y < N and moved_x >= 0 and moved_x < N:
+						if map_list[moved_y][moved_x] == 1 and visited[moved_y][moved_x] == False:
+							visited[moved_y][moved_x] = True
+							count += 1
+							queue.append((moved_y, moved_x))
+			result_list.append(count)
+
+result_list.sort()
+print(len(result_list))
+for each in result_list:
+	print(each)
