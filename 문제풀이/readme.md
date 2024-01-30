@@ -418,7 +418,7 @@ BFS / DFS:
 = 이코테 미로탈출
     2차원 격자 탐색
 
-백준 1260 DFS / BFS PT(DFS)
+백준 1260 DFS / BFS PT(DFS) PT PT
     노드 간선 그래프 탐색
 
 BFS 실버
