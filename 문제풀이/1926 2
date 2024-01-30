@@ -1,0 +1,42 @@
+"""
+떤 큰 도화지에 그림이 그려져 있을 때, 
+그 그림의 개수와, 
+그 그림 중 넓이가 가장 넓은 것의 넓이를 출력
+for
+	for
+		BFS
+"""
+y, x = map(int, input().split())
+map_list = []
+for _ in range(y):
+	map_list.append(list(map(int, input().split())))
+
+move = [[-1,0],[1,0],[0,-1],[0,1]] # 상/하/좌/우 [y, x]
+map_visited = list(([False] * x) for _ in range(y))
+result_count_list = []
+for idx_y in range(y):
+	for idx_x in range(x):
+		if map_visited[idx_y][idx_x] == False and map_list[idx_y][idx_x] == 1:
+			map_visited[idx_y][idx_x] = True
+			# BFS
+			from collections import deque
+			queue = deque()
+			queue.append((idx_y, idx_x))
+			count = 1
+			while queue:
+				poped_y, poped_x = queue.popleft()
+				for move_y, move_x in move:
+					moved_y = poped_y + move_y
+					moved_x = poped_x + move_x
+					if moved_y >= 0 and moved_y < y and moved_x >= 0 and moved_x < x:
+						if map_visited[moved_y][moved_x] == False and map_list[moved_y][moved_x] == 1:
+							map_visited[moved_y][moved_x] = True
+							count += 1
+							queue.append((moved_y, moved_x))
+			result_count_list.append(count)
+
+print(len(result_count_list))
+if len(result_count_list) == 0:
+	print(0)
+else:
+	print(max(result_count_list))
