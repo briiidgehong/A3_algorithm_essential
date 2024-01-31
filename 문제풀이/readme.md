@@ -468,7 +468,7 @@ DFS 골드
 	조합
 백준 15651 N과 M (3) P PT
 	중복순열
-백준 15652 N과 M (4)
+백준 15652 N과 M (4) P
 	중복조합
 백준 15654 N과 M (5) P
 백준 1182 부분수열의 합 T
@@ -611,6 +611,68 @@ for idx in range(2, int(math.sqrt(N))+1):
 	while next_idx <= N:
 		prime_number_table[next_idx] = False
 		next_idx += idx
+
+2. 순열 / 조합 / 중복순열 / 중복조합 // dfs 백트래킹
+15649, 15650, 15651, 15652
+
+N, M = map(int, input().split())
+n_list = list(each for each in range(1,N+1))
+
+# 순열
+result_list = []
+visited = [False] * (N+1)
+def dfs_recur(num_list):
+	if len(num_list) == M:
+		result_list.append(num_list)
+		return
+	for each in n_list:
+		if visited[each] == False:
+			visited[each] = True
+			dfs_recur(num_list+[each_num])
+			visited[each] = False
+dfs_recur([])
+
+# 조합
+visited = [False] * (N+1)
+result_list = []
+def dfs_recur(num_list):
+	# 종료조건부터 명시
+	if len(num_list) == M:
+		result_list.append(num_list)
+	for each in n_list:
+		if len(num_list) == 0:
+			visited[each] = True
+			dfs_recur(num_list+[each])
+			visited[each] = False
+		elif num_list[-1] < each:
+			if visited[each] == False:
+				visited[each] = True
+				dfs_recur(num_list+[each])
+				visited[each] = False
+dfs_recur([])
+
+# 중복순열
+result_list = []
+def dfs_recur(num_list):
+	if len(num_list) == M:
+		result_list.append(num_list)
+		return
+	for each in n_list:
+		dfs_recur(num_list + [each])
+dfs_recur([])
+
+# 중복조합
+result_list = []
+def dfs_recur(num_list):
+	if len(num_list) == M:
+		result_list.append(num_list)
+		return
+	for each in n_list:
+		if len(num_list) == 0:
+			dfs_recur(num_list+[each])
+		elif num_list[-1] <= each:
+			dfs_recur(num_list+[each])
+dfs_recur([])
 
 ```
 ---
