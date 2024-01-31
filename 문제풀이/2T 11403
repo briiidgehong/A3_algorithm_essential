@@ -1,0 +1,45 @@
+"""
+가중치 없는 방향 그래프 G
+연결요소를 구해서 답을 도출하면 될듯 -> 구할 수 없음
+각각 start -> end 경로가 존재하는지 BFS 돌려보자
+"""
+
+N = int(input()) # N 정점
+
+graph = {}
+for idx in range(N):
+	graph[idx] = []
+
+for start_idx in range(N):
+	ends = list(map(int, input().split()))
+	for end_idx, end_value in enumerate(ends):
+		if end_value == 1:
+			graph[start_idx].append(end_idx)
+
+from collections import deque
+def is_conn(start, end):
+	# BFS 
+	visited = [False] * N
+	queue = deque()
+	queue.append(start)
+	# check point! 본인에게 다시 돌아올수 있도록 visited 안살려줌
+	# visited[start] = True 
+	conn_flag = False
+	while queue:
+		poped_node = queue.popleft()
+		for each_node in graph[poped_node]:
+			if visited[each_node] == False:
+				if each_node == end:
+					conn_flag = True
+					break
+				visited[each_node] = True
+				queue.append(each_node)
+	return conn_flag
+	
+for idx_y in range(N):
+	for idx_x in range(N):
+		if is_conn(idx_y, idx_x):
+			print(1, end=" ")
+		else:
+			print(0, end=" ")
+	print("")
