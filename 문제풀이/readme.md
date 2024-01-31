@@ -462,7 +462,7 @@ DFS 골드
         깊이가 가변이라서 for 로는 확인 불가능한 경우
 
 릿트코드 letter combinations of a phone number T
-백준 15649 N과 M T
+백준 15649 N과 M T T
 백준 15650 N과 M (2) P
 백준 15651 N과 M (3) P
 백준 15654 N과 M (5) P
