@@ -1,0 +1,32 @@
+"""
+자연수 N과 M이 주어졌을 때, 
+아래 조건을 만족하는 길이가 M인 수열을 모두 구하시오
+
+1부터 N까지 자연수 중에서 중복 없이 M개를 고른 수열
+-> 순서상관 O // 순열: recur 백트래킹 (depth가 정해져 있지 않으므로)
+
+"""
+
+N, M = map(int, input().split())
+n_list = list(idx for idx in range(1,N+1))
+
+permutations = []
+visited = [False] * (N+1)
+def dfs_recur(num_list):
+	if len(num_list) == M:
+		permutations.append(num_list)
+		return
+	for each_num in n_list:
+		if visited[each_num] == False:
+			visited[each_num] = True
+			dfs_recur(num_list+[each_num])
+			visited[each_num] = False
+dfs_recur([])
+
+for each in permutations:
+	for sub_each in each:
+		print(sub_each, end = " ")
+	print("")
+
+
+
