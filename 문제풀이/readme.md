@@ -463,7 +463,7 @@ DFS 골드
 
 릿트코드 letter combinations of a phone number T
 백준 15649 N과 M T T
-백준 15650 N과 M (2) P
+백준 15650 N과 M (2) P T
 백준 15651 N과 M (3) P
 백준 15654 N과 M (5) P
 백준 1182 부분수열의 합 T
