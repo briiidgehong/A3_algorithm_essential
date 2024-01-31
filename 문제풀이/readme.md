@@ -625,7 +625,7 @@ def dfs_recur(num_list):
 	if len(num_list) == M:
 		result_list.append(num_list)
 		return
-	for each in n_list:
+	for each in n_list:
 		if visited[each] == False:
 			visited[each] = True
 			dfs_recur(num_list+[each_num])
