@@ -1,0 +1,22 @@
+# 순열
+N, M = map(int, input().split())
+n_list = list(map(int, input().split()))
+
+visited = [False] * (max(n_list)+1)
+result_list = []
+def dfs_recur(num_list):
+	# 종료조건부터 명시 
+	if len(num_list) == M:
+		result_list.append(num_list)
+		return
+	for each in n_list:
+		if visited[each] == False:
+			visited[each] = True
+			dfs_recur(num_list + [each])
+			visited[each] = False
+dfs_recur([])
+result_list.sort()
+for each in result_list:
+	for sub_each in each:
+		print(sub_each, end = " ")
+	print("")
