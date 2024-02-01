@@ -52,9 +52,10 @@ N = 3
 M = 2 #or 3
 n_list = [2,4,3]
 
-# 순열 (15649)
+# 순열 (15649, 15654)
 from itertools import permutations
 print(f"itertools순열: {list(permutations(n_list, M))}")
+
 result_list = []
 visited = [False] * N # index visited
 def permutations_2(num_list):
