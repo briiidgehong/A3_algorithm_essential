@@ -70,7 +70,7 @@ def permutations_2(num_list):
 permutations_2([])
 print(f"순열구현: {result_list}")		
 
-# 조합 (15650)
+# 조합 (15650, 1182)
 from itertools import combinations
 print(f"itertools조합: {list(combinations(n_list, M))}")
 
