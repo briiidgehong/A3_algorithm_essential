@@ -46,9 +46,70 @@ union find:
 
 ```
 
+## ref code
 ```
-ref code:
+N = 3
+M = 2 #or 3
+n_list = [2,4,3]
 
+# 순열 (15649)
+from itertools import permutations
+print(f"itertools순열: {list(permutations(n_list, M))}")
+result_list = []
+visited = [False] * N # index visited
+def permutations_2(num_list):
+	if len(num_list) == M:
+		result_list.append(num_list)
+		return
+	for idx in range(N):
+		if visited[idx] == False:
+			visited[idx] = True
+			permutations_2(num_list + [n_list[idx]])
+			visited[idx] = False
+permutations_2([])
+print(f"순열구현: {result_list}")		
 
+# 조합 (15650)
+from itertools import combinations
+print(f"itertools조합: {list(combinations(n_list, M))}")
 
+result_list = []
+def combinations_2(start, num_list):
+	if len(num_list) == M:
+		result_list.append(num_list)
+		return
+	for idx in range(start, N):
+        # check point! start + 1 이 아닌 idx + 1
+		combinations_2(idx+1, num_list+[n_list[idx]]) 
+combinations_2(0, [])
+print(f"조합구현: {result_list}")
+
+# 중복순열 (15651)
+from itertools import product
+# repeat은 중복 할 수 있는 최대 횟수
+print(f"itertools중복순열: {list(product(n_list, repeat=M))}")
+
+result_list = []
+def permutations_2(num_list):
+    if len(num_list) == M:
+        result_list.append(num_list)
+        return
+    for idx in range(N):
+        permutations_2(num_list + [n_list[idx]])
+permutations_2([])
+print(f"중복순열구현: {result_list}")	
+
+# 중복조합 (15652)
+from itertools import combinations_with_replacement
+print(f"itertools중복조합: {list(combinations_with_replacement(n_list, M))}")
+
+result_list = []
+def combinations_2(start, num_list):
+	if len(num_list) == M:
+		result_list.append(num_list)
+		return
+	for idx in range(start, N):
+		combinations_2(idx, num_list+[n_list[idx]]) 
+combinations_2(0, [])
+print(f"중복조합구현: {result_list}")
 ```
