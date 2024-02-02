@@ -48,6 +48,8 @@ union find:
 
 ## ref code
 ```
+1. 순열 / 조합 / 중복순열 / 중복조합
+
 N = 3
 M = 2 #or 3
 n_list = [2,4,3]
