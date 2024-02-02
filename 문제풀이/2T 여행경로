@@ -1,0 +1,30 @@
+tickets = [["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]
+def solution(tickets):
+    graph = {}
+    extended_list = []
+    for each in tickets:
+        extended_list.extend(each)
+    for each in list(set(extended_list)):
+        graph[each] = []
+    for start, end in tickets:
+        graph[start].append(end)
+    
+    visited = {}
+    for key, value in graph.items():
+        graph[key] = sorted(value)
+        visited[key] = [False] * len(value)
+    
+    result_list = []
+    def dfs_recur(num_list):
+        if len(num_list) == len(tickets) + 1:
+            result_list.append(num_list)
+            return
+
+        for idx, each_node in enumerate(graph[num_list[-1]]):
+            if visited[num_list[-1]][idx] == False:
+                visited[num_list[-1]][idx] = True
+                dfs_recur(num_list + [each_node])
+                visited[num_list[-1]][idx] = False
+    dfs_recur(["ICN"])
+    return result_list[0]
+print(solution(tickets))
