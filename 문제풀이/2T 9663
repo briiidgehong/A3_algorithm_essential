@@ -1,0 +1,20 @@
+N = int(input())
+result_list = []
+def dfs_recur(num_list):
+	if len(num_list) == N:
+		result_list.append(num_list)
+		return
+	idx_y = len(num_list)
+	for idx_x in range(N):
+		flag = True
+		for each_y, each_x in num_list:
+			if idx_x == each_x:
+				flag = False
+				break
+			if abs(idx_x - each_x) == abs(idx_y - each_y):
+				flag = False
+				break
+		if flag:
+			dfs_recur(num_list + [(idx_y, idx_x)])
+dfs_recur([])
+print(len(result_list))
