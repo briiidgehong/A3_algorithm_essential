@@ -127,6 +127,9 @@ print(f"중복조합구현: {result_list}")
 
 다익스트라는 한 정점에서 다른 모든 정점 사이의 최단거리를 판별, 시간복잡도는 O(ElogV)
 구현은 "min_table과 heapq를 이용한 다익스트라" 을 이용한다.
+*힙을 사용하는 이유 -> 이전에 계산해둔 값이 그 단계에서 최소값이라는 것이 보장되기 때문에 갱신 횟수가 현저히 적어진다.
+ (https://jaegualgo.blogspot.com/2017/07/dijkstra-priority-queue.html)
+
 
 플로이드 와샬은 모든 정점에서 다른 모든 정점 사이의 최단거리를 판별, 시간복잡도는 O(V^3)
 구현은 "점화식을 이용한 플로이드 와샬, 점화식 Dab = min(Dab, Dak + Dkb)" 을 이용한다.
