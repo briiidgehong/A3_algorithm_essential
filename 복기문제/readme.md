@@ -130,7 +130,27 @@ print(f"중복조합구현: {result_list}")
 *힙을 사용하는 이유 -> 이전에 계산해둔 값이 그 단계에서 최소값이라는 것이 보장되기 때문에 갱신 횟수가 현저히 적어진다.
  (https://jaegualgo.blogspot.com/2017/07/dijkstra-priority-queue.html)
 
+def dij(start, end):
+	import heapq
+	queue = []
+	min_table = [int(1e9)] * (N+1)
+	min_table[start] = 0
+	heapq.heappush(queue, (0, start))
+	while queue:
+		poped_cost, poped_node = heapq.heappop(queue)
+		for next_cost, next_node in graph[poped_node]:
+			if min_table[next_node] <= next_cost + poped_cost:
+				continue
+			else:
+				min_table[next_node] = next_cost + poped_cost
+				heapq.heappush(queue, (next_cost + poped_cost, next_node))
+	return min_table[end]
 
 플로이드 와샬은 모든 정점에서 다른 모든 정점 사이의 최단거리를 판별, 시간복잡도는 O(V^3)
 구현은 "점화식을 이용한 플로이드 와샬, 점화식 Dab = min(Dab, Dak + Dkb)" 을 이용한다.
+
+for k in range(1, N+1):
+	for a in range(1, N+1):
+		for b in range(1, N+1):
+			dp[a][b] = min(dp[a][b], dp[a][k] + dp[k][b])
 ```
