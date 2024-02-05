@@ -235,6 +235,29 @@ for cost, a, b in e_list:
 print(sum_cost)
 
 프림:
+graph = {}
+for idx in range(1, N+1):
+	graph[idx] = []
+for _ in range(E):
+	a, b, cost = map(int, input().split())
+	graph[a].append((cost, b))
+	graph[b].append((cost, a))
+
+import heapq
+queue = []
+heapq.heappush(queue, (0, 1)) # (cost, node)
+visited = [False] * (N+1)
+sum_cost = 0
+while queue:
+    poped_cost, poped_node = heapq.heappop(queue)
+    # 이미 방문된 노드들이, queue에는 들어있어서 걸러줘야 함
+    if visited[poped_node] == False: 
+        visited[poped_node] = True
+        sum_cost += poped_cost
+
+        for each_cost, each_node in graph[poped_node]:
+            heapq.heappush(queue, (each_cost, each_node))
+print(sum_cost)
 
 ```
 [ref. 크루스칼 vs 프림](https://velog.io/@fldfls/%EC%B5%9C%EC%86%8C-%EC%8B%A0%EC%9E%A5-%ED%8A%B8%EB%A6%AC-MST-%ED%81%AC%EB%A3%A8%EC%8A%A4%EC%B9%BC-%ED%94%84%EB%A6%BC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
