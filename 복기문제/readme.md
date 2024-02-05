@@ -154,3 +154,22 @@ for k in range(1, N+1):
 		for b in range(1, N+1):
 			dp[a][b] = min(dp[a][b], dp[a][k] + dp[k][b])
 ```
+```
+4. union find
+parent_table = [0] * (N+1)
+for idx in range(1, N+1):
+	parent_table[idx] = idx
+ 
+def find_parent(x):
+	if parent_table[x] != x:
+		parent_table[x] = find_parent(parent_table[x])
+	return parent_table[x]
+ 
+def union_parent(a,b):
+	a = find_parent(a)
+	b = find_parent(b)
+	if a <= b:
+		parent_table[b] = a
+	else:
+		parent_table[a] = b
+```
