@@ -195,4 +195,43 @@ def union_parent(a,b):
 		프림:
 			"힙 사용하여, 현재 연결된 트리에 이어진 간선중 가장 작은것을 추가"
 			O(ElogV) = 100 000 * 4
+
+크루스칼:
+e_list = []
+for _ in range(E):
+	a, b, cost = map(int, input().split())
+	e_list.append((cost, a, b))
+e_list.sort()
+
+parent = [0] * (N+1)
+for idx in range(1, N+1):
+	parent[idx] = idx
+
+def find(x):
+	if parent[x] != x:
+		parent[x] = find(parent[x])
+	return parent[x]
+	
+def union(a,b):
+	a = find(a)
+	b = find(b)
+	if a <= b:
+		parent[b] = a
+	else:
+		parent[a] = b
+
+sum_cost = 0
+for cost, a, b in e_list:
+	a = find(a)
+	b = find(b)
+	if a == b:
+		# union 시, 사이클 발생
+		continue
+	else:
+		union(a,b)
+		sum_cost += cost
+print(sum_cost)
+
+프림:
+
 ```
