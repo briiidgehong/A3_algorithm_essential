@@ -50,7 +50,29 @@ union find:
 ## ref code
 ```
 1. 소수판별
+# 특정 수의 소수 판별
+def is_prime(x):
+	import math
+    for i in range(2, int(math.sqrt(x)) + 1):
+        if x % i == 0:
+            return False 
+    return True
 
+# 에라토스테네스의 체 (N보다 작거나 같은 모든 소수를 찾을 때 사용)
+def is_prime_range(N):
+	import math
+	prime_table = [True for _ in range(N+1)]
+	for idx in range(2, int(math.sqrt(N)) + 1):
+		if prime_table[idx] == True:
+			sum_idx = (2 * idx)
+			while sum_idx <= N:
+				prime_table[sum_idx] = False
+				sum_idx += idx
+	primes = []
+	for idx in range(2, N+1):
+		if prime_table[idx] == True:
+			primes.append(idx)
+	return primes
 ```
 ```
 2. 순열 / 조합 / 중복순열 / 중복조합
