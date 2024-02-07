@@ -49,7 +49,8 @@ union find:
 
 ## ref code
 ```
-1. 소수판별
+소수판별
+
 # 특정 수의 소수 판별
 def is_prime(x):
 	import math
@@ -75,7 +76,8 @@ def is_prime_range(N):
 	return primes
 ```
 ```
-2. 최대공약수(GCD) / 최소공배수(LCM)
+최대공약수(GCD) / 최소공배수(LCM)
+
 약수: 어떤 수를 나머지 없이 나눌 수 있는 수 
 8의 약수, 1 2 4 8
 최대공약수(GCD): 여러 수의 공통인 약수 중 가장 큰 수
@@ -91,7 +93,8 @@ print(math.gcd(20, 60, 100))
 print(math.lcm(10,20,35))
 ```
 ```
-3. 진수변환
+진수변환
+
 # N진수 -> 10진수 (2진수 -> 10진수)
 print(int('1110',2)) # 14
 
@@ -121,11 +124,10 @@ print(convert(14, 3)) # 112
 # N진수 -> N진수 (2진수 -> 3진수: 2진수 -> 10진수 + 10진수 -> 3진수)
 num_10 = int('112', 3) # 2진수 1110 -> 10진수 14
 print(convert(14, 3)) # 10진수 14 -> 3진수 112
-
 ```
 
 ```
-2. 순열 / 조합 / 중복순열 / 중복조합
+순열 / 조합 / 중복순열 / 중복조합
 
 N = 3
 M = 2 #or 3
@@ -194,7 +196,8 @@ combinations_2(0, [])
 print(f"중복조합구현: {result_list}")
 ```
 ```
-3. 최단경로 알고리즘 / 다익스트라, 플로이드 와샬
+최단경로 알고리즘 / 다익스트라, 플로이드 와샬
+
 가중치가 존재하지 않는 간선의 최단경로는 BFS depth 로 구하고,
 가중치가 존재하는 간선의 최단경로는 다익스트라, 플로이드 와샬을 사용한다.
 
@@ -228,7 +231,8 @@ for k in range(1, N+1):
 			dp[a][b] = min(dp[a][b], dp[a][k] + dp[k][b])
 ```
 ```
-4. union find
+union find
+
 parent_table = [0] * (N+1)
 for idx in range(1, N+1):
 	parent_table[idx] = idx
@@ -247,7 +251,8 @@ def union_parent(a,b):
 		parent_table[a] = b
 ```
 ```
-5. 최소 스패닝 트리 (MST): // MST 문제는 우선 크루스칼로 푼다. (프림 구현시 헷갈림)
+최소 스패닝 트리 (MST): // MST 문제는 우선 크루스칼로 푼다. (프림 구현시 헷갈림)
+
 	사이클:
 		시작점과 끝이 같은 노드인 형태
 	트리 < 그래프:
@@ -331,7 +336,6 @@ while queue:
         for each_cost, each_node in graph[poped_node]:
             heapq.heappush(queue, (each_cost, each_node))
 print(sum_cost)
-
 ```
 [ref. 크루스칼 vs 프림](https://velog.io/@fldfls/%EC%B5%9C%EC%86%8C-%EC%8B%A0%EC%9E%A5-%ED%8A%B8%EB%A6%AC-MST-%ED%81%AC%EB%A3%A8%EC%8A%A4%EC%B9%BC-%ED%94%84%EB%A6%BC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
 
