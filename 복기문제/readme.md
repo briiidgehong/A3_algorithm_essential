@@ -98,13 +98,6 @@ print(math.lcm(10,20,35))
 # N진수 -> 10진수 (2진수 -> 10진수)
 print(int('1110',2)) # 14
 
-def convert(n, q):
-base = ''
-while n > 0:
-    n, mod = divmod(n, q)
-    base += str(mod)
-return base[::-1]
-
 # 10진수 -> N진수 (10진수 -> 3진수)
 14
 4(몫) ''' 2(나머지)
