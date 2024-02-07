@@ -75,13 +75,52 @@ def is_prime_range(N):
 	return primes
 ```
 ```
-2. 최대공약수 / 최소공배수
+2. 최대공약수(GCD) / 최소공배수(LCM)
+약수: 어떤 수를 나머지 없이 나눌 수 있는 수 
+8의 약수, 1 2 4 8
+최대공약수(GCD): 여러 수의 공통인 약수 중 가장 큰 수
+greatest common divisor 최대 공통 약수
+8과 10의 gcd: 2
 
+최소공배수(LCM): 여러 수의 공통인 배수 중 가장 작은 수
+least common multiple 최소 공통 배수
+10과 12의 lcm: 60
 
+import math
+print(math.gcd(20, 60, 100))
+print(math.lcm(10,20,35))
 ```
 ```
 3. 진수변환
+# N진수 -> 10진수 (2진수 -> 10진수)
+print(int('1110',2)) # 14
 
+def convert(n, q):
+base = ''
+while n > 0:
+    n, mod = divmod(n, q)
+    base += str(mod)
+return base[::-1]
+
+# 10진수 -> N진수 (10진수 -> 3진수)
+14
+4(몫) ''' 2(나머지)
+1 ''' 1
+-> 112
+
+check point! 외우기
+def convert(num, criteria):
+result_str = ''
+while num > 0:
+    num, rest = divmod(num, criteria)
+    result_str = str(rest) + result_str
+return result_str
+
+print(convert(14, 3)) # 112
+
+# N진수 -> N진수 (2진수 -> 3진수: 2진수 -> 10진수 + 10진수 -> 3진수)
+num_10 = int('112', 3) # 2진수 1110 -> 10진수 14
+print(convert(14, 3)) # 10진수 14 -> 3진수 112
 
 ```
 
