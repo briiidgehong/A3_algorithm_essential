@@ -94,23 +94,25 @@ print(math.lcm(10,20,35))
 ```
 ```
 진수변환
-
 # N진수 -> 10진수 (2진수 -> 10진수)
 print(int('1110',2)) # 14
 
 # 10진수 -> N진수 (10진수 -> 3진수)
 14
-4(몫) ''' 2(나머지)
+4 ''' 2
 1 ''' 1
+0 ''' 1
 -> 112
 
 check point! 외우기
 def convert(num, criteria):
-result_str = ''
-while num > 0:
-    num, rest = divmod(num, criteria)
-    result_str = str(rest) + result_str
-return result_str
+	str_return_num = ''
+	while True:
+		num, rest = divmod(num, criteria)
+		str_return_num = str(rest) + str_return_num
+		if num == 0:
+			break
+	return str_return_num
 
 print(convert(14, 3)) # 112
 
