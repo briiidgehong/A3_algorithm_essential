@@ -337,4 +337,57 @@ print(sum_cost)
 ```
 [ref. 크루스칼 vs 프림](https://velog.io/@fldfls/%EC%B5%9C%EC%86%8C-%EC%8B%A0%EC%9E%A5-%ED%8A%B8%EB%A6%AC-MST-%ED%81%AC%EB%A3%A8%EC%8A%A4%EC%B9%BC-%ED%94%84%EB%A6%BC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
 
+## 좋은문제 풀이
+```
+# 17484
+move = [(1,-1), (1,0), (1, 1)] # (y, x)
+y, x = map(int, input().split())
+map_list = []
+for _ in range(y):
+	map_list.append(list(map(int, input().split())))
 
+# BFS 풀이
+result_list = []
+for start_node in range(x):
+	from collections import deque
+	queue = deque()
+	# num_list, idx_y, idx_x, last_move_y, last_move_x
+	queue.append(([map_list[0][start_node]], 0, start_node, -1, -1)) 
+	while queue:
+		poped_num_list, poped_y, poped_x, poped_last_move_y, poped_last_move_x = queue.popleft()
+		if len(poped_num_list) == y:
+			result_list.append(poped_num_list)
+			continue
+		for move_y, move_x in move:
+			moved_y = poped_y + move_y
+			moved_x = poped_x + move_x
+			if moved_y >= 0 and moved_y < y and moved_x >= 0 and moved_x < x:
+				if poped_last_move_y == move_y and poped_last_move_x == move_x:
+					continue
+				queue.append((poped_num_list + [map_list[moved_y][moved_x]], moved_y, moved_x, move_y, move_x))
+sum_list = []
+for each in result_list:
+	sum_list.append(sum(each))
+print(min(sum_list))
+
+# DFS 풀이 (백트래킹)
+result_num_list = []
+def dfs_recur(num_list, idx_y, idx_x, last_move_y, last_move_x):
+	if len(num_list) == y:
+		result_num_list.append(num_list)
+		return
+	for move_y, move_x in move:
+		moved_y = move_y + idx_y
+		moved_x = move_x + idx_x
+		if moved_y >= 0 and moved_y < y and moved_x >= 0 and moved_x < x:
+			if last_move_y == move_y and last_move_x == move_x:
+				continue
+			dfs_recur(num_list+[map_list[moved_y][moved_x]], moved_y, moved_x, move_y, move_x)
+for start_node in range(x):
+	dfs_recur([map_list[0][start_node]], 0, start_node, -1,-1)
+	
+sum_list = []
+for each in result_num_list:
+	sum_list.append(sum(each))
+print(min(sum_list))
+```
