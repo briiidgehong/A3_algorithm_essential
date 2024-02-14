@@ -195,8 +195,7 @@ combinations_2(0, [])
 print(f"중복조합구현: {result_list}")
 ```
 ```
-가장 긴 증가하는 부분수열: LIS (Longest Increasing Subsequence)
-dp_table 사용
+가장 긴 증가하는 부분수열: LIS (Longest Increasing Subsequence) // DP
 	dp[i] = i번째 array를 포함했을때, 부분수열의 최대값
 	dp[i] 는 자기 자신만을 포함하는 1로 초기화
 	0<=j<i, dp[i] = if array[j] < array[i] max(dp[i], dp[j]+1)
@@ -206,7 +205,7 @@ dp_table 사용
 			if array[j] < array[i]:
 				dp[i] = max(dp[i], dp[j]+1)
 
-가장 긴 공통 부분 수열: LCS (Longest Common Subsequence)
+가장 긴 공통 부분 수열: LCS (Longest Common Subsequence) // DP
 	dp[i][j] = 첫번째 문자열의 i 까지 고려하고,
 	           두번째 문자열의 j 까지 고려했을때
 	           가능한 공통 부분 수열의 최장 길이
