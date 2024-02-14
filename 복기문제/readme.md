@@ -218,16 +218,29 @@ print(f"중복조합구현: {result_list}")
 	           두번째 문자열의 j 까지 고려했을때
 	           가능한 공통 부분 수열의 최장 길이
 	           
-	i = 0 일때, j = 0 일때 각각 dp_table 초기화
-	노드 하나씩 방문하면서 채워넣기 dp[i][j]가 최종 답
+	str_x = list(input()) # ACAYKP
+	str_y = list(input()) # CAPCAK
+	dp = list([0] * (len(str_x) + 1) for _ in range(len(str_y)+1))
 	
-	점화식:
-		# 같으면, 대각선 위 + 1
-		# 다르면, max(왼쪽, 위쪽)
-		if array_1[i] == array_2[j]:
-			dp[i][j] = dp[i-1][j-1] + 1
-		else: # array_1[i] != array_2[j]:
-			dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+	# 0   0 0 0 0 0 0
+	#     A C A Y K P
+	# 0 C 0 1 1 1 1 1
+	# 0 A 1 1 2 2 2 2
+	# 0 P 1 1 1 1 1 3
+	# 0 C 1 2 2 2 2 3
+	# 0 A 1 2 3 3 3 3
+	# 0 K 1 2 3 3 4 4
+	
+	for idx_y in range(1, len(str_y)+1):
+		for idx_x in range(1, len(str_x)+1):
+			# 같으면, 대각선 위 + 1
+			if str_y[idx_y-1] == str_x[idx_x-1]:
+				dp[idx_y][idx_x] = dp[idx_y-1][idx_x-1] + 1
+			# 다르면, max(왼쪽, 위쪽)
+			else:
+				dp[idx_y][idx_x] = max(dp[idx_y][idx_x-1], 
+				dp[idx_y-1][idx_x])
+	print(dp[-1][-1])
 ```
 
 
