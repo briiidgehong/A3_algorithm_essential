@@ -196,14 +196,22 @@ print(f"중복조합구현: {result_list}")
 ```
 ```
 가장 긴 증가하는 부분수열: LIS (Longest Increasing Subsequence) // DP
-	dp[i] = i번째 array를 포함했을때, 부분수열의 최대값
+	"""
+	dp[i] = 마지막으로 뽑은 수가 n_list[i] 일때, 가장 긴 부분수열의 길이
 	dp[i] 는 자기 자신만을 포함하는 1로 초기화
-	0<=i<j, dp[i] = if array[j] < array[i] max(dp[i], dp[j]+1)
- 
+	4
+	1 3 2 3
+	3
+	"""
+	N = int(input())
+	n_list = list(map(int, input().split()))
+	dp = [1] * N
+	
 	for i in range(N):
-		for j in range(0, i):
-			if array[j] < array[i]:
+		for j in range(i): # 0 ~ i-1 // j < i
+			if n_list[j] < n_list[i]:
 				dp[i] = max(dp[i], dp[j]+1)
+	print(max(dp))
 
 가장 긴 공통 부분 수열: LCS (Longest Common Subsequence) // DP
 	dp[i][j] = 첫번째 문자열의 i 까지 고려하고,
