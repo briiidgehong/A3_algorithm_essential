@@ -195,6 +195,36 @@ combinations_2(0, [])
 print(f"중복조합구현: {result_list}")
 ```
 ```
+가장 긴 증가하는 부분수열: LIS (Longest Increasing Subsequence)
+dp_table 사용
+	dp[i] = i번째 array를 포함했을때, 부분수열의 최대값
+	dp[i] 는 자기 자신만을 포함하는 1로 초기화
+	0<=j<i, dp[i] = if array[j] < array[i] max(dp[i], dp[j]+1)
+ 
+	for i in range(N):
+		for j in range(0, i):
+			if array[j] < array[i]:
+				dp[i] = max(dp[i], dp[j]+1)
+
+가장 긴 공통 부분 수열: LCS (Longest Common Subsequence)
+	dp[i][j] = 첫번째 문자열의 i 까지 고려하고,
+	           두번째 문자열의 j 까지 고려했을때
+	           가능한 공통 부분 수열의 최장 길이
+	           
+	i = 0 일때, j = 0 일때 각각 dp_table 초기화
+	노드 하나씩 방문하면서 채워넣기 dp[i][j]가 최종 답
+	
+	점화식:
+		# 같으면, 대각선 위 + 1
+		# 다르면, max(왼쪽, 위쪽)
+		if array_1[i] == array_2[j]:
+			dp[i][j] = dp[i-1][j-1] + 1
+		else: # array_1[i] != array_2[j]:
+			dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+```
+
+
+```
 최단경로 알고리즘 / 다익스트라, 플로이드 와샬
 
 가중치가 존재하지 않는 간선의 최단경로는 BFS depth 로 구하고,
