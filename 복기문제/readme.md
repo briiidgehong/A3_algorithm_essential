@@ -198,7 +198,7 @@ print(f"중복조합구현: {result_list}")
 가장 긴 증가하는 부분수열: LIS (Longest Increasing Subsequence) // DP
 	dp[i] = i번째 array를 포함했을때, 부분수열의 최대값
 	dp[i] 는 자기 자신만을 포함하는 1로 초기화
-	0<=i<j, dp[j] = if array[i] < array[j] max(dp[j], dp[i]+1)
+	0<=i<j, dp[i] = if array[j] < array[i] max(dp[i], dp[j]+1)
  
 	for i in range(N):
 		for j in range(0, i):
