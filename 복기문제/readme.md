@@ -64,17 +64,17 @@ def is_prime(x):
     return True
 
 # 에라토스테네스의 체 (N보다 작거나 같은 모든 소수를 찾을 때 사용)
-def is_prime_range(N):
+def is_prime_range(n):
 	import math
-	prime_table = [True for _ in range(N+1)]
-	for idx in range(2, int(math.sqrt(N)) + 1):
+	prime_table = [True for _ in range(n+1)]
+	for idx in range(2, int(math.sqrt(n)) + 1):
 		if prime_table[idx] == True:
 			sum_idx = (2 * idx)
-			while sum_idx <= N:
+			while sum_idx <= n:
 				prime_table[sum_idx] = False
 				sum_idx += idx
 	primes = []
-	for idx in range(2, N+1):
+	for idx in range(2, n+1):
 		if prime_table[idx] == True:
 			primes.append(idx)
 	return primes
