@@ -282,22 +282,22 @@ for k in range(1, N+1):
 ```
 union find
 
-parent_table = [0] * (N+1)
+parent = [0] * (N+1)
 for idx in range(1, N+1):
-	parent_table[idx] = idx
+	parent[idx] = idx
  
-def find_parent(x):
-	if parent_table[x] != x:
-		parent_table[x] = find_parent(parent_table[x])
-	return parent_table[x]
+def find(x):
+	if parent[x] != x:
+		parent[x] = find(parent[x])
+	return parent[x]
  
-def union_parent(a,b):
-	a = find_parent(a)
-	b = find_parent(b)
+def union(a,b):
+	a = find(a)
+	b = find(b)
 	if a <= b:
-		parent_table[b] = a
+		parent[b] = a
 	else:
-		parent_table[a] = b
+		parent[a] = b
 ```
 ```
 최소 스패닝 트리 (MST): // MST 문제는 우선 크루스칼로 푼다. (프림 구현시 헷갈림)
