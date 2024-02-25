@@ -110,13 +110,13 @@ print(int('1110',2)) # 14
 
 check point! 외우기
 def convert(num, criteria):
-	str_return_num = ''
+	str_num = ''
 	while True:
 		num, rest = divmod(num, criteria)
-		str_return_num = str(rest) + str_return_num
+		str_num = str(rest) + str_num
 		if num == 0:
 			break
-	return str_return_num
+	return str_num
 
 print(convert(14, 3)) # 112
 
