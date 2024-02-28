@@ -1,7 +1,8 @@
 
 ```
-1. 10진수에서 N진수 변환함수
-2. BFS 예시코드 작성해보시오.
+1. 10진수에서 N진수 변환함수 예시코드를 작성하시오.
+2. BFS 예시코드를 작성하시오.
+3. 백트래킹 예시코드를 작성하시오.
 ```
 
 ```
@@ -33,4 +34,24 @@ while queue:
 				queue.append((moved_y, moved_x))
 count_list.append(count)
 
+3.
+count = 0
+def dfs_recur(num_list):
+	global count
+	if len(num_list) == N:
+		count += 1
+		return
+	idx_y = len(num_list)
+	for idx_x in range(N):
+		flag = True
+		for each_y, each_x in num_list:
+			if each_x == idx_x:
+				flag = False
+				break
+			if abs(idx_y - each_y) == abs(idx_x - each_x):
+				flag = False
+				break
+		if flag:
+			dfs_recur(num_list+[(idx_y, idx_x)])
+dfs_recur([])
 ```
