@@ -4,6 +4,7 @@
 2. BFS 예시코드를 작성하시오.
 3. 백트래킹 예시코드를 작성하시오.
 4. 다익스트라 예시코드를 작성하시오.
+5. union-find 예시코드를 작성하시오.
 
 ```
 
@@ -76,5 +77,22 @@ def dij(start, end):
 				heapq.heappush(queue, (next_cost + poped_cost, next_node))
 	return min_table[end]
 
+5.
+parent = [0] * (N+1)
+for idx in range(1, N+1):
+	parent[idx] = idx
+ 
+def find(x):
+	if parent[x] != x:
+		parent[x] = find(parent[x])
+	return parent[x]
+ 
+def union(a,b):
+	a = find(a)
+	b = find(b)
+	if a <= b:
+		parent[b] = a
+	else:
+		parent[a] = b
 
 ```
