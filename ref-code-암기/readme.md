@@ -3,6 +3,8 @@
 1. 10진수에서 N진수 변환함수 예시코드를 작성하시오.
 2. BFS 예시코드를 작성하시오.
 3. 백트래킹 예시코드를 작성하시오.
+4. 다익스트라 예시코드를 작성하시오.
+
 ```
 
 ```
@@ -54,4 +56,25 @@ def dfs_recur(num_list):
 		if flag:
 			dfs_recur(num_list+[(idx_y, idx_x)])
 dfs_recur([])
+
+4.
+"min_table과 heapq를 이용한 다익스트라"
+
+def dij(start, end):
+	import heapq
+	queue = []
+	min_table = [int(1e9)] * (N+1)
+	min_table[start] = 0
+	heapq.heappush(queue, (0, start))
+	while queue:
+		poped_cost, poped_node = heapq.heappop(queue)
+		for next_cost, next_node in graph[poped_node]:
+			if min_table[next_node] <= next_cost + poped_cost:
+				continue
+			else:
+				min_table[next_node] = next_cost + poped_cost
+				heapq.heappush(queue, (next_cost + poped_cost, next_node))
+	return min_table[end]
+
+
 ```
