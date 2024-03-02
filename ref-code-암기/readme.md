@@ -5,6 +5,7 @@
 3. 백트래킹 예시코드를 작성하시오.
 4. 다익스트라 예시코드를 작성하시오.
 5. union-find 예시코드를 작성하시오.
+6. 최소스패닝트리(=크루스칼) 예시코드를 작성하시오.
 
 ```
 
@@ -94,5 +95,47 @@ def union(a,b):
 		parent[b] = a
 	else:
 		parent[a] = b
+
+6.
+최소스패닝 트리란?
+"사이클이 없고, 노드가 모두 이어져 있는 그래프 (최소의 가중치로)"
+"MST는 크루스칼로 푼다."
+"parent/union/find 사용, 소팅 후 사이클 판별해가며 전체 간선 중 작은것부터 연결"
+
+e_list = []
+for _ in range(E):
+	a, b, cost = map(int, input().split())
+	e_list.append((cost, a, b))
+e_list.sort()
+
+parent = [0] * (N+1)
+for idx in range(1, N+1):
+	parent[idx] = idx
+
+def find(x):
+	if parent[x] != x:
+		parent[x] = find(parent[x])
+	return parent[x]
+	
+def union(a,b):
+	a = find(a)
+	b = find(b)
+	if a <= b:
+		parent[b] = a
+	else:
+		parent[a] = b
+
+sum_cost = 0
+for cost, a, b in e_list:
+	a = find(a)
+	b = find(b)
+	if a == b:
+		# union 시, 사이클 발생
+		continue
+	else:
+		union(a,b)
+		sum_cost += cost
+print(sum_cost)
+
 
 ```
