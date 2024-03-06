@@ -7,6 +7,7 @@
 5. union-find 예시코드를 작성하시오.
 6. 최소스패닝트리(=크루스칼) 예시코드를 작성하시오.
 7. 소수판별 예시코드를 작성하시오. (개별판별, 범위판별 에라토스테네스의 체)
+8. 최대공약수, 최소공배수 예시코드 
 
 ```
 
@@ -159,6 +160,11 @@ def is_prime_range(x):
 			sum_idx += idx
 is_prime_range(N)
 
+8.
+a, b = map(int, input().split())
+import math
+print(math.gcd(a,b))
+print(math.lcm(a,b))
 
 
 ```
