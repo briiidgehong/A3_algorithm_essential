@@ -138,5 +138,27 @@ for cost, a, b in e_list:
 		sum_cost += cost
 print(sum_cost)
 
+7.
+import math
+def is_prime(x):
+	if x == 1:
+		return False
+	for idx in range(2, int(math.sqrt(x))+1):
+		if x % idx == 0:
+			return False
+	return True
+
+# 에라토스테네스의 체
+import math
+primes = [True] *(N+1)
+def is_prime_range(x):
+	for idx in range(2, int(math.sqrt(x))+1):
+		sum_idx = (2 * idx)
+		while sum_idx <= x:
+			primes[sum_idx] = False
+			sum_idx += idx
+is_prime_range(N)
+
+
 
 ```
