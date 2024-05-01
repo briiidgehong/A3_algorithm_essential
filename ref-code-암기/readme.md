@@ -174,6 +174,9 @@ from bisect import bisect_left, bisect_right
 
 # 2. 이진탐색 구현 풀이
 def impl_bisect_left(temp_list, x):
+    # end 값이 실제 인덱스 + 1인 이유:
+    # bisect_left, right 의 결과값이 모든데이터보다 클경우 가장 오른쪽에 새로운 자리에 추가되기 때문에
+    # +1 을 해서 새로운 자리를 확보해놓는다.
     start, end = 0, len(temp_list)
     while start < end:
         mid = (start + end) // 2
