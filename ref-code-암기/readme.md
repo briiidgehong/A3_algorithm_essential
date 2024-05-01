@@ -167,5 +167,37 @@ import math
 print(math.gcd(a,b))
 print(math.lcm(a,b))
 
+9.
+ 
+# 1. bisect import 풀이
+from bisect import bisect_left, bisect_right
+
+# 2. 이진탐색 구현 풀이
+def impl_bisect_left(temp_list, x):
+    start, end = 0, len(temp_list)
+    while start < end:
+        mid = (start + end) // 2
+        if temp_list[mid] < x:
+            start = mid + 1
+        else:
+            end = mid
+    return start
+
+def impl_bisect_right(temp_list, x):
+    start, end = 0, len(temp_list)
+    while start < end:
+        mid = (start + end) // 2
+        if temp_list[mid] <= x:
+            start = mid + 1
+        else:
+            end = mid
+    return start
+
+print(f" bisect_left: {bisect_left(n_list, target)}")
+print(f" bisect_right: {bisect_right(n_list, target)}")
+print(f" impl_bisect_left: {impl_bisect_left(n_list, target)}")
+print(f" impl_bisect_right: {impl_bisect_right(n_list, target)}")
+```
+
 
 ```
