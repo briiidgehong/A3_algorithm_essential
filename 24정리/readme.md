@@ -56,6 +56,19 @@ for each_cost, each_start, each_end in edges:
 print(total_cost)
 
 ```
+---
+
+## 다익스트라, 플로이드 와샬 - 백준 1238
+### 1. 다익스트라
+<img width="933" alt="스크린샷 2024-06-15 오후 8 45 26" src="https://github.com/briiidgehong/A3_algorithm_essential/assets/73451727/d36797b7-429f-4745-b016-db6cc80cfeb8">
+
+### 2. 플로이드 와샬
+```
+
+
+```
+
+---
 
 
 
