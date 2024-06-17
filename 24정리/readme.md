@@ -62,21 +62,33 @@ print(total_cost)
 ```
 가중치 그래프의 최단거리를 구할때는 -> 다익스트라, 플로이드 와샬
 다익스트라 -> 한 정점에서 모든 정점까지의 최단거리, O(ElogV)
+    parent table / union-find
 플로이드 와샬 -> 모든 정점에서 모든 정점까지의 최단거리, O(V^3)
+    점화식:
+        for k in range(1, N+1):
+            for a in range(1, k+1):
+                for b in range(a+1, k+1):
+                    Dab = min(Dak + Dab, Dab)
 ```
 
 ### 1. 다익스트라
 <img width="933" alt="스크린샷 2024-06-15 오후 8 45 26" src="https://github.com/briiidgehong/A3_algorithm_essential/assets/73451727/d36797b7-429f-4745-b016-db6cc80cfeb8">
 
 ```
+"""
+다익스트라
+"""
+
 # N 마을갯수, M 간선갯수, X 파티가 열리는 마을
 N, M, X = map(int, input().split())
-graph = {}
-for idx in range(1, N+1):
-    graph[idx] = []
+
+graph_dij = {}
+for idx in range(N+1): # 0 ~ N
+    graph_dij[idx] = []
+
 for _ in range(M):
     start, end, cost = map(int, input().split())
-    graph[start].append((cost, end))
+    graph_dij[start].append((cost, end))
 
 def dij(start):
     import heapq
@@ -86,16 +98,46 @@ def dij(start):
     heapq.heappush(queue, (0, start))
     while queue:
         poped_cost, poped_node = heapq.heappop(queue)
-        for next_cost, next_node in graph[poped_node]:
+        for next_cost, next_node in graph_dij[poped_node]:
             if poped_cost + next_cost < min_table[next_node]:
                 min_table[next_node] = poped_cost + next_cost
                 heapq.heappush(queue, (poped_cost + next_cost, next_node))
     return min_table
 print(dij(X))
 
+
+"""
+플로이드 와샬
+"""
+N, M, X = map(int, input().split())
+
+
+graph_fw = {}
+for idx in range(N+1): # 0 ~ N
+    graph_fw[idx] = [int(1e9)] * (N+1) # 0 ~ N
+
+for _ in range(M):
+    start, end, cost = map(int, input().split())
+    graph_fw[start][end] = cost
+
+# 자기 자신의 cost는 0으로 초기화
+for idx_x in range(1, N+1):
+    for idx_y in range(1, N+1):
+        if idx_x == idx_y:
+            graph_fw[idx_x][idx_y] = 0
+
+# 플로이드 와샬 알고리즘 수행
+for k in range(1, N+1):
+    for a in range(1, N+1):
+        for b in range(1, N+1):
+            # Dab = min(Dak + Dkb, Dab)
+            graph_fw[a][b] = min(graph_fw[a][b], graph_fw[a][k] + graph_fw[k][b])
+
+for key, value in graph_fw.items():
+    print(key, value)
+
 ```
 
-### 2. 플로이드 와샬
 
 
 ---
