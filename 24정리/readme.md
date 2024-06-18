@@ -137,10 +137,131 @@ for key, value in graph_fw.items():
     print(key, value)
 
 ```
-
-
-
 ---
+
+## BFS, DFS - 1260, 2644 + TODO: 백트래킹
+```
+"""
+BFS , DFS
+
+4 5 1
+1 2
+1 3
+1 4
+2 4
+3 4
+"""
+
+# N: 정점의 개수 / M: 간선의 개수 / V: 탐색 시작 노드
+N, M, start = map(int, input().split())
+
+graph = {}
+for idx in range(1, N+1):
+    graph[idx] = []
+for _ in range(M):
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
+
+for key, value in graph.items():
+    graph[key] = sorted(value)
+
+dfs_result = [start]
+visited = [False] * (N+1)
+visited[start] = True
+
+# DFS
+def dfs(node):
+    for each_node in graph[node]:
+        if visited[each_node] == False:
+            visited[each_node] = True
+            dfs_result.append(each_node)
+            dfs(each_node)
+dfs(start)
+print(*dfs_result)
+
+bfs_result = [start]
+visited = [False] * (N+1)
+visited[start] = True
+
+def bfs(node):
+    from collections import deque
+    queue = deque()
+    queue.append(node)
+    visited[node] = True
+    while queue:
+        pooped_node = queue.popleft()
+        for next_node in graph[pooped_node]:
+            if visited[next_node] == False:
+                visited[next_node] = True
+                queue.append(next_node)
+                bfs_result.append(next_node)
+
+bfs(start)
+print(*bfs_result)
+```
+
+```
+final_result = []
+N = int(input())
+start, end = map(int, input().split())
+M = int(input())
+graph = {}
+for idx in range(1, N+1):
+    graph[idx] = []
+for _ in range(M):
+    a, b  = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
+
+"""
+DFS 
+"""
+visited = [False] * (N+1)
+visited[start] = True
+result = -1
+
+def dfs(node, depth):
+    global result
+    if node == end:
+        result = depth
+    global count
+    for next_node in graph[node]:
+        if visited[next_node] == False:
+            visited[next_node] = True
+            dfs(next_node, depth + 1)
+            # visited[next_node] = False
+dfs(start, 0)
+final_result.append(result)
+
+"""
+BFS
+"""
+visited = [False] * (N+1)
+visited[start] = True
+result = -1
+
+from collections import deque
+queue = deque()
+queue.append((start, 0)) # node, depth
+while queue:
+    poped_node, poped_depth = queue.popleft()
+    if poped_node == end:
+        result = poped_depth
+        break
+    for next_node in graph[poped_node]:
+        if visited[next_node] == False:
+            visited[next_node] = True
+            queue.append((next_node, poped_depth + 1))
+final_result.append(result)
+
+import random
+print(random.choice(final_result))
+```
+
+
+
+
 
 
 
