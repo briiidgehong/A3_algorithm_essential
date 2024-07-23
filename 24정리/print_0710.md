@@ -1,4 +1,19 @@
 ```
+# BFS/DFS/Backtracking
+1260
+1926
+9663
+2644
+15649
+15650
+
+# 다익스트라 1238
+# MST 1197
+# union-find 1717
+
+```
+
+```
 # 1238 파티 / 다익스트라
 
 N, M, X = map(int, input().split())
